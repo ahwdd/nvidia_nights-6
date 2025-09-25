@@ -1,0 +1,229 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* :root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+    
+} */
+
+::-webkit-scrollbar-thumb {
+  background: #f00; /* Color of the scrollbar thumb */
+  border-radius: 6px; /* Rounded corners */
+}
+
+.nvidia-nala-text {
+  font-family: var(--font-nvidia-nala);
+}
+
+
+.custom-scrollbar::-webkit-scrollbar { height: 8px; }
+
+.custom-scrollbar::-webkit-scrollbar-track { background-color: #f1f1f1; }
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #74B800;
+  border-radius: 4px;
+}
+
+/* body {
+  background: url("/main-bg.png") center center no-repeat;
+  background-size: cover;
+} */
+
+html {
+  /* scrollbar-color: #74b800 #fff; */
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+@media (max-width: 1200px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 992px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+.new-hero {
+  background: url("/higher-hero-img.jpg") center center no-repeat;
+  background-size: 100% 100%;
+}
+
+.studio-box,
+.studio-box * {
+  transition: all 0.3s linear;
+}
+
+.dir-ltr {
+  direction: ltr;
+}
+
+.dir-rtl {
+  direction: rtl;
+}
+
+/* .studio-box {
+  position: relative;
+}
+.studio-box::before {
+  content: "";
+  background-color: 
+  height: 100%;
+  position: absolute;
+  inset: 0;
+} */
+
+.bg-gradient {
+  background-color: #ffffff75;
+}
+
+.studio-box:hover span {
+  opacity: 0;
+}
+
+/* .studio-box:hover {
+  background-color: #74b800;
+} */
+
+.studio-box:hover > p,
+.studio-box:hover > h2 {
+  transform: translate(-20px, -20px);
+}
+.studio-box > a {
+  transform: translateY(150px);
+}
+.studio-box:hover > a {
+  transform: translateY(12px);
+}
+
+.category-animation > * {
+  transition: 0.4s ease-in-out;
+}
+
+.category-text {
+  position: absolute;
+  bottom: -250px;
+  transition: 0.4s ease-in-out;
+}
+
+.category-animation:hover {
+  /* background-color: #74b800c4; */
+}
+
+.category-animation:hover > .category-header {
+  transform: translateX(-1000px);
+}
+
+.category-animation:hover > .category-img {
+  transform: translate(50px, -185px) scale(0, 0);
+}
+
+.category-animation:hover > .category-img-games {
+  transform: translate(50px, -185px) scale(0, 0);
+}
+
+.category-img {
+  /* width: 70px; */
+}
+
+.category-img-games {
+  /* width: 90px; */
+}
+
+.category-animation:hover > .category-text {
+  bottom: 20px;
+}
+
+.register-form input,
+.register-form select,
+.register-form textarea {
+  border-radius: 4px;
+  color: #000;
+}
+
+.footer-popup > div {
+}
+
+.register-form input,
+textarea,
+select {
+  border: 1px solid #000;
+}
+
+.spinner {
+  border: 2px solid #fff;
+  border-bottom: none;
+  border-left: none;
+
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  animation: spinner 0.7s linear infinite forwards;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 1200px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 992px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 576px) {
+  html {
+    font-size: 13px;
+  }
+}

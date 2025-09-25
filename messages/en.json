@@ -1,0 +1,299 @@
+{
+  "HomePage": {
+    "title": "Welcome"
+  },
+
+  "Nav": {
+    "previousWinners": "Previous Winners",
+    "categories": "Categories",
+    "prizes": "Prizes",
+    "competitionRegister": "Competition Registration"
+  },
+
+  "Hero": {
+    "titleSpan1": "NVIDIA",
+    "titleSpan2": "Studio",
+    "titleSpan3": "Nights",
+    "titleSpan4": "5",
+    "date": "11th of December",
+    "location": "Grand Egyptian Museum (GEM), Egypt",
+    "registiration": "Event Registration",
+    "video": "Video"
+  },
+
+  "AboutEvent": {
+    "mainTitle": "About the event",
+    "title1": "Come and be part of",
+    "span": "NVIDIA",
+    "title2": "Studio Night 5, an exciting event for 3D/CGI, Architectural Design, Digital Fashion Design, and Photography. Building on the success of our previous edition, this event is a celebration of innovation and digital artistry, offering a unique opportunity to network, explore, and gain inspiration. Experience the latest in NVIDIA Studio technologies and connect with the Egyptian's thriving creative community.<br />Whether you're an expert or just starting out, Studio Night 5 is crafted to ignite creativity and highlight the best in digital arts. Participation in our contests is voluntary, allowing everyone to enjoy a variety of experiences without any prerequisites.<br />Get ready to be inspired, learn, and celebrate the remarkable world of digital creativity."
+  },
+
+  "PrevEvents": {
+    "title": "Previous Events",
+    "nvidia": "NVIDIA Studio Nights ",
+    "AbuDhabi": "Abu Dhabi",
+    "Riydah": "Riyadh",
+    "Istanbul": "Istanbul",
+    "istanbulDate": "Feb 17 2025",
+    "dateRiydah": "25 Oct 2024",
+    "dateAbuDhabi": "15 Feb 2024",
+    "video": "Link"
+  },
+
+  "AboutCompetition": {
+    "title": "About the competition",
+    "desc": "NVIDIA Studio Night 5—now in its fifth edition—arrives in Egypt for the very first time. Hosted at the iconic Grand Egyptian Museum, this unique event brings the past face-to-face with the future. Artists will showcase their creativity across four distinct categories, with only one winner per category receiving a powerful GeForce RTX —a prize that will empower them to shape the future of their careers.<br />These aspiring artists will walk us through their designs, share the stories behind their creations, and explain the technologies and PCs they used to bring their art to life. They’ll highlight how NVIDIA’s technologies played a key role in shaping their final pieces.<br/>Show the design. Tell the story. Win your next creation companion from NVIDIA."
+  },
+
+  "Prizes": {
+    "title": "Prizes",
+    "mainDesc": "Each category winner — 3D/CGI , Photography , Architectural Design , Digital Fashion Design — will not only receive a coveted trophy but also will recieve a powerful GeForce RTX graphics card, and also enjoy the spotlight with a special feature on our social media platforms, celebrating their exceptional talent.",
+    "title1": "Win",
+    "title2": "Laptops",
+    "desc2": "Dive into the creative challenge across various categories, 3D/CGI , Photography , Architectural Design , Digital Fashion Design. Each category will have one winner who will receive: a GeForce RTX laptop for creative excellence, along with the opportunity to showcase their work at the event and in prominent Mena media outlets."
+  },
+
+  "Categories": {
+    "title": "Event Competition Categories",
+    "learnMore": "Learn More",
+    "cgiDesc": "Share your work in a short video along with your source file, one winner in this category will be selected. Winner will edit, render or showcase his content during the event",
+    "digitalArtDesc": "Design a car, iconic building, character, or any project of your choice on your RTX Laptop/PC. Share your source file along with your final work. If selected as a winner, your creation will be 3D printed and showcased at the event.",
+    "videographyDesc": "Share a short video along with your source file. The winner in this category will be selected and will edit and render their content during the event.",
+    "gameDevDesc": "Share your game and watch it come to life during the event. The audience will vote for the best game. Selected games will be played live during the event.",
+    "fashionDesc": "Share your stylish design and compete for the 'Best Design' award through audience voting. Display it on a mannequin during the event.",
+    "architectDesc": "Share your architectural design and bring it to life during the event. Selected projects will be 3D printed and displayed."
+  },
+
+  "Register": {
+    "title": "Competition Registration",
+    "titleEvent": "Register",
+    "descEvent": "Please enter your info to register",
+    "name": "Name",
+
+    "phone": "Phone",
+    "win": "Win GeForce RTX Graphics Card",
+    "first_name": "First Name ",
+    "last_name": "Last Name ",
+    "email": "Email ",
+    "country": "Country ",
+    "choose_country": "Choose a country",
+    "city": "City ",
+    "choose_city": "Choose a city",
+    "contest_type": "Contest Type ",
+    "choose_contest": "Choose contest",
+    "hardware_used": "Hardware Used ",
+    "hardware_used_placeholder": "E.g ASUS ROG Strix RTX 4090 laptop",
+    "software_used": "Software Used ",
+    "software_used_placeholder": "E.g. Adobe Photoshop",
+    "brief_about_your_project": "Brief About Your Project",
+    "submission_deadline_passed": "Submission deadline has passed. The contest is now closed.",
+    "deadline_passed": "Cannot submit, deadline has passed",
+    "file_link": "File Link ",
+    "link": "Link",
+    "linkPlaceholder": "Insert link or",
+    "uploadFile": "Upload File",
+    "nvidia_requirement": "You need to be using Nvidia Products",
+    "agree": "I agree to all",
+    "terms": "Terms",
+    "conditions": "Conditions",
+    "and": "and",
+    "learnMore": "Learn More About NVIDIA Studio",
+    "managedBy": "Managed and organized by",
+    "copyright": "Copyright",
+    "submit": "Submit",
+    "success": "Success",
+    "thank_you_registration": "Thank you for your registration",
+    "email_details": "Shortly you’ll receive an email with attached document to find out all the attend details",
+    "done": "Done",
+    "eventSuccess": "You have successfully registerd to the event",
+    "formErrors": {
+      "name": {
+        "min": "Name must be at least 3 characters",
+        "required": "Name is required"
+      },
+
+      "phone": {
+        "invalid": "Invalid phone number",
+        "required": "Phone is required"
+      },
+      "first_name": {
+        "min": "First Name must be at least 3 characters",
+        "required": "First Name is required"
+      },
+      "last_name": {
+        "min": "Last Name must be at least 3 characters",
+        "required": "Last Name is required"
+      },
+      "email": {
+        "invalid": "Invalid email address"
+      },
+      "country": {
+        "min": "Country must be at least 3 characters",
+        "required": "Country is required"
+      },
+      "city": {
+        "min": "City must be at least 3 characters",
+        "required": "City is required"
+      },
+      "contest_type": {
+        "min": "Contest Type must be at least 3 characters",
+        "required": "Contest Type is required"
+      },
+      "hardware_used": {
+        "min": "Hardware Used must be at least 3 characters",
+        "required": "Hardware Used is required"
+      },
+      "software_used": {
+        "min": "Software Used must be at least 3 characters",
+        "required": "Software Used is required"
+      },
+      "brief": {
+        "optional": "Brief description is optional"
+      },
+      "file": {
+        "invalid_url": "Please enter a valid link or upload file"
+      }
+    },
+    "follow": "Follow NVIDIA",
+    "companyInformation": "Company Information",
+    "newsAndEvents": "News and Events",
+    "popularLinks": "Popular Links"
+  },
+
+  "creatorsHero": {
+    "title": "Built for Creators. Designed to Inspire.",
+    "desc": "With game-changing speed, NVIDIA Studio delivers transformative performance in video editing, 3D rendering, and design. Accelerate your most demanding workflows with exclusive RTX and AI-powered tools. Studio Drivers deliver exceptional stability and ensure your creative apps are always up to date. Unlock creativity without limits.",
+    "title1": "High-Speed Image Generation",
+    "desc1": "Generate images and videos in Stable Diffusion faster on NVIDIA RTX GPUs, accelerated by NVIDIA TensorRT™.",
+    "title2": "AI-Enhanced Video Editing",
+    "desc2": "Supercharge your video editing process with AI effects and tools in DaVinci Resolve, Adobe Premiere Pro, and more.",
+    "title3": "AI-Powered 3D Design",
+    "desc3": "Enjoy real-time viewport rendering, upscaling, accelerated rendering, and more in leading 3D creative apps."
+  },
+
+  "terms": {
+    "title": "NVIDIA STUDIO NIGHTS 5",
+    "terms_conditions": "TERMS AND CONDITIONS",
+    "general_terms": "General terms and conditions",
+    "important_notes_title": "Important Notes:",
+    "important_notes": [
+      "Winners will be contacted via phone or email from 8 April 2025 to 10 April 2025.",
+      "Winners and shortlisted participants (for NVIDIA Canvas Art) agree to attend the event at the Grand Egyptian Museum, present their project, and share their experiences during a pre-event briefing session with NVIDIA."
+    ],
+    "eligibility_title": "Eligibility:",
+    "eligibility": "The competition is open to residents of the Middle East who are aged 18 years or older.",
+    "event_details_title": "Event Details:",
+    "event_details": [
+      "Event Day: 19 April 2025.",
+      "Event Time: 6:00 pm to 9:30 pm EET."
+    ],
+    "entry_submission_title": "Entry Submission:",
+    "entry_submission": {
+      "multiple_entries": "If the same person submits multiple entries, only the latest entry will be considered, and earlier entries will be discarded.",
+      "deadline": "The deadline for entry submissions is 7 April 2025. Late entries will not be accepted.",
+      "content_restrictions": "Furthermore, entrants must ensure their content does not violate legal regulations or third-party rights. The organizer reserves the right to delete entries as the situation requires. This is especially true for entries that include:",
+      "prohibited_content": [
+        "Degrading, abusive, insulting, radical, or violent language",
+        "Spam or advertising",
+        "Infringement of trademark or copyright"
+      ],
+      "disqualification": "The Organizer reserves the right, at its sole discretion, to reject entries from users who fail to comply with these rules or to disqualify any individual found tampering with the entry process or the operation of the raffle, or acting in violation of these terms and conditions.",
+      "usage_rights": "By participating in this contest, entrants grant NVIDIA and its affiliates the non-exclusive, royalty-free right to use, reproduce, display, and distribute the submitted artwork in press releases, social media posts, promotional materials, and other forms of communication-related to Studio Nights 5. This includes, but is not limited to: showcasing the artwork during the event, featuring it in post-event media coverage, and utilizing it in future promotional campaigns. Entrants retain ownership of their artwork but acknowledge that their submissions may be publicly displayed and used by NVIDIA for promotional purposes without further compensation."
+    },
+    "prizes_title": "Prizes:",
+    "prizes": {
+      "description": "Prizes include a GeForce RTX Laptop and an official NVIDIA trophy. Winners' works will be showcased at the NVIDIA Studio Nights 5 event, and their projects and names will be featured in post-event content published in major MENA media outlets.",
+      "conditions": [
+        "Prizes cannot be exchanged for cash, other alternatives, or credits.",
+        "They are non-transferable and non-redeemable for cash or credit, either fully or partially.",
+        "Prizes are subject to availability, and the organizer reserves the right to substitute any prize with another of equivalent value without prior notice.",
+        "Winners are responsible for any tax liability incurred through participating in the competition and receiving their prize."
+      ]
+    },
+    "general_liability_title": "General Liability:",
+    "general_liability": "The organizer assumes no liability for fraudulent calls or emails that entrants may receive from third parties.",
+    "categories_title": "Categories Conditions:",
+    "categories": {
+      "digital_art_canvas": {
+        "title": "Digital Art Canvas",
+        "description": [
+          "Create your art using NVIDIA Canvas, share a screenshot of your sketch and outcome, and your final art (high resolution).",
+          "Sketches and final artwork of the top 10 participants will be printed and presented at the event.",
+          "The event audience, community, and attendees will vote for their favorite artwork prior to the event. During the event, the artist with the most votes will be selected as the winner."
+        ],
+        "conditions": [
+          "Ten (10) entries will be shortlisted for the event, and one (1) winner will be chosen by voting during the event itself, from all entries received and verified by the organizer.",
+          "If you are shortlisted and selected among the top 10, you must be present at the event and present your work."
+        ],
+        "entry_submission": {
+          "instruction": "All art must be created using NVIDIA Canvas software. [Free download here]",
+          "screenshot": "A screenshot of the initial sketch and the generated artwork must be submitted in the same zipped folder. Refer to the image below for guidance.",
+          "filename": "The filename of the zipped folder should be: Category_Firstname Lastname_TitleofArt.",
+          "zip_instruction": "Both files (the screenshot and the artwork) should be placed inside a zip folder, following the filename format above."
+        },
+        "general_terms": "General Terms and Conditions Apply."
+      },
+      "videography": {
+        "title": "Videography / Film Direction",
+        "description": "Create and submit an unedited short video along with the project source file. The winner in this category will be given a unique opportunity to edit and render their content live during the event.",
+        "winner_selection": "One winner will be chosen for the Videography category and contacted by the organizers.",
+        "entry_requirements": {
+          "instruction": "All videos must be created using an RTX PC or Laptop.",
+          "submission": "Submit both the project (source) file and the unedited short video, zipped into a single folder.",
+          "filename": "Filename for the zipped folder: Category_Firstname Lastname_TitleofArt.",
+          "zip_instruction": "Place both files (the project/source file and the unedited video) inside a zip folder, following the filename format above."
+        },
+        "general_terms": "General Terms and Conditions Apply."
+      },
+      "fashion": {
+        "title": "Digital Fashion Designer",
+        "description": "Create your next piece of clothing or accessory, and add the final touches to your design live during the event.",
+        "winner_selection": "One winner will be chosen for the fashion category and contacted by the organizers.",
+        "entry_requirements": {
+          "instruction": "All fashion pieces must be created using an RTX PC or Laptop.",
+          "submission": "Submit both the source/project file and the final video, zipped into a single folder.",
+          "filename": "Filename for the zipped folder: Category_Firstname Lastname_TitleofArt.",
+          "zip_instruction": "Place both files (the source/project file and the final video) inside a zip folder, following the filename format above."
+        },
+        "general_terms": "General Terms and Conditions Apply."
+      },
+      "architecture": {
+        "title": "Architects",
+        "description": "Create your next architectural design—whether it's an exterior or interior concept—and add the final touches live during the event.",
+        "winner_selection": "One winner will be chosen for the architecture category and contacted by the organizers.",
+        "entry_requirements": {
+          "instruction": "All architectural designs must be created using an RTX PC or Laptop.",
+          "submission": "Submit both the source/project file and the final video, zipped into a single folder.",
+          "filename": "Filename for the zipped folder: Category_Firstname Lastname_TitleofArt.",
+          "zip_instruction": "Place both files (the source/project file and the final video) inside a zip folder, following the filename format above."
+        },
+        "general_terms": "General Terms and Conditions Apply."
+      },
+      "cgi": {
+        "title": "CGI / 3D Art",
+        "description": "Create and share a CGI project along with your video, or design a car, iconic building, character, or any 3D object. The winner in this category will get the chance to edit their content live during the event.",
+        "winner_selection": "One winner will be chosen for the CGI/3D category and contacted by the organizers.",
+        "entry_requirements": {
+          "instruction": "All CGI artwork must be created using an RTX PC or Laptop.",
+          "submission": "Submit both the source/project file and the final video, zipped into a single folder.",
+          "filename": "Filename for the zipped folder: Category_Firstname Lastname_TitleofArt.",
+          "zip_instruction": "Place both files (the source/project file and the final video) inside a zip folder, following the filename format above."
+        },
+        "general_terms": "General Terms and Conditions Apply."
+      },
+      "game_dev": {
+        "title": "Game Development",
+        "description": "Create and showcase a demo of a video game concept, and get to walk through your title live at the event.",
+        "winner_selection": "One winner will be chosen for the game development category and contacted by the organizers.",
+        "entry_requirements": {
+          "instruction": "All game development projects must be created using an RTX PC or Laptop.",
+          "submission": "Submit both the source/project file and the final video, zipped into a single folder.",
+          "filename": "Filename for the zipped folder: Category_Firstname Lastname_TitleofArt.",
+          "zip_instruction": "Place both files (the source/project file and the final video) inside a zip folder, following the filename format above."
+        },
+        "general_terms": "General Terms and Conditions Apply."
+      }
+    }
+  }
+   
+}
