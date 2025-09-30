@@ -28,13 +28,13 @@ function NewHero() {
   const handlePopupClick = (event) => event.stopPropagation();
 
   return (
-    <div className="text-white px-10 lg:px-32 sm:h-[calc(100dvh-84px)] bg-black relative">
-      <div className="new-hero absolute inset-0 sm:size-full w-[40rem] rtl:-scale-x-100 max-md:bg-opacity-50 z-10" />
-      <div className="absolute inset-0 sm:size-full w-[40rem] z-10 max-sm:bg-gradient-to-b from-black to-transparent" />
+    <div className="text-white px-10 lg:px-32 md:h-[calc(100dvh-84px)] bg-black relative">
+      <div className="new-hero absolute inset-0 md:size-full w-[40rem] rtl:-scale-x-100 max-md:bg-opacity-50 z-10" />
+      <div className="absolute inset-0 md:size-full w-[40rem] z-10 max-md:bg-gradient-to-b from-black to-transparent" />
 
       <div className="relative z-10 size-full">
         <div className="hero-text h-full flex flex-col justify-center gap-5 max-md:justify-between max-md:mx-auto max-md:py-8">
-          <div className="flex flex-col justify-center gap-5 max-sm:mt-8">
+          <div className="flex flex-col justify-center gap-5 max-md:mt-8">
             <h1 className="text-5xl lg:text-6xl font-bold">
               <span>{t("titleSpan1")} </span>
               <span>{t("titleSpan2")}</span>
@@ -69,10 +69,10 @@ function NewHero() {
               <FaPlay className="size-4" />
               {t("video")}
           </button>
-          <div className="flex sm:gap-3 gap-2 w-full max-sm:mt-8">
+          <div className="flex md:gap-3 gap-2 w-full max-md:mt-8">
             <div className="space-y-3">
               <a href="https://lu.ma/30bfj43s" target="_blank" rel="noopener noreferrer"// onClick={() => setIsOpen(true)}
-                className="bg-mainGreen px-4 py-3 text-black sm:text-lg text-sm font-bold hover:brightness-150 transition">
+                className="bg-mainGreen px-4 py-3 text-black md:text-lg text-sm font-bold hover:brightness-150 transition">
                 {t("registiration")}
               </a>
               <p className="text-mainGrey text-xxs">
@@ -82,7 +82,7 @@ function NewHero() {
             
             <div className="space-y-3">
               <Link href={"#register"}
-                className="border-mainGreen border-solid border-2 px-4 py-3 text-white sm:text-lg text-sm font-bold
+                className="border-mainGreen border-solid border-2 px-4 py-3 text-white md:text-lg text-sm font-bold
                 transition hover:border-white">
                 {t("competitionRegister")}
               </Link>
