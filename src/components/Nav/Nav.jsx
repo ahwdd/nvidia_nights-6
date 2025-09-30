@@ -84,7 +84,7 @@ function Nav({ locale }) {
         </div>
       </nav>
 
-      <div className="secondNav sticky -mb-1 top-0 py-2 dir-ltr flex gap-10 justify-between lg:justify-start  bg-black z-20 px-10 lg:px-32">
+      <div className="secondNav sticky -mb-1 top-0 py-2 flex gap-10 justify-between lg:justify-start  bg-black z-20 px-10 lg:px-32">
         <Link className="text-white text-3xl font-bold" href={"#"}>
           Studio
         </Link>
@@ -101,12 +101,10 @@ function Nav({ locale }) {
             </Link>
           </div>
 
-          <Link
-            href={"#register"}
-            className="  py-2 bg-mainGreen -mr-9 px-2 text-black font-bold"
-          >
+          {/* <Link href={"#register"}
+            className="  py-2 bg-mainGreen -mr-9 px-2 text-black font-bold">
             {t("competitionRegister")}
-          </Link>
+          </Link> */}
         </div>
         <button onClick={() => setIsDisplayed(true)}>
           <Menu className="block lg:hidden text-white self-end" />

@@ -14,18 +14,22 @@
     "titleSpan1": "NVIDIA",
     "titleSpan2": "Studio",
     "titleSpan3": "Nights",
-    "titleSpan4": "5",
+    "titleSpan4": "6",
     "date": "11th of December",
-    "location": "Grand Egyptian Museum (GEM), Egypt",
+    "location": "Museum Of the Future, Cairo",
     "registiration": "Event Registration",
-    "video": "Video"
+    "registirationExplain": "Click to register to attend the event",
+    "competitionRegister": "Competition Registration",
+    "competitionRegisterExplain": "Click to apply to the competition",
+    "video": "Watch Video"
   },
 
   "AboutEvent": {
-    "mainTitle": "About the event",
-    "title1": "Come and be part of",
-    "span": "NVIDIA",
-    "title2": "Studio Night 5, an exciting event for 3D/CGI, Architectural Design, Digital Fashion Design, and Photography. Building on the success of our previous edition, this event is a celebration of innovation and digital artistry, offering a unique opportunity to network, explore, and gain inspiration. Experience the latest in NVIDIA Studio technologies and connect with the Egyptian's thriving creative community.<br />Whether you're an expert or just starting out, Studio Night 5 is crafted to ignite creativity and highlight the best in digital arts. Participation in our contests is voluntary, allowing everyone to enjoy a variety of experiences without any prerequisites.<br />Get ready to be inspired, learn, and celebrate the remarkable world of digital creativity."
+    "mainTitle": "About Event",
+    "title1": "Unleash your creativity at",
+    "brand": "NVIDIA",
+    "title2": "Studio Night 6, the premier design competition showcasing 3D/CGI, Interior Design, Short Films, Photography, and Digital Fashion. Returning after a successful fifth edition, this year's event takes place at Dubai's iconic Museum of the Future, a fitting venue to celebrate innovation in digital artistry. Studio Night 6 offers creatives the chance to connect, exchange ideas, and draw inspiration from a thriving community of creatives.",
+    "title3": "Whether you're an experienced professional or just beginning your journey in design, the event is crafted to spotlight the very best in digital arts. Get ready to witness the future of creativity before your eyes,  as a competitor pushing boundaries or as a guest discovering new horizons with NVIDIA Studio."
   },
 
   "PrevEvents": {
@@ -34,20 +38,24 @@
     "AbuDhabi": "Abu Dhabi",
     "Riydah": "Riyadh",
     "Istanbul": "Istanbul",
-    "istanbulDate": "Feb 17 2025",
+    "istanbulDate": "17 Feb 2025",
     "dateRiydah": "25 Oct 2024",
     "dateAbuDhabi": "15 Feb 2024",
+    "Cairo": "Istanbul",
+    "cairoDate": "30 May 2025",
     "video": "Link"
   },
 
   "AboutCompetition": {
     "title": "About the competition",
-    "desc": "NVIDIA Studio Night 5—now in its fifth edition—arrives in Egypt for the very first time. Hosted at the iconic Grand Egyptian Museum, this unique event brings the past face-to-face with the future. Artists will showcase their creativity across four distinct categories, with only one winner per category receiving a powerful GeForce RTX —a prize that will empower them to shape the future of their careers.<br />These aspiring artists will walk us through their designs, share the stories behind their creations, and explain the technologies and PCs they used to bring their art to life. They’ll highlight how NVIDIA’s technologies played a key role in shaping their final pieces.<br/>Show the design. Tell the story. Win your next creation companion from NVIDIA."
+    "brand": "NVIDIA",
+    "desc": "Studio Night 6 returns to Dubai, this time at the iconic Museum of the Future, offering participants a glimpse into the evolving world of design. Artists will compete across five categories for the grand prize, the powerful GeForce RTX 50 GPU, their next creative companion to shape the future of their work.",
+    "desc1": "Each winner will take us on a journey through their design, sharing the inspiration behind it and showcasing the technologies and hardware that brought their vision to life. They’ll highlight how NVIDIA’s innovations powered their creations, educating the audience on the tools that made it possible, and walking away with a GPU designed to fuel their next masterpiece."
   },
 
   "Prizes": {
     "title": "Prizes",
-    "mainDesc": "Each category winner — 3D/CGI , Photography , Architectural Design , Digital Fashion Design — will not only receive a coveted trophy but also will recieve a powerful GeForce RTX graphics card, and also enjoy the spotlight with a special feature on our social media platforms, celebrating their exceptional talent.",
+    "mainDesc": "Each category winner — 3D/CGI, Photography, Interior Design, Short Films & Videography, and Digital Fashion Design — will not only receive a coveted trophy but also a powerful GeForce RTX 50 graphics card. Winners will also enjoy the spotlight with a special feature on our social media platforms, celebrating their exceptional talent and creativity.",
     "title1": "Win",
     "title2": "Laptops",
     "desc2": "Dive into the creative challenge across various categories, 3D/CGI , Photography , Architectural Design , Digital Fashion Design. Each category will have one winner who will receive: a GeForce RTX laptop for creative excellence, along with the opportunity to showcase their work at the event and in prominent Mena media outlets."
@@ -58,9 +66,11 @@
     "learnMore": "Learn More",
     "cgiDesc": "Share your work in a short video along with your source file, one winner in this category will be selected. Winner will edit, render or showcase his content during the event",
     "digitalArtDesc": "Design a car, iconic building, character, or any project of your choice on your RTX Laptop/PC. Share your source file along with your final work. If selected as a winner, your creation will be 3D printed and showcased at the event.",
-    "videographyDesc": "Share a short video along with your source file. The winner in this category will be selected and will edit and render their content during the event.",
+    "photographyDesc": "Share a short video along with your source file. The winner in this category will be selected and will edit and render their content during the event.",
     "gameDevDesc": "Share your game and watch it come to life during the event. The audience will vote for the best game. Selected games will be played live during the event.",
     "fashionDesc": "Share your stylish design and compete for the 'Best Design' award through audience voting. Display it on a mannequin during the event.",
+    "interiorDesc": "Share your interior design and watch it come to life at the event. Selected projects will be transformed into immersive walkthrough videos, showcasing your vision in motion.",
+    "videographyDesc": "Showcase your short film or videography project on the big screen. Selected winner will be featured during the event, bringing your story and vision to life for the audience.",
     "architectDesc": "Share your architectural design and bring it to life during the event. Selected projects will be 3D printed and displayed."
   },
 
@@ -103,7 +113,7 @@
     "submit": "Submit",
     "success": "Success",
     "thank_you_registration": "Thank you for your registration",
-    "email_details": "Shortly you’ll receive an email with attached document to find out all the attend details",
+    "email_details": "Shortly you'll receive an email with attached document to find out all the attend details",
     "done": "Done",
     "eventSuccess": "You have successfully registerd to the event",
     "formErrors": {
@@ -172,7 +182,7 @@
   },
 
   "terms": {
-    "title": "NVIDIA STUDIO NIGHTS 5",
+    "title": "NVIDIA STUDIO NIGHTS 6",
     "terms_conditions": "TERMS AND CONDITIONS",
     "general_terms": "General terms and conditions",
     "important_notes_title": "Important Notes:",
@@ -198,11 +208,11 @@
         "Infringement of trademark or copyright"
       ],
       "disqualification": "The Organizer reserves the right, at its sole discretion, to reject entries from users who fail to comply with these rules or to disqualify any individual found tampering with the entry process or the operation of the raffle, or acting in violation of these terms and conditions.",
-      "usage_rights": "By participating in this contest, entrants grant NVIDIA and its affiliates the non-exclusive, royalty-free right to use, reproduce, display, and distribute the submitted artwork in press releases, social media posts, promotional materials, and other forms of communication-related to Studio Nights 5. This includes, but is not limited to: showcasing the artwork during the event, featuring it in post-event media coverage, and utilizing it in future promotional campaigns. Entrants retain ownership of their artwork but acknowledge that their submissions may be publicly displayed and used by NVIDIA for promotional purposes without further compensation."
+      "usage_rights": "By participating in this contest, entrants grant NVIDIA and its affiliates the non-exclusive, royalty-free right to use, reproduce, display, and distribute the submitted artwork in press releases, social media posts, promotional materials, and other forms of communication-related to Studio Nights 6. This includes, but is not limited to: showcasing the artwork during the event, featuring it in post-event media coverage, and utilizing it in future promotional campaigns. Entrants retain ownership of their artwork but acknowledge that their submissions may be publicly displayed and used by NVIDIA for promotional purposes without further compensation."
     },
     "prizes_title": "Prizes:",
     "prizes": {
-      "description": "Prizes include a GeForce RTX Laptop and an official NVIDIA trophy. Winners' works will be showcased at the NVIDIA Studio Nights 5 event, and their projects and names will be featured in post-event content published in major MENA media outlets.",
+      "description": "Prizes include a GeForce RTX Laptop and an official NVIDIA trophy. Winners' works will be showcased at the NVIDIA Studio Nights 6 event, and their projects and names will be featured in post-event content published in major MENA media outlets.",
       "conditions": [
         "Prizes cannot be exchanged for cash, other alternatives, or credits.",
         "They are non-transferable and non-redeemable for cash or credit, either fully or partially.",
@@ -295,5 +305,4 @@
       }
     }
   }
-   
 }

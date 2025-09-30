@@ -7,13 +7,20 @@ import { useTranslations } from "next-intl";
 function AboutCompetition() {
   const t = useTranslations("AboutCompetition");
   return (
-    <div>
+    <div className="">
       {/* <Image src={rectangle} /> */}
-      <div className="flex items-center flex-col gap-5 relative ">
+      <div className="flex flex-col gap-5 relative max-w-7xl mx-auto px-4">
         <PolygonH2 text={t("title")} />
-        <p className="w-full leading-[1.50rem] max-w-[52rem] text-xl rtl:text-lg text-[1.1rem] text-center"
-          dangerouslySetInnerHTML={{ __html: `${t("desc")}`}}>
-        </p>
+        <div className="w-full font-normal relative text-lg space-y-4">
+          <p>
+            <a href="https://www.nvidia.com/" class="w-fit relative mx-1">
+              <span dangerouslySetInnerHTML={{__html: t("brand")}} />
+              <span class="w-4/5 h-0.5 bg-mainGreen absolute bottom-0 left-1/2 -translate-x-1/2"/>
+            </a>
+            <span dangerouslySetInnerHTML={{__html: t("desc")}} />
+          </p>
+          <p dangerouslySetInnerHTML={{__html: t("desc1")}} />
+        </div>
 
         {/* <Image
           alt="mask"

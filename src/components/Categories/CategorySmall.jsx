@@ -21,12 +21,12 @@ function CategorySmall({
         <CategoryHeader text={text} />
         <CategoryText text={SecondText} url="/" />
       </div> */}
-      <div className={`p-2 flex flex-col items-center justify-start ${grid} gap-4`}>
-        <div className="w-full h-24 overflow-hidden">
+      <div className={`p-2 flex flex-col items-center justify-start ${grid} gap-2`}>
+        <div className="w-full h-12 overflow-hidden">
           <Image className="size-full object-contain" src={img} alt={text}/>
         </div>
-        <h4 className="font-bold text-2xl mb-1 text-center">{text}</h4>
-        <div className="w-full flex flex-col items-center justify-center gap-1">
+        <h4 className="font-bold mb-1 text-center">{text}</h4>
+        <div className="w-full flex flex-col items-center justify-center gap-1 xl:text-xxs text-xs">
           <p className="text-center w-full max-w-3xl">
             {SecondText}
           </p>

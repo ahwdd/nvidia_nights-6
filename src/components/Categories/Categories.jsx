@@ -1,15 +1,17 @@
 import { useTranslations } from "next-intl";
-import PolygonH2 from "../PolygonH2";
-import CategoryBig from "./CategoryBig";
 import CategorySmall from "./CategorySmall";
 import cgi from "/public/icons/rocket.png";
-import videography from "/public/icons/camera.png";
-import canvas from "/public/icons/tablet.png";
+import photography from "/public/icons/camera.png";
 import archi from "/public/icons/cityscape.png";
 import fashion from "/public/icons/tshirt.png";
+import PolygonH2 from "../PolygonH2";
+import interior from "/public/icons/interior.png";
+import videography from "/public/icons/videography.png";
+import CategoryBig from "./CategoryBig";
+import canvas from "/public/icons/tablet.png";
 import games from "/public/icons/game.png";
 import cgiBig from "/public/icons/big/rocket.png";
-import videographyBig from "/public/icons/big/camera.png";
+import photographyBig from "/public/icons/big/camera.png";
 import canvasBig from "/public/icons/big/tablet.png";
 import archiBig from "/public/icons/big/cityscape.png";
 import fashionBig from "/public/icons/big/tshirt.png";
@@ -17,51 +19,64 @@ import gamesBig from "/public/icons/big/game.png";
 
 function Categories() {
   const t = useTranslations("Categories");
-  return (
-    <div className=" lg:px-20" id="categories">
-      <h3 className="text-2xl text-center font-bold">
-        {t("title")}
-      </h3>
-      <div className="grid grid-cols-12 gap-4 mt-10">
-        <CategorySmall
-          grid="col-span-12 sm:col-span-6 lg:col-span-3"
-          text="3D/CGI"
-          SecondText={t("cgiDesc")}
-          img={cgi}
-        />
-        <CategorySmall
-          grid="col-span-12 sm:col-span-6 lg:col-span-3"
-          SecondText={t("videographyDesc")}
-          text={"Photography"}
-          img={videography}
-          alt={"Photography"}
-        />
-        <CategorySmall
-          grid="col-span-12 sm:col-span-6 lg:col-span-3"
-          text={"Architectural Design"}
-          SecondText={t("architectDesc")}
-          img={archi}
-          alt={"Architectural Design"}
-        />
-        <CategorySmall
-          grid="col-span-12 sm:col-span-6 lg:col-span-3"
-          text="Digital Fashion Design"
-          SecondText={t("fashionDesc")}
-          img={fashion}
-        />
-        {/* <CategoryBig
-          grid="col-span-12 lg:col-span-8"
-          text="Digital Art Canvas"
-          SecondText={t("digitalArtDesc")}
-          img={canvasBig}
-        /> */}
 
-        {/* <CategorySmall
-          grid="col-span-12 sm:col-span-6 lg:col-span-3"
-          text="Games Development"
-          SecondText={t("gameDevDesc")}
-          img={games}
-        /> */}
+  
+  const theCategories = [
+    {
+      grid: "col-span-10 sm:col-span-5 lg:col-span-2",
+      text: "3D/CGI",
+      secondText: t("cgiDesc"),
+      img: cgi,
+    },
+    {
+      grid: "col-span-10 sm:col-span-5 lg:col-span-2",
+      text: "Photography",
+      secondText: t("photographyDesc"),
+      img: photography,
+    },
+    {
+      grid: "col-span-10 sm:col-span-5 lg:col-span-2",
+      text: "Interior Design",
+      secondText: t("interiorDesc"),
+      img: interior,
+    },
+    {
+      grid: "col-span-10 sm:col-span-5 lg:col-span-2",
+      text: "Digital Fashion Design",
+      secondText: t("fashionDesc"),
+      img: fashion,
+    },
+    {
+      grid: "col-span-10 sm:col-span-5 lg:col-span-2",
+      text: "Videography - Short Films",
+      secondText: t("videographyDesc"),
+      img: videography,
+    },
+    // {
+    //   grid: "col-span-10 lg:col-span-8",
+    //   text: "Digital Art Canvas",
+    //   secondText: t("digitalArtDesc"),
+    //   img: canvasBig,
+    // },
+    // {
+    //   grid: "col-span-10 sm:col-span-5 lg:col-span-2",
+    //   text: "Games Development",
+    //   secondText: t("gameDevDesc"),
+    //   img: games,
+    // },
+  ];
+  return (
+    <div className="w-full max-w-7xl mx-auto px-4" id="categories">
+      <PolygonH2 text={t("title")} />
+      <div className="grid grid-cols-10 gap-4 mt-10 max-sm:max-w-xs mx-auto">
+        {theCategories.map((cat, i)=>{
+          return <CategorySmall key={i}
+          grid={cat.grid}
+          text={cat.text}
+          SecondText={cat.secondText}
+          img={cat.img}
+        />
+        })}
 
       </div>
     </div>

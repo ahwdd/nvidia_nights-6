@@ -16,15 +16,6 @@ export default function Footer() {
       
       <FooterSections t={t} locale={locale} />
 
-      <div className="flex items-center justify-center gap-8 ml-auto">
-        <a href="https://www.nvidia.com/en-me/studio/"
-          className="text-gray-500">
-          {t("follow")}
-        </a>
-
-        <FooterSocialLinks />
-      </div>
-
       <FooterLogos t={t} />
     </footer>
   );

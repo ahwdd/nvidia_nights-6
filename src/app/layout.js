@@ -39,7 +39,7 @@ const helv = localFont({
 });
 
 export const metadata = {
-  title: "NVIDIA Studio Nights 5",
+  title: "NVIDIA Studio Nights 6",
   description:
     "Studio Nights, an exciting event for photographers, videographers, digital artists, 3D designers, and CGI specialists. Building on the success of our previous edition, this event is a celebration of innovation and digital artistry, offering a unique opportunity to network, explore, and gain inspiration. Experience the latest in NVIDIA Studio technologies and connect with the UAE's thriving creative community. Whether youre an expert or just starting out, Studio Nights is crafted to ignite creativity and highlight the best in digital arts. Participation in our contests is voluntary, allowing everyone to enjoy a variety of experiences without any prerequisites. Get ready to be inspired, learn, and celebrate the remarkable world of digital creativity",
   charset: "utf-8",

@@ -45,11 +45,9 @@ function SmNav({ locale, isDisplayed, setIsDisplayed }) {
           {t("prizes")}
         </Link>
 
-        <Link
-          onClick={() => setIsDisplayed(false)}
+        <Link  onClick={() => setIsDisplayed(false)}
           href={"#register"}
-          className="bg-mainGreen text- rounded-md py-2 px-5 font-bold text-black"
-        >
+          className="bg-mainGreen text- rounded-md py-2 px-5 font-bold text-black">
           {t("competitionRegister")}
         </Link>
 

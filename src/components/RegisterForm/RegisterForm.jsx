@@ -75,7 +75,7 @@ function RegisterForm({ onBookingCreated }) {
   const [isDeadlinePassed, setIsDeadlinePassed] = useState(false);
 
   const currentDate = new Date();
-  const submissionDeadline = new Date('2025-05-20T23:59:59');
+  const submissionDeadline = new Date('2025-12-11T23:59:59'); // 11th Dec
 
   useEffect(() => {
     if (currentDate > submissionDeadline) {
@@ -177,8 +177,8 @@ function RegisterForm({ onBookingCreated }) {
         <div className="flex flex-col gap-8">
           <div className="w-full justify-between lg:mt-20 flex flex-col items-center lg:items-start">
             <div className="flex flex-col mb-10">
-              <PolygonH2 text={t("title")} src1={intersectFooter} src2="/intersect-footer-shadow.png" />
-              <p className="text-normal text-[1.4rem] mx-10">{t("win")}</p>
+              <h3 className="text-xl lg:text-2xl font-bold">{t("title")}</h3>
+              <p className="text-normal text-lg text-mainGreen">{t("win")}</p>
             </div>
           </div>
           <form onSubmit={handleSubmit(onSubmit)} className="w-full register-form flex flex-col gap-5">

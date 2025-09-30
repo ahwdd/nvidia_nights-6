@@ -14,8 +14,10 @@ function Prizes() {
     <div id="prizes" className="lg:mx-10">
       <Image alt="mask" src={prizesMask} className="absolute hidden right-0" />
       <div className="flex items-center flex-col">
-        <PolygonH2 text={t("title")} />
-        <p className="text-center max-w-[52rem] text-xl rtl:text-lg text-[1.1rem] w-full my-7">{t("mainDesc")}</p>
+        <div className=" max-w-7xl mx-auto px-4 w-full mb-8">
+          <PolygonH2 text={t("title")} />
+          <p className="text-lg w-full my-7">{t("mainDesc")}</p>
+        </div>
 
         {/* <InnerSection
           img={PrizeIcon}
