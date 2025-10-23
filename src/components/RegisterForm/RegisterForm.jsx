@@ -213,7 +213,7 @@ function RegisterForm({ onBookingCreated }) {
         className="w-full flex flex-col gap-5"
       >
         {/* First Name & Last Name */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="grid grid-cols-2 gap-5">
           <div className="flex flex-col gap-2">
             <input
               className="w-full p-3 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500"
@@ -239,7 +239,7 @@ function RegisterForm({ onBookingCreated }) {
         </div>
 
         {/* Email & Country */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="grid grid-cols-2 gap-5">
           <div className="flex flex-col gap-2">
             <input
               className="w-full p-3 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500"
@@ -271,7 +271,7 @@ function RegisterForm({ onBookingCreated }) {
         </div>
 
         {/* City & Contest Type */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="grid grid-cols-2 gap-5">
           <div className="flex flex-col gap-2">
             <select defaultValue=""
               className={`w-full p-3 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500 bg-white
@@ -320,7 +320,7 @@ function RegisterForm({ onBookingCreated }) {
         </div>
 
         {/* Hardware Used & Software Used */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="grid grid-cols-2 gap-5">
           <div className="flex flex-col gap-2">
             <input
               className="w-full p-3 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500"
@@ -356,7 +356,7 @@ function RegisterForm({ onBookingCreated }) {
         </div>
 
         {/* File Input */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="grid grid-cols-2 gap-5">
           <FileInput register={register} setValue={setValue} errors={errors} />
         </div>
 
