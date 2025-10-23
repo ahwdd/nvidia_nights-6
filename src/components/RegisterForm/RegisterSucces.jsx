@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useState } from "react";
+import { MdCheck } from "react-icons/md";
 
 function RegisterSucces({ isOpen, setIsOpen }) {
   const t = useTranslations("Register");
@@ -20,28 +20,7 @@ function RegisterSucces({ isOpen, setIsOpen }) {
         } transition-all duration-300 ease-linear`}
       >
         <div className="flex flex-col items-center justify-center gap-3">
-          <svg
-            width="70"
-            height="70"
-            viewBox="0 0 70 70"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M65.4201 38.3864C62.9662 50.6559 53.715 62.2088 40.7339 64.7903C34.4028 66.0512 27.8353 65.2824 21.9665 62.5936C16.0978 59.9047 11.2269 55.4328 8.04751 49.8146C4.86811 44.1964 3.54227 37.7184 4.25877 31.3029C4.97526 24.8873 7.69757 18.8614 12.0381 14.083C20.9408 4.27724 35.9734 1.57796 48.2428 6.48575"
-              stroke="#74B800"
-              strokeWidth="7.36169"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M23.704 33.4783L35.9735 45.7478L65.4202 13.8471"
-              stroke="#74B800"
-              strokeWidth="7.36169"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+          <MdCheck />
 
           <h3 className="text-mainGreen font-bold text-2xl">{t("success")}</h3>
         </div>

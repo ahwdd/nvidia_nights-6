@@ -41,7 +41,7 @@ function StudioBoxes() {
     <div className="">
       <Image alt="mask" className="w-[150px] hidden absolute left-0 -z-10" src={maskStudioNight}/>
 
-      <div className=" max-w-7xl mx-auto px-4">
+      <div className=" max-w-[1290px] mx-auto px-4">
         <div className="flex my-5">
           <PolygonH2 text={t("title")} />
         </div>

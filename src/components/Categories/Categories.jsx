@@ -1,83 +1,64 @@
 import { useTranslations } from "next-intl";
-import CategorySmall from "./CategorySmall";
-import cgi from "/public/icons/rocket.png";
-import photography from "/public/icons/camera.png";
-import archi from "/public/icons/cityscape.png";
-import fashion from "/public/icons/tshirt.png";
-import PolygonH2 from "../PolygonH2";
-import interior from "/public/icons/interior.png";
-import videography from "/public/icons/videography.png";
-import CategoryBig from "./CategoryBig";
-import canvas from "/public/icons/tablet.png";
-import games from "/public/icons/game.png";
-import cgiBig from "/public/icons/big/rocket.png";
-import photographyBig from "/public/icons/big/camera.png";
-import canvasBig from "/public/icons/big/tablet.png";
-import archiBig from "/public/icons/big/cityscape.png";
-import fashionBig from "/public/icons/big/tshirt.png";
-import gamesBig from "/public/icons/big/game.png";
+import Image from "next/image";
+import cgiWinningImg from '@/../public/nights-6/categories/cgi.jpg'
+import photographyWinningImg from '@/../public/nights-6/categories/photography.jpg'
+import interiorWinningImg from '@/../public/nights-6/categories/interior.jpg'
+import videographyWinningImg from '@/../public/nights-6/categories/videography.jpg'
+import fashionWinningImg from '@/../public/nights-6/categories/fashion.jpg'
+import { IoPlayCircleOutline } from "react-icons/io5";
+
 
 function Categories() {
   const t = useTranslations("Categories");
-
   
   const theCategories = [
     {
-      grid: "col-span-10 sm:col-span-5 lg:col-span-2",
-      text: "3D/CGI",
-      secondText: t("cgiDesc"),
-      img: cgi,
+      title: t('cgi'), desc: t('cgiDesc'), winner: t("cgiWinner"), img: cgiWinningImg, playIcon: false,
     },
     {
-      grid: "col-span-10 sm:col-span-5 lg:col-span-2",
-      text: "Photography",
-      secondText: t("photographyDesc"),
-      img: photography,
+      title: t('photography'), desc: t('photographyDesc'), winner: t("photographyWinner"), img: photographyWinningImg, playIcon: false,
     },
     {
-      grid: "col-span-10 sm:col-span-5 lg:col-span-2",
-      text: "Interior Design",
-      secondText: t("interiorDesc"),
-      img: interior,
+      title: t('fashion'), desc: t('fashionDesc'), winner: t("fashionWinner"), img: fashionWinningImg, playIcon: false,
     },
     {
-      grid: "col-span-10 sm:col-span-5 lg:col-span-2",
-      text: "Digital Fashion Design",
-      secondText: t("fashionDesc"),
-      img: fashion,
+      title: t('interior'), desc: t('interiorDesc'), winner: t("interiorWinner"), img: interiorWinningImg, playIcon: false,
     },
     {
-      grid: "col-span-10 sm:col-span-5 lg:col-span-2",
-      text: "Videography - Short Films",
-      secondText: t("videographyDesc"),
-      img: videography,
+      title: t('videography'), desc: t('videographyDesc'), winner: t("videographyWinner"), img: videographyWinningImg, playIcon: true,
     },
-    // {
-    //   grid: "col-span-10 lg:col-span-8",
-    //   text: "Digital Art Canvas",
-    //   secondText: t("digitalArtDesc"),
-    //   img: canvasBig,
-    // },
-    // {
-    //   grid: "col-span-10 sm:col-span-5 lg:col-span-2",
-    //   text: "Games Development",
-    //   secondText: t("gameDevDesc"),
-    //   img: games,
-    // },
   ];
-  return (
-    <div className="w-full max-w-7xl mx-auto px-4" id="categories">
-      <PolygonH2 text={t("title")} />
-      <div className="grid grid-cols-10 gap-4 mt-10 max-sm:max-w-xs mx-auto">
-        {theCategories.map((cat, i)=>{
-          return <CategorySmall key={i}
-          grid={cat.grid}
-          text={cat.text}
-          SecondText={cat.secondText}
-          img={cat.img}
-        />
-        })}
 
+  return (
+    <div id="categories" className="flex items-center justify-center">
+      <div className="flex flex-col items-center w-full max-w-[1290px] mx-auto text-center gap-10 relative">
+        <h4 className="heading-small font-bold">
+          {t("title")}
+        </h4>
+        <div className="flex flex-wrap justify-center items-start gap-x-6 gap-y-10 w-full">
+          {theCategories.map((cat, i) => (
+            <div key={i} id={`category-${cat.title}`} 
+            className="w-full sm:w-[calc(33%-.8rem)] flex flex-col items-center justify-center gap-5">
+              <div className="relative w-full">
+                <Image src={cat.img} alt={cat.title || "category title"}
+                className="w-full aspect-video object-cover" />
+                <p className="absolute rtl:left-3 ltr:right-3 bottom-2 text-gray-200 text-xxs">
+                  {cat.winner}
+                </p>
+                {cat.playIcon && <IoPlayCircleOutline className="absolute h-1/4 w-full block text-white left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2" />}
+              </div>
+              <h5 className="font-bold heading-small">{cat.title}</h5>
+              <p className="text-gray-200 text-medium">{cat.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <a href="#submit" target="_self" rel="noopener noreferrer"
+        className="button-large font-bold bg-mainGreen text-black px-3 py-2 mt-10 w-fit flex items-center justify-center gap-2">
+          <span>
+            {t("submit")}
+          </span>
+        </a>
       </div>
     </div>
   );

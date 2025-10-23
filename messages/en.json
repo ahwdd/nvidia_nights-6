@@ -11,12 +11,10 @@
   },
 
   "Hero": {
-    "titleSpan1": "NVIDIA",
-    "titleSpan2": "Studio",
-    "titleSpan3": "Nights",
-    "titleSpan4": "6",
-    "date": "11th of December",
-    "location": "Museum Of the Future, Cairo",
+    "headerMedium": "NVIDIA Studio Nights 6",
+    "headerLarge": "Celebrating the Future of Creativity",
+    "date": "15th of December",
+    "location": "Museum of the Future, Dubai",
     "registiration": "Event Registration",
     "registirationExplain": "Click to register to attend the event",
     "competitionRegister": "Competition Registration",
@@ -26,10 +24,9 @@
 
   "AboutEvent": {
     "mainTitle": "About Event",
-    "title1": "Unleash your creativity at",
-    "brand": "NVIDIA",
-    "title2": "Studio Night 6, the premier design competition showcasing 3D/CGI, Interior Design, Short Films, Photography, and Digital Fashion. Returning after a successful fifth edition, this year's event takes place at Dubai's iconic Museum of the Future, a fitting venue to celebrate innovation in digital artistry. Studio Night 6 offers creatives the chance to connect, exchange ideas, and draw inspiration from a thriving community of creatives.",
-    "title3": "Whether you're an experienced professional or just beginning your journey in design, the event is crafted to spotlight the very best in digital arts. Get ready to witness the future of creativity before your eyes,  as a competitor pushing boundaries or as a guest discovering new horizons with NVIDIA Studio."
+    "title1": "NVIDIA Studio Nights 6 returns as the premier creative competition spotlighting 3D/CGI, Interior Design, Short Films, Photography, and Digital Fashion.",
+    "title2": "This year, it takes place at Dubai's iconic Museum of the Future, a landmark setting for innovation and artistry. The event brings together professionals and newcomers alike, fostering collaboration, inspiration, and community in the digital arts. Whether competing or attending, participants will experience cutting-edge creativity and witness the future of design unfold with NVIDIA Studio.",
+    "register": "Register To Attend The Event"
   },
 
   "PrevEvents": {
@@ -48,34 +45,38 @@
 
   "AboutCompetition": {
     "title": "About the competition",
-    "brand": "NVIDIA",
-    "desc": "Studio Night 6 returns to Dubai, this time at the iconic Museum of the Future, offering participants a glimpse into the evolving world of design. Artists will compete across five categories for the grand prize, the powerful GeForce RTX 50 GPU, their next creative companion to shape the future of their work.",
-    "desc1": "Each winner will take us on a journey through their design, sharing the inspiration behind it and showcasing the technologies and hardware that brought their vision to life. They’ll highlight how NVIDIA’s innovations powered their creations, educating the audience on the tools that made it possible, and walking away with a GPU designed to fuel their next masterpiece."
+    "desc": "Competitors will showcase their talents across five categories, with the grand prize being a cutting-edge GeForce RTX™ 50 series product. Winners will share the stories behind their creations, revealing the inspirations, tools, and technologies that shaped their work. Audiences will gain insight into how NVIDIA’s innovations drive artistic expression, while winners walk away with hardware built to power their future masterpieces.",
+    "submit": "Submit Your Artwork"
   },
 
   "Prizes": {
     "title": "Prizes",
-    "mainDesc": "Each category winner — 3D/CGI, Photography, Interior Design, Short Films & Videography, and Digital Fashion Design — will not only receive a coveted trophy but also a powerful GeForce RTX 50 graphics card. Winners will also enjoy the spotlight with a special feature on our social media platforms, celebrating their exceptional talent and creativity.",
-    "title1": "Win",
-    "title2": "Laptops",
-    "desc2": "Dive into the creative challenge across various categories, 3D/CGI , Photography , Architectural Design , Digital Fashion Design. Each category will have one winner who will receive: a GeForce RTX laptop for creative excellence, along with the opportunity to showcase their work at the event and in prominent Mena media outlets."
+    "desc": "Each category winner—3D/CGI, Photography, Interior Design, Short Films & Videography, and Digital Fashion Design—will be awarded a coveted trophy and powerful GeForce RTX 50 Series products. Their achievements will also be celebrated with a dedicated feature on our social media platforms, shining a spotlight on their talent and creativity."
   },
 
   "Categories": {
-    "title": "Event Competition Categories",
-    "learnMore": "Learn More",
-    "cgiDesc": "Share your work in a short video along with your source file, one winner in this category will be selected. Winner will edit, render or showcase his content during the event",
-    "digitalArtDesc": "Design a car, iconic building, character, or any project of your choice on your RTX Laptop/PC. Share your source file along with your final work. If selected as a winner, your creation will be 3D printed and showcased at the event.",
-    "photographyDesc": "Share a short video along with your source file. The winner in this category will be selected and will edit and render their content during the event.",
-    "gameDevDesc": "Share your game and watch it come to life during the event. The audience will vote for the best game. Selected games will be played live during the event.",
-    "fashionDesc": "Share your stylish design and compete for the 'Best Design' award through audience voting. Display it on a mannequin during the event.",
-    "interiorDesc": "Share your interior design and watch it come to life at the event. Selected projects will be transformed into immersive walkthrough videos, showcasing your vision in motion.",
-    "videographyDesc": "Showcase your short film or videography project on the big screen. Selected winner will be featured during the event, bringing your story and vision to life for the audience.",
-    "architectDesc": "Share your architectural design and bring it to life during the event. Selected projects will be 3D printed and displayed."
+    "title": "Categories",
+    "submit": "Submit Your Artwork",
+    "cgi": "3D/CGI",
+    "cgiWinner": "Shady Dewan",
+    "cgiDesc": "Submit a short video with your source file to enter. One winner will be chosen to bring their creation to life during the event, editing, rendering, or showcasing their work live.",
+    "photography": "Photography",
+    "photographyWinner": "Abdallah Abdelmonem",
+    "photographyDesc": "Share a short video along with your source file for a chance to win. The selected photographer will refine and present their visuals at the event, demonstrating their creative process in real time.",
+    "fashion": "Digital Fashion Design",
+    "fashionWinner": "Omnia Ahmed",
+    "fashionDesc": "Submit your fashion-forward design to compete for the Best Design award, chosen by audience vote. Your work will be displayed on a mannequin at the event, turning creativity into a statement piece.",
+    "interior": "Interior Design",
+    "interiorWinner": "",
+    "interiorDesc": "Present your interior design project and see it transformed at the event. Selected works will be reimagined as immersive walkthrough videos, allowing audiences to experience your vision in motion.",
+    "videography": "Videography - Short Films",
+    "videographyWinner": "Mohannad Nasr",
+    "videographyDesc": "Share your short film or videography project for a chance to be featured on the big screen. The winning entry will captivate audiences during the event, showcasing your story and vision in full cinematic form."
   },
 
   "Register": {
-    "title": "Competition Registration",
+    "title": "Submit Your Artwork",
+    "subTitle": "Deadline December 15, 2025",
     "titleEvent": "Register",
     "descEvent": "Please enter your info to register",
     "name": "Name",
@@ -84,7 +85,7 @@
     "win": "Win GeForce RTX Graphics Card",
     "first_name": "First Name ",
     "last_name": "Last Name ",
-    "email": "Email ",
+    "email": "Email Address ",
     "country": "Country ",
     "choose_country": "Choose a country",
     "city": "City ",
@@ -102,7 +103,7 @@
     "link": "Link",
     "linkPlaceholder": "Insert link or",
     "uploadFile": "Upload File",
-    "nvidia_requirement": "You need to be using Nvidia Products",
+    "nvidia_requirement": "You need to be using NVIDIA products to participate.",
     "agree": "I agree to all",
     "terms": "Terms",
     "conditions": "Conditions",
@@ -168,17 +169,6 @@
     "companyInformation": "Company Information",
     "newsAndEvents": "News and Events",
     "popularLinks": "Popular Links"
-  },
-
-  "creatorsHero": {
-    "title": "Built for Creators. Designed to Inspire.",
-    "desc": "With game-changing speed, NVIDIA Studio delivers transformative performance in video editing, 3D rendering, and design. Accelerate your most demanding workflows with exclusive RTX and AI-powered tools. Studio Drivers deliver exceptional stability and ensure your creative apps are always up to date. Unlock creativity without limits.",
-    "title1": "High-Speed Image Generation",
-    "desc1": "Generate images and videos in Stable Diffusion faster on NVIDIA RTX GPUs, accelerated by NVIDIA TensorRT™.",
-    "title2": "AI-Enhanced Video Editing",
-    "desc2": "Supercharge your video editing process with AI effects and tools in DaVinci Resolve, Adobe Premiere Pro, and more.",
-    "title3": "AI-Powered 3D Design",
-    "desc3": "Enjoy real-time viewport rendering, upscaling, accelerated rendering, and more in leading 3D creative apps."
   },
 
   "terms": {
@@ -304,5 +294,12 @@
         "general_terms": "General Terms and Conditions Apply."
       }
     }
+  },
+
+  "footer": {
+    "date":"15th of December",
+    "location":"Museum of the Future, Dubai",
+    "register":"Register Now",
+    "copyrights": "©2025 NVIDIA Corporation. NVIDIA, the NVIDIA logo, GeForce, GeForce RTX, G-SYNC, OptiX, and RTX are registered trademarks and/or trademarks of NVIDIA Corporation in the United States and other countries. All other trademarks and copyrights are the property of their respective owners."
   }
 }

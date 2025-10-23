@@ -14,7 +14,7 @@ export default function TermsButton() {
   };
 
   return (
-    <button onClick={handleTermsClick} className="underline text-white">
+    <button onClick={handleTermsClick} className="underline">
       {`${t("terms")} ${t("and")} ${t("conditions")}`}
     </button>
   );

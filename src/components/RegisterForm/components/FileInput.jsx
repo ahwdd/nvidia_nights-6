@@ -1,17 +1,11 @@
 "use client";
-
 import React, { useState } from "react";
 import { X } from "lucide-react";
-import RegisterError from "../RegisterError"; // Adjust path according to your structure
-import { usePathname } from "next/navigation";
-import { pathNameGetter } from "@/services/services";
+import RegisterError from "../RegisterError";
 import { useTranslations } from "next-intl";
 
 const FileInput = ({ register, setValue, errors }) => {
-  const pathname = usePathname();
-  const path = pathNameGetter(pathname);
   const t = useTranslations("Register");
-
   const [fileName, setFileName] = useState(""); // For file name state
   const [inputValue, setInputValue] = useState(""); // For text input value
 
@@ -31,54 +25,54 @@ const FileInput = ({ register, setValue, errors }) => {
     setFileName(""); // Clear any file name.
   };
 
+  const handleClearFile = () => {
+    setFileName("");
+    setValue("file", "");
+  };
+
+  const textDisabled = fileName.length > 0;   // disable/fade text input when a file is selected
+  const fileDisabled = inputValue.length > 0; // disable/fade file input when user types a link
+
   return (
-    <div className="flex-col flex gap-1">
-      <label>{t("link")} *</label>
-      <div className="flex gap-2 relative">
-        <input
-          className="w-full p-2 relative"
+    <div className="flex flex-col gap-2">
+      <div className="relative w-full flex items-center justify-start border border-gray-300 rounded-sm overflow-hidden px-3">
+        <input className={`bg-transparent py-3 focus:outline-none transition-opacity
+            ${textDisabled ? "opacity-0 pointer-events-none" : "opacity-100"}
+            ${fileDisabled ? "w-full" : "ltr:w-[6.25rem] rtl:w-[7.5rem]"}`}
           type="text"
-          placeholder={t("linkPlaceholder")}
+          placeholder={t("linkPlaceholder") || "Insert Link or Upload File"}
           value={inputValue}
-          disabled={fileName.length > 0}
-          {...register("fileLink", {
+          disabled={textDisabled}
+          {...register("file", {
             onChange: handleInputChange,
           })}
         />
 
-        {/* Render the Upload File label if no value is entered */}
-        {!inputValue && (
-          <label
-            className={`underline absolute ${path === "en" ? "mx-28" : "mx-[125px]"} mt-2 font-bold text-[#B2B2B2] rounded-[4px] cursor-pointer`}
-          >
-            <span className="flex gap-1 items-center">
-              {t("uploadFile")}
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 14 14"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M13 9V11.6667C13 12.0203 12.8595 12.3594 12.6095 12.6095C12.3594 12.8595 12.0203 13 11.6667 13H2.33333C1.97971 13 1.64057 12.8595 1.39052 12.6095C1.14048 12.3594 1 12.0203 1 11.6667V9M10.3333 4.33333L7 1M7 1L3.66667 4.33333M7 1V9"
-                  stroke="#B2B2B2"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </span>
-            <input type="file" className="hidden" onChange={handleFileChange} />
-          </label>
-        )}
+        <label className={`text-gray-400 cursor-pointer transition-opacity flex items-center gap-1 text-sm
+            ${fileDisabled ? "opacity-0 pointer-events-none" : "opacity-100 flex-1"}`}>
+          <span className="flex gap-1 items-center text-sm">
+            {t("uploadFile") || "Upload File"}
+          </span>
+          <input
+            type="file"
+            className="hidden"
+            onChange={handleFileChange}
+            disabled={fileDisabled}
+            aria-disabled={fileDisabled}
+          />
+        </label>
       </div>
+
       {fileName && (
-        <div className="flex gap-1">
+        <div className="flex gap-2 items-center text-sm text-gray-600">
           <span>Selected file: {fileName}</span>
-          <p className="cursor-pointer" onClick={() => setFileName("")}>
-            <X className="text-red-700" />
-          </p>
+          <button
+            type="button"
+            onClick={handleClearFile}
+            className="cursor-pointer text-red-600 hover:text-red-700"
+          >
+            <X className="w-4 h-4" />
+          </button>
         </div>
       )}
       {errors.file && <RegisterError error={errors.file.message} />}

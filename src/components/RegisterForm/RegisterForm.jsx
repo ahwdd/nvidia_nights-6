@@ -1,61 +1,52 @@
 "use client";
 
-import React, { useState, useMemo, useCallback, useEffect } from "react";
-import { useForm } from "react-hook-form";
+import React, { useState, useEffect } from "react";
+import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import axios from "axios";
-import PolygonH2 from "../PolygonH2";
-import intersectFooter from "/public/Intersect-footer.png";
-import Footer from "./Footer";
 import RegisterSucces from "./RegisterSucces";
 import RegisterError from "./RegisterError";
 import Spinner from "./Spinner";
-import CountryCitySelect from "./CountryCitySelect";
 import { useTranslations } from "next-intl";
-import { X } from "lucide-react";
-import { usePathname } from "next/navigation";
-import { pathNameGetter } from "@/services/services";
-import Link from "next/link";
 import { useParams } from "next/navigation";
-import TermsButton from './TermsButton'
-import FileInput from './components/FileInput'
+import TermsButton from "./components/TermsButton";
+import FileInput from "./components/FileInput";
 
 function RegisterForm({ onBookingCreated }) {
   const t = useTranslations("Register");
   const { locale } = useParams();
-  const pathname = usePathname();
 
   const formSchema = z.object({
     first_name: z
       .string()
-      .min(3, t("formErrors.first_name.min"))
-      .min(1, t("formErrors.first_name.required")),
+      .min(1, t("formErrors.first_name.required"))
+      .min(3, t("formErrors.first_name.min")),
     last_name: z
       .string()
-      .min(3, t("formErrors.last_name.min"))
-      .min(1, t("formErrors.last_name.required")),
+      .min(1, t("formErrors.last_name.required"))
+      .min(3, t("formErrors.last_name.min")),
     email: z.string().email(t("formErrors.email.invalid")),
     country: z
       .string()
-      .min(3, t("formErrors.country.min"))
-      .min(1, t("formErrors.country.required")),
+      .min(1, t("formErrors.country.required"))
+      .min(3, t("formErrors.country.min")),
     city: z
       .string()
-      .min(3, t("formErrors.city.min"))
-      .min(1, t("formErrors.city.required")),
+      .min(1, t("formErrors.city.required"))
+      .min(3, t("formErrors.city.min")),
     contest_type: z
       .string()
-      .min(3, t("formErrors.contest_type.min"))
-      .min(1, t("formErrors.contest_type.required")),
+      .min(1, t("formErrors.contest_type.required"))
+      .min(3, t("formErrors.contest_type.min")),
     hardware_used: z
       .string()
-      .min(3, t("formErrors.hardware_used.min"))
-      .min(1, t("formErrors.hardware_used.required")),
+      .min(1, t("formErrors.hardware_used.required"))
+      .min(3, t("formErrors.hardware_used.min")),
     software_used: z
       .string()
-      .min(3, t("formErrors.software_used.min"))
-      .min(1, t("formErrors.software_used.required")),
+      .min(1, t("formErrors.software_used.required"))
+      .min(3, t("formErrors.software_used.min")),
     brief: z.string().optional(),
     file: z.union([
       z.string().url({ message: t("formErrors.file.invalid_url") }),
@@ -70,78 +61,110 @@ function RegisterForm({ onBookingCreated }) {
   const [countries, setCountries] = useState([]);
   const [cities, setCities] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState("");
-  const [selectedSlots, setSelectedSlots] = useState([]);
-  const [isConfirming, setIsConfirming] = useState(false);
   const [isDeadlinePassed, setIsDeadlinePassed] = useState(false);
 
   const currentDate = new Date();
-  const submissionDeadline = new Date('2025-12-11T23:59:59'); // 11th Dec
+  const submissionDeadline = new Date("2026-11-15T23:59:59"); // November 15, 2026
 
   useEffect(() => {
     if (currentDate > submissionDeadline) {
       setIsDeadlinePassed(true);
-      setFormError(t("submission_deadline_passed") || "Submission deadline has passed. The contest is now closed.");
+      setFormError(
+        t("submission_deadline_passed") ||
+          "Submission deadline has passed. The contest is now closed."
+      );
     }
   }, [t]);
 
-  // State for registration success popup
-  const [isSuccessOpen, setIsSuccessOpen] = useState(false);
+  const {register, handleSubmit, setValue, reset, control, formState: { errors }} 
+    = useForm({ resolver: zodResolver(formSchema) });
 
-  // State for the booking form
-  const [booking, setBooking] = useState({
-    workplace_id: 1,
-    user_id: 1,
-    status: 0,
-    name: "",
-    email: "",
-    slug: "",
-    birth_date: null,
-    job_title: "",
-    date: null,
-    start_time: null,
-    end_time: null,
-  });
-
-  const { register, handleSubmit, setValue, reset, formState: { errors },
-        } = useForm({ resolver: zodResolver(formSchema) });
-
-  const updateBookingWithProfile = useCallback((profile) => {
-    setBooking((prev) => ({
-      ...prev, ...profile, birth_date: new Date(profile.birth_date ? profile.birth_date : "1911-1-11"),
-    }));
-  }, []);
+  const country = useWatch({ control, name: "country", defaultValue: "" });
+  const city = useWatch({ control, name: "city", defaultValue: "" });
+  const contest = useWatch({ control, name: "contest_type", defaultValue: "" });
 
   const onSubmit = async (data) => {
     setIsLoading(true);
     setFormError("");
-    
+
     if (currentDate > submissionDeadline) {
-      setFormError(t("submission_deadline_passed") || "Submission deadline has passed. The contest is now closed.");
+      setFormError(
+        t("submission_deadline_passed") ||
+          "Submission deadline has passed. The contest is now closed."
+      );
       setIsLoading(false);
       return;
     }
-    
-    const formData = new FormData();
-    for (const key in data) {
-      if (key === "file" && data[key] instanceof File) {
-        formData.append(key, data[key]);
-      } else if (key === "fileLink" && data[key]) {
-        formData.append(key, data[key]);
-      } else {
-        formData.append(key, data[key]);
-      }
-    }
 
     try {
-      const response = await axios.post("https://arabhardware.net/9675d4a085a5b1725357814392/api/v1/competitions", formData,
-        { headers: { "Content-Type": "multipart/form-data" } } );
+      let response;
+
+      // Check if file is a File object or a URL string
+      if (data.file instanceof File) {
+        // If it's a file, send as FormData
+        const formData = new FormData();
+        formData.append("first_name", data.first_name);
+        formData.append("last_name", data.last_name);
+        formData.append("email", data.email);
+        formData.append("country", data.country);
+        formData.append("city", data.city);
+        formData.append("contest_type", data.contest_type);
+        formData.append("hardware_used", data.hardware_used);
+        formData.append("software_used", data.software_used);
+        formData.append("brief", data.brief || "");
+        formData.append("file", data.file);
+
+        response = await axios.post(
+          "https://arabhardware.net/9675d4a085a5b1725357814392/api/v1/competitions",
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+      } else {
+        // If it's a URL string, send as JSON
+        const payload = {
+          first_name: data.first_name,
+          last_name: data.last_name,
+          email: data.email,
+          country: data.country,
+          city: data.city,
+          contest_type: data.contest_type,
+          hardware_used: data.hardware_used,
+          software_used: data.software_used,
+          brief: data.brief || "",
+          file: data.file,
+        };
+
+        response = await axios.post(
+          "https://arabhardware.net/9675d4a085a5b1725357814392/api/v1/competitions",
+          payload,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+      }
+
       if (response.status === 200) {
         setIsOpen(true);
         reset();
+        setSelectedCountry("");
+        setCities([]);
+        setIsChecked(false);
       }
     } catch (error) {
       if (error.response) {
-        setFormError(String(error.response.data.errors.email[0]));
+        const errorMessage =
+          error.response.data?.errors?.email?.[0] ||
+          error.response.data?.message ||
+          "An error occurred during registration";
+        setFormError(String(errorMessage));
+      } else {
+        setFormError("Network error. Please try again.");
       }
     } finally {
       setIsLoading(false);
@@ -159,131 +182,228 @@ function RegisterForm({ onBookingCreated }) {
     setSelectedCountry(country);
     setValue("country", country);
 
-    const res = await fetch("https://countriesnow.space/api/v0.1/countries/cities", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ country }),
-    });
+    const res = await fetch(
+      "https://countriesnow.space/api/v0.1/countries/cities",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ country }),
+      }
+    );
     const data = await res.json();
     setCities(data.data || []);
     setValue("city", "");
   };
 
   return (
-    <>
-      <div id="register"
-        className="px-10 bg-black text-white lg:px-20 py-5 relative">
-        <img alt="mask" src="/footer-mask.png" className="absolute hidden w-[200px] lg:w-[350px] bottom-0 z-0" />
-        <div className="flex flex-col gap-8">
-          <div className="w-full justify-between lg:mt-20 flex flex-col items-center lg:items-start">
-            <div className="flex flex-col mb-10">
-              <h3 className="text-xl lg:text-2xl font-bold">{t("title")}</h3>
-              <p className="text-normal text-lg text-mainGreen">{t("win")}</p>
-            </div>
-          </div>
-          <form onSubmit={handleSubmit(onSubmit)} className="w-full register-form flex flex-col gap-5">
-            <div className="flex flex-col md:flex-row lg:justify-between gap-5 lg:gap-10">
-              <div className="flex-col w-full flex gap-1">
-                <label>{t("first_name")}*</label>
-                <input className="w-full p-2" type="text" placeholder={t("first_name")} {...register("first_name")} />
-                {errors.first_name && <RegisterError error={errors.first_name.message} />}
-              </div>
-              <div className="flex-col w-full flex gap-1">
-                <label>{t("last_name")}*</label>
-                <input className="w-full p-2" type="text" placeholder={t("last_name")} {...register("last_name")} />
-                {errors.last_name && <RegisterError error={errors.last_name.message} />}
-              </div>
-            </div>
-            <div className="flex-col flex gap-1">
-              <label>{t("email")}*</label>
-              <input className="w-full p-2" type="text" placeholder="example@gmail.com" {...register("email")} />
-              {errors.email && <RegisterError error={errors.email.message} />}
-            </div>
-            <div className="flex flex-col md:flex-row lg:justify-between gap-5 lg:gap-10">
-              <div className="w-full flex flex-col gap-1">
-                <label>{t("country")}*</label>
-                <select defaultValue="" id="countries" className="w-full p-2" {...register("country")} onChange={handleCountryChange}>
-                  <option value="" disabled>{t("choose_country")}</option>
-                  {countries.map((country) => (
-                    <option key={country} value={country}>{country === "Israel" ? "Palestine" : country}</option>
-                  ))}
-                </select>
-                {errors.country && <RegisterError error={errors.country.message} />}
-              </div>
-              <div className="w-full flex flex-col gap-1">
-                <label>{t("city")}*</label>
-                <select defaultValue="" id="cities" className="w-full p-2" {...register("city")} disabled={!selectedCountry}>
-                  <option value="" disabled>{t("choose_city")}</option>
-                  {cities.map((city) => (
-                    <option key={city} value={city}>{city}</option>
-                  ))}
-                </select>
-                {errors.city && <RegisterError error={errors.city.message} />}
-              </div>
-            </div>
-            <div className="w-full flex flex-col gap-1">
-              <label htmlFor="contest">{t("contest_type")}*</label>
-              <select defaultValue="" name="contest" className="w-full p-2" {...register("contest_type")}>
-                <option value="" disabled>{t("choose_contest")}</option>
-                <option value="3D/CGI">3D/CGI</option>
-                <option value="Photography">{locale === "ar" ? "التصوير الفوتوغرافي" : "Photography"}</option>
-                <option value="Digital Fashion Design">{locale === "ar" ? "تصميم الأزياء الرقمي" : "Digital Fashion Design"}</option>
-                <option value="Architectural Design">{locale === "ar" ? "التصميم المعماري" : "Architectural Design"}</option>
-              </select>
-              {errors.contest_type && <RegisterError error={errors.contest_type.message} />}
-            </div>
-            <div className="flex flex-col md:flex-row lg:justify-between gap-5 lg:gap-10">
-              <div className="w-full flex-col flex gap-1">
-                <label>{t("hardware_used")}*</label>
-                <input className="w-full p-2" type="text" placeholder={t("hardware_used_placeholder")} {...register("hardware_used")} />
-                {errors.hardware_used && <RegisterError error={errors.hardware_used.message} />}
-              </div>
-              <div className="w-full flex-col flex gap-1">
-                <label>{t("software_used")}*</label>
-                <input className="w-full p-2" type="text" placeholder={t("software_used_placeholder")} {...register("software_used")} />
-                {errors.software_used && <RegisterError error={errors.software_used.message} />}
-              </div>
-            </div>
-            <div className="w-full flex flex-col gap-1">
-              <label>{t("brief_about_your_project")}</label>
-              <textarea className="h-[150px] lg:h-[250px] p-2" {...register("brief")}></textarea>
-              {errors.brief && <RegisterError error={errors.brief.message} />}
-            </div>
-            <FileInput register={register} setValue={setValue} errors={errors} />
-            <p className="font-bold text-sm mb-5 text-white">{t("nvidia_requirement")}</p>
-            <div className="-mt-8">
-              <div className="flex items-center gap-2 text-white">
-                <input type="checkbox" required checked={isChecked} onChange={(e) => setIsChecked(e.target.checked)} />
-                <p className="text-white flex items-center justify-center gap-2">
-                  {t("agree")}
-                  <TermsButton />
-                </p>
-              </div>
-            </div>
-            <button type="submit" disabled={isLoading || isDeadlinePassed} 
-              className={`w-full flex justify-center items-center ${isDeadlinePassed ? 'bg-gray-500' : 'bg-mainGreen'} 
-              text-black font-bold py-3 rounded-[4px]`} >
-              {isLoading ? <Spinner /> : isDeadlinePassed ? t("deadline_passed") || "Deadline Passed" : t("submit")}
-            </button>
-            
-            {formError && (
-              <span className="text-xl -mt-3 text-red-700 flex items-center gap-1 justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-circle-alert">
-                  <circle cx="12" cy="12" r="10" />
-                  <line x1="12" x2="12" y1="8" y2="12" />
-                  <line x1="12" x2="12.01" y1="16" y2="16" />
-                </svg>
-                {formError}
-              </span>
-            )}
-          </form>
-        </div>
-        <div className="z-10">
-          <Footer />
-        </div>
-        <RegisterSucces isOpen={isOpen} setIsOpen={setIsOpen} />
+    <div id="submit" className="w-full max-w-[954px] mx-auto px-2 py-12">
+      {/* Header */}
+      <div className="text-center mb-8">
+        <h1 className="heading-medium font-bold text-black mb-2">
+          {t("title") || "Submit Your Artwork"}
+        </h1>
+        <p className="heading-smallest font-bold text-gray-700">
+          {t("subTitle") || "Deadline November 15, 2025"}
+        </p>
       </div>
-    </>
+
+      {/* Form */}
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="w-full flex flex-col gap-5"
+      >
+        {/* First Name & Last Name */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="flex flex-col gap-2">
+            <input
+              className="w-full p-3 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500"
+              type="text"
+              placeholder={t("first_name") || "First Name"}
+              {...register("first_name")}
+            />
+            {errors.first_name && (
+              <RegisterError error={errors.first_name.message} />
+            )}
+          </div>
+          <div className="flex flex-col gap-2">
+            <input
+              className="w-full p-3 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500"
+              type="text"
+              placeholder={t("last_name") || "Last Name"}
+              {...register("last_name")}
+            />
+            {errors.last_name && (
+              <RegisterError error={errors.last_name.message} />
+            )}
+          </div>
+        </div>
+
+        {/* Email & Country */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="flex flex-col gap-2">
+            <input
+              className="w-full p-3 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500"
+              type="email"
+              placeholder={t("email") || "Email Address"}
+              {...register("email")}
+            />
+            {errors.email && <RegisterError error={errors.email.message} />}
+          </div>
+          <div className="flex flex-col gap-2">
+            <select
+              defaultValue=""
+              className={`w-full p-3 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500 bg-white
+                ${(country && country!='')?'':'text-gray-400'}`}
+              {...register("country")}
+              onChange={handleCountryChange}
+            >
+              <option value="" disabled>
+                {t("country") || "Country"}
+              </option>
+              {countries.map((country) => (
+                <option key={country} value={country}>
+                  {country === "Israel" ? "Palestine" : country}
+                </option>
+              ))}
+            </select>
+            {errors.country && <RegisterError error={errors.country.message} />}
+          </div>
+        </div>
+
+        {/* City & Contest Type */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="flex flex-col gap-2">
+            <select defaultValue=""
+              className={`w-full p-3 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500 bg-white
+                ${(city && city != '')? '': 'text-gray-400'}`}
+              {...register("city")}
+              disabled={!selectedCountry}
+            >
+              <option value="" disabled>
+                {t("choose_city") || "City"}
+              </option>
+              {cities.map((city) => (
+                <option key={city} value={city}>
+                  {city}
+                </option>
+              ))}
+            </select>
+            {errors.city && <RegisterError error={errors.city.message} />}
+          </div>
+          <div className="flex flex-col gap-2">
+            <select
+              defaultValue=""
+              className={`w-full p-3 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500 bg-white
+                ${(contest && contest != '')? '': 'text-gray-400'}`}
+              {...register("contest_type")}
+            >
+              <option value="" disabled>
+                {t("choose_contest") || "Contest Type"}
+              </option>
+              <option value="3D/CGI">3D/CGI</option>
+              <option value="Photography">
+                {locale === "ar" ? "التصوير الفوتوغرافي" : "Photography"}
+              </option>
+              <option value="Digital Fashion Design">
+                {locale === "ar"
+                  ? "تصميم الأزياء الرقمي"
+                  : "Digital Fashion Design"}
+              </option>
+              <option value="Architectural Design">
+                {locale === "ar" ? "التصميم المعماري" : "Architectural Design"}
+              </option>
+            </select>
+            {errors.contest_type && (
+              <RegisterError error={errors.contest_type.message} />
+            )}
+          </div>
+        </div>
+
+        {/* Hardware Used & Software Used */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="flex flex-col gap-2">
+            <input
+              className="w-full p-3 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500"
+              type="text"
+              placeholder={t("hardware_used") || "Hardware Used"}
+              {...register("hardware_used")}
+            />
+            {errors.hardware_used && (
+              <RegisterError error={errors.hardware_used.message} />
+            )}
+          </div>
+          <div className="flex flex-col gap-2">
+            <input
+              className="w-full p-3 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500"
+              type="text"
+              placeholder={t("software_used") || "Software Used"}
+              {...register("software_used")}
+            />
+            {errors.software_used && (
+              <RegisterError error={errors.software_used.message} />
+            )}
+          </div>
+        </div>
+
+        {/* Brief About Your Project */}
+        <div className="flex flex-col gap-2">
+          <textarea
+            className="w-full p-3 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500 h-[150px] resize-none"
+            placeholder={t("brief_about_your_project") || "Brief About Your Project"}
+            {...register("brief")}
+          ></textarea>
+          {errors.brief && <RegisterError error={errors.brief.message} />}
+        </div>
+
+        {/* File Input */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <FileInput register={register} setValue={setValue} errors={errors} />
+        </div>
+
+        {/* Submit */}
+        <div className="flex items-center justify-between">
+          <p className="font-bold text-medium text-black">
+            {t("nvidia_requirement") || "You need to be using NVIDIA products to participate."}
+          </p>
+          
+          <button type="submit" disabled={isLoading || isDeadlinePassed}
+            className={`w-fit button-large flex justify-center items-center text-black font-bold py-2 px-3 transition-colors
+              ${isDeadlinePassed ? "bg-gray-400 cursor-not-allowed" : "bg-[#74B800] hover:bg-[#5f9600]"} `}>
+            {isLoading ? (
+              <Spinner />
+            ) : isDeadlinePassed ? (
+              t("deadline_passed") || "Deadline Passed"
+            ) : (
+              t("submit") || "Submit"
+            )}
+          </button>
+        </div>
+
+        {/* Terms and Conditions */}
+        <div className="flex items-start gap-2 text-sm">
+          <input type="checkbox"
+            required
+            checked={isChecked}
+            onChange={(e) => setIsChecked(e.target.checked)}
+            className="mt-1 size-4"
+          />
+          <div className="text-black flex items-center gap-1 flex-wrap text-[15px]">
+            <span>{t("agree") || "I agree to all"}</span>
+            <TermsButton />
+          </div>
+        </div>
+
+        {/* Error Message */}
+        {formError && (
+          <div className="bg-red-50 border border-red-200 rounded-sm p-4">
+            <RegisterError error={formError} />
+          </div>
+        )}
+      </form>
+
+      {/* Success Modal */}
+      <RegisterSucces isOpen={isOpen} setIsOpen={setIsOpen} />
+    </div>
   );
 }
 

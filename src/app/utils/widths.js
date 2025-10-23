@@ -1,0 +1,1 @@
+export const paragraphWidthClasses = " w-[95vw] sm:w-[60vw] md:w-[47vw] lg:[40vw] xl:[42vw] max-w-[1070px]"

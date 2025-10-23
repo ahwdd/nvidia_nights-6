@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import Nav from "@/components/Nav/Nav";
 import RegisterForm from "@/components/RegisterForm/RegisterForm";
+import Footer from "@/components/RegisterForm/footer/Footer";
 import { Jost } from "next/font/google";
 import { Almarai } from "next/font/google";
 import localFont from "next/font/local";
@@ -55,7 +56,8 @@ const nvsans = localFont({
   variable: "--font-nvsans",
 });
 
-const nvidiaNala = localFont({//nvidia title font
+const nvidiaNala = localFont({
+  //nvidia title font
   src: [
     {
       path: "../fonts/NVIDIA-NALA/HandelNormal.ttf",
@@ -116,11 +118,14 @@ export default async function LocaleLayout({ children, params }) {
       }
       dir={locale === "en" ? "ltr" : "rtl"}
     >
-      <body className="overflow-x-hidden w-screen">
+      <body className="overflow-x-hidden w-screen bg-white text-black">
         <NextIntlClientProvider messages={messages}>
-          <Nav locale={locale} />
-          <div>{children}</div>
-          <RegisterForm />
+          {/* <Nav locale={locale} /> */}
+          <div className="min-h-screen">
+            {children}
+            <RegisterForm />
+            <Footer />
+          </div>
         </NextIntlClientProvider>
       </body>
     </html>

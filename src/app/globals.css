@@ -82,8 +82,34 @@ html {
 }
 
 .new-hero {
-  background: url("/higher-hero-img.jpg") center center no-repeat;
+  background: url("/nights-6/nv-hero.jpg") center center no-repeat;
   background-size: 100% 100%;
+}
+.heading-large        { font-size: 48px; line-height: 125%; }
+.heading-medium       { font-size: 36px; line-height: 125%; }
+.heading-small        { font-size: 28px; line-height: 125%; }
+.heading-smallest      { font-size: 20px; line-height: 125%; }
+.text-large           { font-size: 22px; line-height: 175%; }
+.text-medium          { font-size: 15px; line-height: 167%; }
+.button-large         { font-size: 18px; line-height: 125%; }
+
+@media (max-width: 1024px) {
+  .heading-large       { font-size: 28px; line-height: 125%; }
+  .heading-medium      { font-size: 24px; line-height: 125%; }
+  .heading-small       { font-size: 20px; line-height: 125%; }
+  .heading-smallest    { font-size: 16px; line-height: 125%; }
+  .text-large          { font-size: 18px; line-height: 175%; }
+  .button-large        { font-size: 14px; line-height: 125%; }
+}
+
+@media (max-width: 640px) {
+  .heading-large       { font-size: 18px; line-height: 125%; }
+  .heading-medium      { font-size: 16px; line-height: 125%; }
+  .heading-small       { font-size: 15px; line-height: 125%; }
+  .heading-smallest    { font-size: px; line-height: 125%; }
+  .text-large          { font-size: 11px; line-height: 175%; }
+  .text-medium         { font-size: 9px; line-height: 167%; }
+  .button-large        { font-size: 8px; line-height: 125%; }
 }
 
 .studio-box,
