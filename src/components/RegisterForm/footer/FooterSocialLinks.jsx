@@ -1,4 +1,4 @@
-import { BsInstagram, BsTwitterX, BsYoutube } from "react-icons/bs";
+import { BsInstagram, BsTwitterX, BsYoutube, BsFillThreadsFill } from "react-icons/bs";
 
 export default function FooterSocialLinks() {
   return (
@@ -49,6 +49,15 @@ export default function FooterSocialLinks() {
         className="text-zinc-500 bg-transparent w-[30px] rounded-full h-[30px] flex items-center justify-center"
       >
         <BsYoutube className="size-10" />
+      </a>
+      
+      <a
+        href="https://www.threads.net/@nvidiastudio"
+        target="_blank"
+        aria-label="youtube"
+        className="text-zinc-500 bg-transparent w-[30px] rounded-full h-[30px] flex items-center justify-center"
+      >
+        <BsFillThreadsFill className="size-10" />
       </a>
     </div>
   );
