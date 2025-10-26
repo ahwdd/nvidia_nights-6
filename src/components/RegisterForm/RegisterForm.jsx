@@ -361,25 +361,23 @@ function RegisterForm({ onBookingCreated }) {
           {errors.brief && <RegisterError error={errors.brief.message} />}
         </div>
 
-
-        {/* Social Media Links Section */}
-        <div className="flex flex-col gap-3">
-            <div className="flex flex-col gap-2">
-              <input
-                className="w-full p-3 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500"
-                type="url"
-                placeholder={t("socialLink") || "socialLink URL"}
-                {...register("socialLink")}
-              />
-              {errors.socialLink && (
-                <RegisterError error={errors.socialLink.message} />
-              )}
-            </div>
-        </div>
-        
-        {/* File Input */}
         <div className="grid grid-cols-2 gap-5">
-          <FileInput register={register} setValue={setValue} errors={errors} />
+          {/* File Input */}
+          <div className="flex flex-col gap-2">
+            <FileInput register={register} setValue={setValue} errors={errors} />
+          </div>
+          {/* Social Media Links Section */}
+          <div className="flex flex-col gap-2">
+            <input
+              className="w-full p-3 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500"
+              type="url"
+              placeholder={t("socialLink") || "socialLink URL"}
+              {...register("socialLink")}
+            />
+            {errors.socialLink && (
+              <RegisterError error={errors.socialLink.message} />
+            )}
+          </div>
         </div>
 
         {/* Submit */}
