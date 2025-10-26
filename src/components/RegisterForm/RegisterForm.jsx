@@ -48,11 +48,7 @@ function RegisterForm({ onBookingCreated }) {
       .min(1, t("formErrors.software_used.required"))
       .min(3, t("formErrors.software_used.min")),
     brief: z.string().optional(),
-    facebook: z.string().optional(),
-    youtube: z.string().optional(),
-    twitter: z.string().optional(),
-    instagram: z.string().optional(),
-    linkedin: z.string().optional(),
+    socialLink: z.string().optional(),
     file: z.union([
       z.string().url({ message: t("formErrors.file.invalid_url") }),
       z.instanceof(File, { message: t("formErrors.file.invalid_url") }),
@@ -103,9 +99,7 @@ function RegisterForm({ onBookingCreated }) {
 
     try {
       // Build social_media string from individual fields
-      const socialMediaLinks = [
-        data.facebook, data.youtube, data.twitter, data.instagram, data.linkedin
-      ].filter(link => link && link.trim() !== "").join(", ");
+      const socialMediaLinks = [ data.socialLink ].filter(link => link && link.trim() !== "").join(", ");
 
       let response;
 
@@ -367,76 +361,25 @@ function RegisterForm({ onBookingCreated }) {
           {errors.brief && <RegisterError error={errors.brief.message} />}
         </div>
 
-        {/* File Input */}
-        <div className="grid grid-cols-2 gap-5">
-          <FileInput register={register} setValue={setValue} errors={errors} />
-        </div>
 
         {/* Social Media Links Section */}
         <div className="flex flex-col gap-3">
-          <div className="grid grid-cols-2 gap-5">
             <div className="flex flex-col gap-2">
               <input
                 className="w-full p-3 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500"
                 type="url"
-                placeholder={t("facebook") || "Facebook URL"}
-                {...register("facebook")}
+                placeholder={t("socialLink") || "socialLink URL"}
+                {...register("socialLink")}
               />
-              {errors.facebook && (
-                <RegisterError error={errors.facebook.message} />
+              {errors.socialLink && (
+                <RegisterError error={errors.socialLink.message} />
               )}
             </div>
-            <div className="flex flex-col gap-2">
-              <input
-                className="w-full p-3 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500"
-                type="url"
-                placeholder={t("youtube") || "YouTube URL"}
-                {...register("youtube")}
-              />
-              {errors.youtube && (
-                <RegisterError error={errors.youtube.message} />
-              )}
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-5">
-            <div className="flex flex-col gap-2">
-              <input
-                className="w-full p-3 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500"
-                type="url"
-                placeholder={t("twitter") || "Twitter/X URL"}
-                {...register("twitter")}
-              />
-              {errors.twitter && (
-                <RegisterError error={errors.twitter.message} />
-              )}
-            </div>
-            <div className="flex flex-col gap-2">
-              <input
-                className="w-full p-3 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500"
-                type="url"
-                placeholder={t("instagram") || "Instagram URL"}
-                {...register("instagram")}
-              />
-              {errors.instagram && (
-                <RegisterError error={errors.instagram.message} />
-              )}
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-5">
-            <div className="flex flex-col gap-2">
-              <input
-                className="w-full p-3 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500"
-                type="url"
-                placeholder={t("linkedin") || "LinkedIn URL"}
-                {...register("linkedin")}
-              />
-              {errors.linkedin && (
-                <RegisterError error={errors.linkedin.message} />
-              )}
-            </div>
-          </div>
+        </div>
+        
+        {/* File Input */}
+        <div className="grid grid-cols-2 gap-5">
+          <FileInput register={register} setValue={setValue} errors={errors} />
         </div>
 
         {/* Submit */}
