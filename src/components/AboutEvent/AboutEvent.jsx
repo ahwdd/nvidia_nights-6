@@ -16,7 +16,7 @@ function AboutEvent() {
             {t("title2")} 
           </p>
 
-          <a href="https://luma.com/arabhardware" target="_blank" rel="noopener noreferrer"
+          <a href="https://luma.com/8mrbuqpn" target="_blank" rel="noopener noreferrer"
           className="button-large font-bold bg-mainGreen text-black px-3 py-2 mt-10 w-fit flex items-center justify-center gap-2">
             <span>{t("register")}</span>
             <ExternalLinkIcon className="size-5 stroke-2" />
