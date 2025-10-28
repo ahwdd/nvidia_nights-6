@@ -76,7 +76,7 @@
 
   "Register": {
     "title": "Submit Your Artwork",
-    "subTitle": "Deadline December 12, 2025",
+    "subTitle": "Deadline 30th of November",
     "titleEvent": "Register",
     "descEvent": "Please enter your info to register",
     "name": "Name",
@@ -297,7 +297,7 @@
   },
 
   "footer": {
-    "date":"30th of November",
+    "date":"12th of December",
     "location":"Museum of the Future, Dubai",
     "register":"Register Now",
     "copyrights": "©2025 NVIDIA Corporation. NVIDIA, the NVIDIA logo, GeForce, GeForce RTX, G-SYNC, OptiX, and RTX are registered trademarks and/or trademarks of NVIDIA Corporation in the United States and other countries. All other trademarks and copyrights are the property of their respective owners."
