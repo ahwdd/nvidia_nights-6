@@ -24,10 +24,11 @@ export default function Deadline() {
           <span className="heading-medium">
             {t('location')}
           </span>
-          <div className="button-large flex items-center justify-start gap-2">
+          <a href="https://luma.com/8mrbuqpn" target="_blank" rel="noopener noreferrer" 
+          className="button-large flex items-center justify-start gap-2">
             <span>{t('register')}</span>
             <MdOpenInNew className="text-mainGreen max-md:size-6" />
-          </div>
+          </a>
         </div>
       </div>
     </div>
