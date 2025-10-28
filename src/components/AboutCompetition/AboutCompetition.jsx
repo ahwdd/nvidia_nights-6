@@ -13,11 +13,11 @@ function AboutCompetition() {
           {t("desc")}
         </p>
         <a href="#submit" target="_self" rel="noopener noreferrer"
-        className="flex items-center justify-center md:gap-2 gap-1 w-fit button-large md:hover:gap-4 transition-all">
+        className="font-bold flex items-center justify-center md:gap-2 gap-1 w-fit button-large md:hover:gap-4 transition-all group p-space">
           <span>
             {t("submit")}
           </span>
-          <ChevronRight className="rtl:-scale-100 text-mainGreen max-md:size-6 max-sm:size-4" />
+          <ChevronRight className="rtl:-scale-100 text-mainGreen group-hover:text-mainGreenHover transition max-md:size-6 max-sm:size-4" />
         </a>
       </div>
     </div>

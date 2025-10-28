@@ -12,6 +12,7 @@ import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
 import TermsButton from "./components/TermsButton";
 import FileInput from "./components/FileInput";
+import { renderDateWithSuperscript } from "@/services/renderDateWithSuperscript";
 
 function RegisterForm({ onBookingCreated }) {
   const t = useTranslations("Register");
@@ -209,7 +210,7 @@ function RegisterForm({ onBookingCreated }) {
           {t("title") || "Submit Your Artwork"}
         </h1>
         <p className="heading-smallest font-bold text-gray-700">
-          {t("subTitle") || "Deadline November 15, 2025"}
+          {renderDateWithSuperscript(t("subTitle") || "Deadline 15Th of November, 2025")}
         </p>
       </div>
 
@@ -387,8 +388,8 @@ function RegisterForm({ onBookingCreated }) {
           </p>
           
           <button type="submit" disabled={isLoading || isDeadlinePassed}
-            className={`w-fit button-large flex justify-center items-center text-black font-bold py-2 px-3 transition-colors
-              ${isDeadlinePassed ? "bg-gray-400 cursor-not-allowed" : "bg-[#74B800] hover:bg-[#5f9600]"} `}>
+            className={`w-fit button-large flex justify-center items-center text-black font-bold p-space transition-colors
+              ${isDeadlinePassed ? "bg-gray-400 cursor-not-allowed" : "bg-[#74B800]  hover:bg-mainGreenHover transition"} `}>
             {isLoading ? (
               <Spinner />
             ) : isDeadlinePassed ? (

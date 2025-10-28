@@ -16,8 +16,8 @@ module.exports = {
         '2xl': ['1.75rem', { lineHeight: '2.125rem' }],
       },
       container: {
-        center: true, // Centers the container
-        padding: "1rem", // Adds default padding (like px-4)
+        center: true,
+        padding: "1rem",
       },
       screens: {
         sm: "640px",
@@ -26,6 +26,9 @@ module.exports = {
         xl: "1280px",
         "2xl": "1650px", // Customize breakpoints if needed
       },
+      padding: {
+        space: "13.5px 15.75px"
+      },
 
       colors: {
         background: "var(--background)",
@@ -33,7 +36,7 @@ module.exports = {
         mainGreen: "#74B800",
         mainGrey: "#9E9E9E",
         mainlyGrey: "#999",
-        mainGreenOpacity: "#74B80059",
+        mainGreenHover: "#A5DE15",
       },
     },
   },
