@@ -8,6 +8,7 @@ import Footer from "@/components/RegisterForm/footer/Footer";
 import { Jost } from "next/font/google";
 import { Almarai } from "next/font/google";
 import localFont from "next/font/local";
+import LanguageSwitcher from "@/components/Nav/LanguageSwitcher";
 
 const jost = Jost({
   subsets: ["latin"],
@@ -109,18 +110,13 @@ export default async function LocaleLayout({ children, params }) {
   const messages = await getMessages();
 
   return (
-    <html
-      lang={locale}
-      className={
-        locale === "ar"
-          ? almarai.className
-          : `${nvidiaNala.variable} ${nvsans.className}`
-      }
-      dir={locale === "en" ? "ltr" : "rtl"}
-    >
-      <body className="overflow-x-hidden w-screen bg-white text-black">
+    <html lang={locale}
+      className={locale === "ar" ? almarai.className : `${nvidiaNala.variable} ${nvsans.className}`}
+      dir={locale === "en" ? "ltr" : "rtl"}>
+      <body className="overflow-x-hidden w-screen bg-white text-black relative">
         <NextIntlClientProvider messages={messages}>
           {/* <Nav locale={locale} /> */}
+          <LanguageSwitcher lang={locale} />
           <div className="min-h-screen">
             {children}
             <RegisterForm />
