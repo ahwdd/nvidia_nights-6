@@ -26,11 +26,11 @@ export default function LanguageSwitcher({lang="en"}) {
     <div className="absolute w-full top-4 left-0 z-50 bg-transparent">
         <div className="max-w-7xl mx-auto flex flex-row-reverse px-4">
             <Link href={href} locale={targetLocale} aria-label={`Switch language to ${targetLocale}`}
-                className="font-bold button-large relative block text-gray-200 w-fit">
-                <span className="bg-black absolute bottom-0 left-1/2 px-1">
+                className="font-bold button-small relative block text-gray-200 w-fit">
+                <span className="bg-black absolute bottom-0 left-1/2 sm:px-1 px-px">
                     {label}
                 </span>
-                <CiGlobe className="size-8"/>
+                <CiGlobe className="sm:size-8 size-6"/>
             </Link>
         </div>
     </div>
