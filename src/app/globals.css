@@ -105,14 +105,14 @@ html {
 }
 
 @media (max-width: 640px) {
-  .heading-large       { font-size: 20px; line-height: 125%; }
-  .heading-medium      { font-size: 18px; line-height: 125%; }
-  .heading-small       { font-size: 16px; line-height: 125%; }
-  .heading-smallest    { font-size: 14px; line-height: 125%; }
-  .text-large          { font-size: 15px; line-height: 175%; }
+  .heading-large       { font-size: 24px; line-height: 125%; }
+  .heading-medium      { font-size: 20px; line-height: 125%; }
+  .heading-small       { font-size: 18px; line-height: 125%; }
+  .heading-smallest    { font-size: 16px; line-height: 125%; }
+  .text-large          { font-size: 16px; line-height: 175%; }
   .text-medium         { font-size: 14px; line-height: 167%; }
-  .button-large        { font-size: 13px; line-height: 125%; }
-  .button-small        { font-size: 10px; line-height: 125%; }
+  .button-large        { font-size: 14px; line-height: 125%; }
+  .button-small        { font-size: 12px; line-height: 125%; }
 }
 
 .studio-box,

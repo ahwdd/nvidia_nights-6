@@ -11,7 +11,7 @@ function NewHero() {
     <div id="hero" className="w-screen overflow-hidden text-white px-4 md:px-32 md:h-[580px] h-[75vh] bg-black relative">
       <div className="new-hero absolute inset-0 size-full max-md:top-auto max-md:h-2/3 object-cover rtl:-scale-x-100 z-10" />
 
-      <div className="relative z-10 size-full flex flex-col md:justify-center md:items-center gap-5 md:text-center">
+      <div className="relative z-10 size-full flex flex-col md:justify-center items-center gap-5 text-center">
         <Image src={NVStudioLogo} alt="Nvidia Studio" className="w-24 h-18 object-contain -mt-10 mb-10 max-md:pt-24" />
         <h1 className="heading-medium font-bold">
           {t("headerMedium")} 
