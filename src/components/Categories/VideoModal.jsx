@@ -9,12 +9,10 @@ export default function VideoModal({ open, onClose, poster, sources = [] }) {
   const [isBuffering, setIsBuffering] = useState(false);
   const [hasError, setHasError] = useState(false);
 
-  // Keep quality in sync when sources change
   useEffect(() => {
     setQuality((sources && sources[0]?.label) || "");
   }, [sources]);
 
-  // Main video initialization effect
   useEffect(() => {
     if (!open) return;
     
@@ -22,16 +20,13 @@ export default function VideoModal({ open, onClose, poster, sources = [] }) {
     if (!video) return;
     if (!sources || sources.length === 0) return;
 
-    // Reset error state
     setHasError(false);
 
     const selected = sources.find((s) => s.label === quality) || sources[0];
     
-    // Only load video when modal opens (lazy loading)
     video.src = selected.src;
     video.load();
 
-    // Event handlers
     const onWaiting = () => setIsBuffering(true);
     const onCanPlay = () => setIsBuffering(false);
     const onPlaying = () => setIsBuffering(false);
@@ -41,17 +36,14 @@ export default function VideoModal({ open, onClose, poster, sources = [] }) {
       setIsBuffering(false);
     };
 
-    // Add event listeners
     video.addEventListener("waiting", onWaiting);
     video.addEventListener("canplay", onCanPlay);
     video.addEventListener("playing", onPlaying);
     video.addEventListener("error", onError);
 
-    // Attempt autoplay after user interaction (modal open)
     const playPromise = video.play();
     if (playPromise !== undefined) {
       playPromise.catch((err) => {
-        // Autoplay blocked - user needs to click play
         console.warn("Autoplay prevented:", err.message);
       });
     }
@@ -91,11 +83,10 @@ export default function VideoModal({ open, onClose, poster, sources = [] }) {
     });
   };
 
-  // Close on Escape key
   useEffect(() => {
     if (!open) return;
     
-    const handleEscape = (e) => {
+    const handleEscape = (e) => {// Close on Escape key
       if (e.key === "Escape") onClose();
     };
     
@@ -116,7 +107,7 @@ export default function VideoModal({ open, onClose, poster, sources = [] }) {
         <div className="bg-[#0b0b0b] overflow-hidden shadow-2xl">
           
           {/* Header */}
-          <div className="flex items-center justify-between px-4 py-3 border-b border-neutral-800">
+          {/* <div className="flex items-center justify-between px-4 py-3 border-b border-neutral-800">
             <div className="flex items-center gap-3">
               <strong className="text-white text-sm">Quality:</strong>
               <select
@@ -133,25 +124,28 @@ export default function VideoModal({ open, onClose, poster, sources = [] }) {
               </select>
             </div>
             
-            <button 
-              onClick={onClose}
-              className="text-white p-1.5 hover:bg-white/10 transition-colors"
-              aria-label="Close video modal"
-            >
+            <button onClick={onClose} aria-label="Close video modal"
+              className="text-white p-1.5 hover:bg-white/10 transition-colors">
+              <HiX className="w-6 h-6" />
+            </button>
+          </div> */}
+
+          <div className="p-space w-full border-b border-neutral-800">
+            <button onClick={onClose} aria-label="Close video modal"
+              className="text-white p-1.5 hover:bg-white/10 transition-colors">
               <HiX className="w-6 h-6" />
             </button>
           </div>
 
           {/* Video Container */}
           <div className="relative bg-black flex items-center justify-center">
-            <video
-              ref={videoRef}
+            <video ref={videoRef}
               controls
               poster={poster}
               className="w-full h-auto max-h-[75vh] bg-black"
               playsInline
-              preload="metadata" // Only load metadata initially
-              controlsList="nodownload" // Optional: prevent download
+              preload="metadata"
+              controlsList="nodownload"
             >
               {/* Sources are loaded dynamically via src attribute for better performance */}
               Your browser does not support the video tag.

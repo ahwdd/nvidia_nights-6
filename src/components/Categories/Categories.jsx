@@ -17,18 +17,15 @@ export default function Categories() {
 
   const [modalOpen, setModalOpen] = useState(false);
   const [modalPoster, setModalPoster] = useState("");
-  const [modalSources, setModalSources] = useState([]);
+  const modalSources= [
+      // { label: "480", src: `https://arabhardware.net/events/nvidia-studio-6.mp4` },
+      // { label: "720", src: `https://arabhardware.net/events/nvidia-studio-6.mp4` },
+      { label: "1080", src: `https://arabhardware.net/events/nvidia-studio-6.mp4` },
+      // { label: "2048", src: `https://arabhardware.net/events/nvidia-studio-6.mp4` },
+    ].filter(Boolean)
 
-  const openVideo = ({ poster, baseName }) => {
-    const sources = [
-      { label: "480", src: `https://pixeldrain.com/api/file/ur9gsnJ3` },
-      { label: "720", src: `https://pixeldrain.com/api/file/xWBhuBD8` },
-      { label: "1080", src: `https://pixeldrain.com/api/file/1wNoCKma` },
-      { label: "2048", src: `https://pixeldrain.com/api/file/1wNoCKma` },
-    ].filter(Boolean);
-
+  const openVideo = ({ poster }) => {
     setModalPoster(poster);
-    setModalSources(sources);
     setModalOpen(true);
   };
 
