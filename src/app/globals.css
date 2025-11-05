@@ -85,10 +85,11 @@ html {
   background: url("/nights-6/nv-hero.jpg") center center no-repeat;
   background-size: 100% 100%;
 }
+
 .heading-large        { font-size: 48px; line-height: 125%; }
 .heading-medium       { font-size: 36px; line-height: 125%; }
 .heading-small        { font-size: 28px; line-height: 125%; }
-.heading-smallest      { font-size: 20px; line-height: 125%; }
+.heading-smallest     { font-size: 20px; line-height: 125%; }
 .text-large           { font-size: 22px; line-height: 175%; }
 .text-medium          { font-size: 15px; line-height: 167%; }
 .button-large         { font-size: 18px; line-height: 125%; }

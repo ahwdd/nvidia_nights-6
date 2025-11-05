@@ -24,8 +24,8 @@
 
   "AboutEvent": {
     "mainTitle": "About Event",
-    "title1": "NVIDIA Studio Nights 6 returns as the premier creative competition spotlighting 3D/CGI, Interior Design, Short Films, Photography, and Digital Fashion.",
-    "title2": "This year, it takes place at Dubai's iconic Museum of the Future, a landmark setting for innovation and artistry. The event brings together professionals and newcomers alike, fostering collaboration, inspiration, and community in the digital arts. Whether competing or attending, participants will experience cutting-edge creativity and witness the future of design unfold with NVIDIA Studio.",
+    "title1": "Unleash your creativity at NVIDIA Studio Night 6, the premier design competition celebrating 3D/CGI, Interior Design, Short Films, Photography, and Digital Fashion.",
+    "title2": "Held at Dubai’s Museum of the Future, the event brings together professionals and rising talents to showcase innovation, exchange ideas, and explore the future of digital artistry with NVIDIA Studio.",
     "register": "Register To Attend The Event"
   },
 
@@ -45,13 +45,14 @@
 
   "AboutCompetition": {
     "title": "About the Competition",
-    "desc": "Competitors will showcase their talents across five categories, with the grand prize being a cutting-edge GeForce RTX™ 50 series product. Winners will share the stories behind their creations, revealing the inspirations, tools, and technologies that shaped their work. Audiences will gain insight into how NVIDIA’s innovations drive artistic expression, while winners walk away with hardware built to power their future masterpieces.",
+    "desc": "NVIDIA Studio Night 6 returns to Dubai at the Museum of the Future, where artists will compete across five categories for the grand prize: a GeForce RTX 50 GPU, their next creative powerhouse. Winners will share the stories behind their designs, showcasing how NVIDIA’s cutting-edge technologies empowered their creations and inspired their artistic journey toward the future of digital design.",
+    "desc1": "This year's event revolves around the Museum of the Future in Dubai, and all materials submitted to enter the competition must be related to the city of Dubai or the Museum of the Future.",
     "submit": "Submit Your Artwork"
   },
 
   "Prizes": {
     "title": "Prizes",
-    "desc": "Each category winner—3D/CGI, Photography, Interior Design, Short Films & Videography, and Digital Fashion Design—will be awarded a coveted trophy and powerful GeForce RTX 50 Series products. Their achievements will also be celebrated with a dedicated feature on our social media platforms, shining a spotlight on their talent and creativity."
+    "desc": "Each category winner — 3D/CGI, Photography, Interior Design, Short Films & Videography, and Digital Fashion Design — will not only receive a coveted trophy but also a powerful GeForce RTX 50 graphics card. Winners will also enjoy the spotlight with a special feature on our social media platforms, celebrating their exceptional talent and creativity."
   },
 
   "Categories": {
@@ -68,10 +69,10 @@
     "fashionDesc": "Submit your fashion-forward design to compete for the Best Design award, chosen by audience vote. Your work will be displayed on a mannequin at the event, turning creativity into a statement piece.",
     "interior": "Interior Design",
     "interiorWinner": "",
-    "interiorDesc": "Present your interior design project and see it transformed at the event. Selected works will be reimagined as immersive walkthrough videos, allowing audiences to experience your vision in motion.",
+    "interiorDesc": "Share your interior design and watch it come to life at the event. Selected projects will be transformed into immersive walkthrough videos, showcasing your vision in motion.",
     "videography": "Videography - Short Films",
     "videographyWinner": "Mohannad Nasr",
-    "videographyDesc": "Share your short film or videography project for a chance to be featured on the big screen. The winning entry will captivate audiences during the event, showcasing your story and vision in full cinematic form."
+    "videographyDesc": "Showcase your short film or videography project on the big screen. Selected winner will be featured during the event, bringing your story and vision to life for the audience."
   },
 
   "Register": {

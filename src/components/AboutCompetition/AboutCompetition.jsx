@@ -12,6 +12,9 @@ function AboutCompetition() {
         <p className="text-medium text-gray-200">
           {t("desc")}
         </p>
+        <p className="text-medium text-gray-200">
+          {t("desc1")}
+        </p>
         <a href="#submit" target="_self" rel="noopener noreferrer"
         className="font-bold flex items-center justify-center md:gap-2 gap-1 w-fit button-large md:hover:gap-4 transition-all group p-space">
           <span>
