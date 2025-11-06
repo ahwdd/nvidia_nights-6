@@ -20,7 +20,7 @@ export default function Categories() {
   const modalSources= [
       // { label: "480", src: `https://arabhardware.net/events/nvidia-studio-6.mp4` },
       // { label: "720", src: `https://arabhardware.net/events/nvidia-studio-6.mp4` },
-      { label: "1080", src: `https://arabhardware.net/events/nvidia-studio-6.mp4` },
+      { label: "1080", src: `https://arabhardware.net/events/raed_4k.mp4` },
       // { label: "2048", src: `https://arabhardware.net/events/nvidia-studio-6.mp4` },
     ].filter(Boolean)
 
