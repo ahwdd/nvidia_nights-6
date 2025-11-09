@@ -66,7 +66,7 @@ function RegisterForm({ onBookingCreated }) {
   const [isDeadlinePassed, setIsDeadlinePassed] = useState(false);
 
   const currentDate = new Date();
-  const submissionDeadline = new Date("2025-11-30T23:59:59"); // November 30, 2025
+  const submissionDeadline = new Date("2026-01-15T23:59:59"); // Jan 15, 2026
 
   useEffect(() => {
     if (currentDate > submissionDeadline) {
@@ -210,7 +210,7 @@ function RegisterForm({ onBookingCreated }) {
           {t("title") || "Submit Your Artwork"}
         </h1>
         <p className="heading-smallest font-bold text-gray-700">
-          {renderDateWithSuperscript(t("subTitle") || "Deadline 15Th of November, 2025")}
+          {renderDateWithSuperscript(t("subTitle") || "Deadline 15Th of Jan, 2026")}
         </p>
       </div>
 
