@@ -5,7 +5,7 @@ function AboutCompetition() {
   const t = useTranslations("AboutCompetition");
   return (
     <div id="about-competition" className="flex items-center justify-center">
-      <div className="flex flex-col items-center w-full max-w-[954px] mx-auto text-center gap-6 relative">
+      <div className="flex flex-col items-center w-full max-w-[954px] mx-auto text-center gap-6 relative max-md:px-8 max-md:pb-8">
         <h3 className="heading-medium font-bold">
           {t("title")}
         </h3>

@@ -203,7 +203,7 @@ function RegisterForm({ onBookingCreated }) {
   };
 
   return (
-    <div id="submit" className="w-full max-w-[954px] mx-auto px-2 py-12">
+    <div id="submit" className="w-full max-w-[954px] mx-auto max-md:px-8 px-2 py-12">
       {/* Header */}
       <div className="text-center mb-8">
         <h1 className="heading-medium font-bold text-black mb-2">

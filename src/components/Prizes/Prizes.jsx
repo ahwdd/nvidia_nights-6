@@ -6,7 +6,7 @@ function Prizes() {
   const t = useTranslations("Prizes");
   return (
     <div id="prizes" className="flex items-center justify-center">
-      <div className="flex flex-col items-center w-full max-w-[954px] mx-auto text-center gap-10 relative">
+      <div className="flex flex-col items-center w-full max-w-[954px] mx-auto max-md:px-8 text-center gap-10 relative">
         <h4 className="heading-medium font-bold">
           {t("title")}
         </h4>

@@ -23,7 +23,7 @@ export default function LanguageSwitcher({lang="en"}) {
   const href = `/${targetLocale}/${query}`;
 
   return (
-    <div className="absolute w-full top-4 left-0 z-50 bg-transparent">
+    <div className="absolute w-full top-4 left-0 z-50 bg-transparent max-md:px-8">
         <div className="max-w-7xl mx-auto flex flex-row-reverse px-4">
             <Link href={href} locale={targetLocale} aria-label={`Switch language to ${targetLocale}`}
                 className="font-bold button-small relative block text-gray-200 w-fit">

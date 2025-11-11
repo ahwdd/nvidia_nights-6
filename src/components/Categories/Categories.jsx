@@ -70,7 +70,7 @@ export default function Categories() {
 
   return (
     <div id="categories" className="flex items-center justify-center">
-      <div className="flex flex-col items-center w-full max-w-[1290px] mx-auto text-center gap-10 relative">
+      <div className="flex flex-col items-center w-full max-w-[1290px] mx-auto max-md:px-8 text-center gap-10 relative">
         <h4 className="heading-small font-bold">{t("title")}</h4>
 
         <div className="flex flex-wrap justify-center items-start gap-x-6 gap-y-10 w-full">
