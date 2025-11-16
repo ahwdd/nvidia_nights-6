@@ -5,6 +5,7 @@ import AboutCompetition from "@/components/AboutCompetition/AboutCompetition";
 import Categories from "@/components/Categories/Categories";
 import Prizes from "@/components/Prizes/Prizes";
 import Hero from "@/components/Hero/Hero.jsx";
+import Deadline from "@/components/RegisterForm/footer/Deadline";
 
 export default function HomePage() {
   const t = useTranslations("HomePage");
@@ -12,6 +13,7 @@ export default function HomePage() {
     <>
       <div className="w-full">
         <Hero />
+        <Deadline />
         <AboutEvent />
         <div className="flex flex-col gap-8 sm:gap-14 xl:gap-28 px-2 py-10 sm:py-14 xl:py-20 bg-black text-white">
           <AboutCompetition />

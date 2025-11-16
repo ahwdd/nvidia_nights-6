@@ -66,7 +66,7 @@ function RegisterForm({ onBookingCreated }) {
   const [isDeadlinePassed, setIsDeadlinePassed] = useState(false);
 
   const currentDate = new Date();
-  const submissionDeadline = new Date("2026-01-15T23:59:59"); // Jan 15, 2026
+  const submissionDeadline = new Date("2026-01-25T23:59:59"); // Jan 25, 2026
 
   useEffect(() => {
     if (currentDate > submissionDeadline) {
