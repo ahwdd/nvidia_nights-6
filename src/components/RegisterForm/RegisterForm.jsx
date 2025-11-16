@@ -210,7 +210,7 @@ function RegisterForm({ onBookingCreated }) {
           {t("title") || "Submit Your Artwork"}
         </h1>
         <p className="heading-smallest font-bold text-gray-700">
-          {renderDateWithSuperscript(t("subTitle") || "Deadline 15Th of Jan, 2026")}
+          {renderDateWithSuperscript(t("subTitle") || "Deadline 25Th of Jan, 2026")}
         </p>
       </div>
 
