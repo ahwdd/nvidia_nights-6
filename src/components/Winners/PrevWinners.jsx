@@ -42,7 +42,7 @@ function PrevWinners() {
   ]
 
   return (
-      <div className="flex flex-col gap-5 justify-around w-full relative">
+      <div className="flex flex-col gap-5 justify-around w-full relative max-w-[954px] mx-auto max-md:px-8">
         <h4 className="heading-medium font-bold text-center">
           {t("prevWinners")}
         </h4>
