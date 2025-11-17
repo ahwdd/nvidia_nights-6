@@ -28,14 +28,17 @@ export default function Deadline() {
           <span className="heading-smallest">
             {renderDateWithSuperscript(t("date"))}
           </span>
+          <span className="-mt-1.5 text-medium">
+            3PM - 10:30PM
+          </span>
           <span className="heading-medium">
             {t('location')}
           </span>
-          <a href="https://luma.com/8mrbuqpn" target="_blank" rel="noopener noreferrer" 
+          {/* <a href="https://luma.com/8mrbuqpn" target="_blank" rel="noopener noreferrer" 
           className="button-large flex items-center justify-start gap-2 group p-space px-0">
             <span>{t('register')}</span>
             <MdOpenInNew className="text-mainGreen group-hover:text-mainGreenHover transition max-md:size-6" />
-          </a>
+          </a> */}
         </div>
       </div>
     </div>

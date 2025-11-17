@@ -13,8 +13,8 @@ export default function HomePage() {
     <>
       <div className="w-full">
         <Hero />
-        <Deadline />
         <AboutEvent />
+        <Deadline />
         <div className="flex flex-col gap-8 sm:gap-14 xl:gap-28 px-2 py-10 sm:py-14 xl:py-20 bg-black text-white">
           <AboutCompetition />
           <Categories />
