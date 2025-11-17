@@ -12,13 +12,13 @@ import NvidiaStudio from '@/../public/nights-6/NV-Studio.png'
 function PrevCard({img, title, name}) {
   return (<div className="w-full">
     <Image src={img} alt={title} className="w-full aspect-square object-cover" />
-    <div className="pt-2 px-4 flex items-end justify-between gap-2">
+    <div className="pt-2 px-4 flex max-md:flex-col md:items-end justify-between gap-2">
       <div className="text-start">
         <p className="font-bold ">{name}</p>
         <p className="">{title}</p>
-        <p className="">NVIDIA Studio Night V</p>
+        <p className="max-sm:text-medium">NVIDIA Studio Night V</p>
       </div>
-      <Image src={NvidiaStudio} alt='NVIDIA Studio' className="w-24 object-contain" />
+      <Image src={NvidiaStudio} alt='NVIDIA Studio' className="w-24 object-contain max-md:self-end" />
     </div>
   </div>)
 }
@@ -42,7 +42,10 @@ function PrevWinners() {
   ]
 
   return (
-      <div className="flex flex-col gap-5 justify-around w-full font-normal relative">
+      <div className="flex flex-col gap-5 justify-around w-full relative">
+        <h4 className="heading-medium font-bold text-center">
+          {t("prevWinners")}
+        </h4>
 
         <div className="grid grid-cols-2 justify-between w-full lg:gap-8 gap-4">
           {winnersData.map((item, i)=>{

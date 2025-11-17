@@ -6,12 +6,13 @@ import Categories from "@/components/Categories/Categories";
 import Prizes from "@/components/Prizes/Prizes";
 import Hero from "@/components/Hero/Hero.jsx";
 import Deadline from "@/components/RegisterForm/footer/Deadline";
+import PrevWinners from "@/components/Winners/PrevWinners";
 
 export default function HomePage() {
   const t = useTranslations("HomePage");
   return (
     <>
-      <div className="w-full">
+      <div className="w-screen overflow-hidden">
         <Hero />
         <AboutEvent />
         <Deadline />
@@ -19,7 +20,8 @@ export default function HomePage() {
           <AboutCompetition />
           <Categories />
           <div className="w-full max-w-[1290px] mx-auto h-0.5 bg-gray-600" />
-          <Prizes />
+          {/* <Prizes /> */}
+          <PrevWinners />
         </div>
       </div>
     </>
