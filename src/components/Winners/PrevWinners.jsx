@@ -1,10 +1,10 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
-import photographyWinner from '@/../public/nights-6/winners/abdallah-photography-winner.jpg'
-import fashionWinner from '@/../public/nights-6/winners/omnia-fashion-winner.jpg'
-import cgiWinner from '@/../public/nights-6/winners/shady-cgi-winner.jpg'
-import architectWinner from '@/../public/nights-6/winners/moatasem-architect-winner.jpg'
+import photographyWinner from '@/../public/nights-6/winners/abdallah-photography.jpg'
+import fashionWinner from '@/../public/nights-6/winners/omnia-fashion.jpg'
+import cgiWinner from '@/../public/nights-6/winners/shady-cgi.jpg'
+import architectWinner from '@/../public/nights-6/winners/moatasem-architect.jpg'
 
 import NvidiaStudio from '@/../public/nights-6/NV-Studio.png'
 

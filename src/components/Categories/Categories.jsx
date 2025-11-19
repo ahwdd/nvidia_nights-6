@@ -4,12 +4,12 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import cgiWinningImg from "@/../public/nights-6/categories/cgi.jpg";
-import photographyWinningImg from "@/../public/nights-6/categories/photography.jpg";
-import interiorWinningImg from "@/../public/nights-6/categories/interior.jpg";
-import videographyWinningImg from "@/../public/nights-6/categories/videography.jpg";
-import fashionWinningImg from "@/../public/nights-6/categories/fashion.jpg";
-import { IoPlayCircleOutline } from "react-icons/io5";
+import cgiWinningImg from "@/../public/icons/rocket.png";
+import photographyWinningImg from "@/../public/icons/camera.png";
+import interiorWinningImg from "@/../public/icons/cityscape.png";
+import videographyWinningImg from "@/../public/icons/videography.png";
+import fashionWinningImg from "@/../public/icons/tshirt.png";
+import { IoPlay } from "react-icons/io5";
 import VideoModal from "./VideoModal";
 
 export default function Categories() {
@@ -79,10 +79,10 @@ export default function Categories() {
               className="w-full lg:w-[calc(33%-.8rem)] sm:w-[calc(33%-.9rem)] flex flex-col items-center justify-center gap-5">
               <div className="relative w-full group">
                 <Image src={cat.img} alt={cat.title || "category title"} priority={i < 3}
-                  className="w-full aspect-video object-cover"/>
-                <p className="absolute rtl:left-3 ltr:right-3 bottom-2 text-gray-200 text-xxs">
+                  className="w-2/5 aspect-square mx-auto object-contain invert"/>
+                {/* <p className="absolute rtl:left-3 ltr:right-3 bottom-2 text-gray-200 text-xxs">
                   {cat.winner}
-                </p>
+                </p> */}
 
                 {cat.playIcon && (
                   <button aria-label={`Play ${cat.title} winner video`}
@@ -92,9 +92,9 @@ export default function Categories() {
                         baseName: cat.videoBase || "winner-vid",
                       })
                     }
-                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-white transition-transform hover:scale-110"
+                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-transparent transition-transform"
                   >
-                    <IoPlayCircleOutline className="w-16 h-16 opacity-90 drop-shadow-lg" />
+                    <IoPlay className="w-16 h-16 opacity-90 drop-shadow-lg" />
                   </button>
                 )}
               </div>
