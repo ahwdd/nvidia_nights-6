@@ -68,6 +68,7 @@
     "title": "Categories",
     "submit": "Submit Your Artwork",
     "prevWinners": "Previous Winners",
+    "nvidiaNights": "NVIDIA studio nights V Egypt",
     "cgi": "3D/CGI",
     "cgiWinner": "Shady Dewan",
     "cgiDesc": "Submit a short video with your source file to enter. One winner will be chosen to bring their creation to life during the event, editing, rendering, or showcasing their work live.",
@@ -84,7 +85,7 @@
     "videographyWinner": "Mohannad Nasr",
     "videographyDesc": "Showcase your short film or videography project on the big screen. Selected winner will be featured during the event, bringing your story and vision to life for the audience.",
     "architectWinner": "Moatasem Diab",
-    "architect": "Architect"
+    "architect": "Architectural Design"
   },
 
   "Register": {

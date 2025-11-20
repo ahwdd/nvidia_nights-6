@@ -16,9 +16,7 @@ function PrevCard({img, title, name}) {
       <div className="text-start">
         <p className="font-bold ">{name}</p>
         <p className="">{title}</p>
-        <p className="max-sm:text-medium">NVIDIA Studio Night V</p>
       </div>
-      <Image src={NvidiaStudio} alt='NVIDIA Studio' className="w-24 object-contain max-md:self-end" />
     </div>
   </div>)
 }
@@ -46,6 +44,9 @@ function PrevWinners() {
         <h4 className="heading-medium font-bold text-center">
           {t("prevWinners")}
         </h4>
+        <p className="heading-smallest font-bold text-gray-300 text-center -mt-3">
+          {t("nvidiaNights")}
+        </p>
 
         <div className="grid grid-cols-2 justify-between w-full lg:gap-8 gap-4">
           {winnersData.map((item, i)=>{

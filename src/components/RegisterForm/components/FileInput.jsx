@@ -50,7 +50,7 @@ const FileInput = ({ register, setValue, errors }) => {
 
         <label className={`text-gray-400 cursor-pointer transition-opacity flex items-center gap-1 text-sm
             ${fileDisabled ? "opacity-0 pointer-events-none" : "opacity-100 flex-1"}`}>
-          <span className="flex gap-1 items-center text-sm">
+          <span className="flex gap-1 items-center text-sm font-bold">
             {t("uploadFile") || "Upload File"}
           </span>
           <input

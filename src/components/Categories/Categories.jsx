@@ -4,11 +4,11 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import cgiWinningImg from "@/../public/icons/rocket.png";
-import photographyWinningImg from "@/../public/icons/camera.png";
-import interiorWinningImg from "@/../public/icons/cityscape.png";
-import videographyWinningImg from "@/../public/icons/videography.png";
-import fashionWinningImg from "@/../public/icons/tshirt.png";
+import cgiWinningImg from "@/../public/icons/visual-effects.png";
+import photographyWinningImg from "@/../public/icons/photograph.png";
+import interiorWinningImg from "@/../public/icons/interior-design.png";
+import videographyWinningImg from "@/../public/icons/film.png";
+import fashionWinningImg from "@/../public/icons/fashion.png";
 import { IoPlay } from "react-icons/io5";
 import VideoModal from "./VideoModal";
 
@@ -71,7 +71,7 @@ export default function Categories() {
   return (
     <div id="categories" className="flex items-center justify-center">
       <div className="flex flex-col items-center w-full max-w-[1290px] mx-auto max-md:px-8 text-center gap-10 relative">
-        <h4 className="heading-small font-bold">{t("title")}</h4>
+        <h4 className="heading-medium font-bold">{t("title")}</h4>
 
         <div className="flex flex-wrap justify-center items-start gap-x-6 gap-y-10 w-full">
           {theCategories.map((cat, i) => (
@@ -79,7 +79,7 @@ export default function Categories() {
               className="w-full lg:w-[calc(33%-.8rem)] sm:w-[calc(33%-.9rem)] flex flex-col items-center justify-center gap-5">
               <div className="relative w-full group">
                 <Image src={cat.img} alt={cat.title || "category title"} priority={i < 3}
-                  className="w-2/5 aspect-square mx-auto object-contain invert"/>
+                  className="w-1/3 aspect-square mx-auto object-contain invert"/>
                 {/* <p className="absolute rtl:left-3 ltr:right-3 bottom-2 text-gray-200 text-xxs">
                   {cat.winner}
                 </p> */}
