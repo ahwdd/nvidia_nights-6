@@ -41,23 +41,11 @@ const helv = localFont({
 export const metadata = {
   title: "NVIDIA Studio Nights 6",
   description:
-    "Studio Nights, an exciting event for photographers, videographers, digital artists, 3D designers, and CGI specialists. Building on the success of our previous edition, this event is a celebration of innovation and digital artistry, offering a unique opportunity to network, explore, and gain inspiration. Experience the latest in NVIDIA Studio technologies and connect with the UAE's thriving creative community. Whether youre an expert or just starting out, Studio Nights is crafted to ignite creativity and highlight the best in digital arts. Participation in our contests is voluntary, allowing everyone to enjoy a variety of experiences without any prerequisites. Get ready to be inspired, learn, and celebrate the remarkable world of digital creativity",
+    "Unleash your creativity at NVIDIA Studio Night 6, the premier event celebrating the creative industry and the region's most inspiring artists. After five successful Studio Night events across Abu Dhabi, KSA, Egypt, and Turkey, the sixth edition arrives at Dubai's iconic Museum of the Future on 13 February.",
   charset: "utf-8",
-  // viewport: "width=device-width, initial-scale=1.0",
   icons: {
-    icon: "/favicon.svg", // Favicon
+    icon: "/favicon.svg",
   },
-  // openGraph: {
-  //   title: "Default Open Graph Title",
-  //   description: "Default Open Graph Description",
-  //   images: "https://www.yourwebsite.com/default-image.jpg",
-  // },
-  // twitter: {
-  //   card: "summary_large_image",
-  //   title: "Default Twitter Title",
-  //   description: "Default Twitter Description",
-  //   images: "https://www.yourwebsite.com/default-image.jpg",
-  // },
 };
 
 // Comments
@@ -65,10 +53,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-
-      //         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body>{/* className={`${geistSans.variable} ${geistMono.variable} antialiased`} */}
         {children}
       </body>
     </html>
