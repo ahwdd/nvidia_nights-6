@@ -40,15 +40,15 @@ function PrevWinners() {
   ]
 
   return (
-      <div className="flex flex-col gap-5 justify-around w-full relative max-w-[954px] mx-auto max-md:px-8">
+      <div className="flex flex-col gap-5 justify-around w-full relative max-w-7xl mx-auto max-md:px-8">
         <h4 className="heading-medium font-bold text-center">
           {t("prevWinners")}
         </h4>
-        <p className="heading-smallest font-bold text-gray-300 text-center -mt-3">
+        <p className="heading-smallest font-bold text-white text-center -mt-3">
           {t("nvidiaNights")}
         </p>
 
-        <div className="grid grid-cols-2 justify-between w-full lg:gap-8 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 justify-between w-full lg:gap-8 gap-4">
           {winnersData.map((item, i)=>{
             return <div key={i} className="w-full flex items-center justify-between lg:gap-8 gap-4 text-xl">
               <PrevCard img={item.winnerImg} title={item.title} name={item.name} />

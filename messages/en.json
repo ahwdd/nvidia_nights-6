@@ -25,10 +25,9 @@
   "AboutEvent": {
     "mainTitle": "About Event",
     "title1": "Unleash your creativity at NVIDIA Studio Night 6, the premier event celebrating the creative industry and the region's most inspiring artists. After five successful Studio Night events across Abu Dhabi, KSA, Egypt, and Turkey, the sixth edition arrives at Dubai's iconic Museum of the Future on 13 February.",
-    "title2": " This is a special event brings together professional creators and emerging talent to showcase their work, connect with industry peers, discover new opportunities, and explore the future of digital artistry powered by the NVIDIA Studio platform.",
-    "title3": "Whether you're a designer or creator in any field, this event is for you.",
-    "title4": "You can join us as a guest or participate in our creative contests across the following categories: 3D/CGI, Interior Design, Short Films, Photography, and Digital Fashion. Registration is on a first-come, first-served basis – so secure your spot today.",
-    "title5": "To join as a guest, use the link below. To participate in the creative contests, please see the next section of this.",
+    "title2": "This is a special event brings together professional creators and emerging talent to showcase their work, connect with industry peers, discover new opportunities, and explore the future of digital artistry powered by the NVIDIA Studio platform.",
+    "title3": "Whether you're a designer or creator in any field, this event is for you. You can join us as a guest or participate in our creative contests across the following categories: 3D/CGI, Interior Design, Short Films, Photography, and Digital Fashion. Registration is on a first come first served basis, so secure your spot today.",
+    "title4": "To join as a guest, use the link below. To participate in the creative contests, please see the next section of this page.",
     "register": "Register To Attend as a Guest"
   },
 
@@ -48,14 +47,12 @@
 
   "AboutCompetition": {
     "title": "About the Competition",
-    "desc": "As part of the event, NVIDIA Studio Night 6 will feature a <b>creative competition</b> for local artists across the following categories: 3D/CGI, Interior Design, Short Films, Photography, and Digital Fashion.",
-    "desc1": "Artists in these fields are invited to create and submit original work that reflects the event's theme: <b>Museum of the Future, Dubai</b>. All entries must be inspired by either the city of Dubai or the Museum of the Future.",
-    "desc2": "The top artists in each category will be showcased during the event.",
-    "desc3": "Winning artists will be invited on stage to present their work and will receive recognition through NVIDIA channels and local publications. Winners will also receive a <b>valuable prize and a trophy from NVIDIA</b>.",
-    "desc4": "Submission deadline: 25 January",
-    "desc5": "Selected winners will be contacted directly via email, so please keep an eye out after registering.",
-    "desc6": "If you are an artist in any of the fields mentioned above, we encourage you to apply and share your incredible work with us.",
-    "desc7": "You may refer to examples from previous Studio Night editions below.",
+    "desc": "As part of the event, NVIDIA Studio Night 6 will feature a <b>creative competition</b> for local artists.",
+    "desc1": "Artists are invited to create and submit original work that reflects the event's theme: <b>Museum of the Future</b>, Dubai.",
+    "desc2": "All entries must be inspired by either the city of Dubai or the Museum of the Future. The top artists in each category will be showcased during the event.",
+    "desc3": "Winning artists will be invited on stage to present their work and will receive recognition through NVIDIA channels and local publications. Winners will also receive a valuable prize and a trophy from <b>NVIDIA</b>.",
+    "desc4": "<b>Submission deadline: 25 January</b>. Selected winners will be contacted directly via email, so please keep an eye out after registering.",
+    "desc5": "If you are an artist in any of the fields mentioned above, we encourage you to apply and share your incredible work with us. You may refer to examples from previous Studio Night editions below.",
     "submit": "Submit Your Artwork"
   },
 
@@ -68,7 +65,7 @@
     "title": "Categories",
     "submit": "Submit Your Artwork",
     "prevWinners": "Previous Winners",
-    "nvidiaNights": "NVIDIA studio nights V Egypt",
+    "nvidiaNights": "NVIDIA Studio Nights V Egypt",
     "cgi": "3D/CGI",
     "cgiWinner": "Shady Dewan",
     "cgiDesc": "Submit a short video with your source file to enter. One winner will be chosen to bring their creation to life during the event, editing, rendering, or showcasing their work live.",
