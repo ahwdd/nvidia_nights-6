@@ -6,13 +6,13 @@ import fashionWinner from '@/../public/nights-6/winners/omnia-fashion.jpg'
 import cgiWinner from '@/../public/nights-6/winners/shady-cgi.jpg'
 import architectWinner from '@/../public/nights-6/winners/moatasem-architect.jpg'
 
-import NvidiaStudio from '@/../public/nights-6/NV-Studio.png'
+// import NvidiaStudio from '@/../public/nights-6/NV-Studio.png'
 
 
 function PrevCard({img, title, name}) {
   return (<div className="w-full">
     <Image src={img} alt={title} className="w-full aspect-square object-cover" />
-    <div className="pt-2 px-4 flex max-md:flex-col md:items-end justify-between gap-2">
+    <div className="pt-2 flex max-md:flex-col md:items-end justify-between gap-2">
       <div className="text-start">
         <p className="font-bold ">{name}</p>
         <p className="">{title}</p>
