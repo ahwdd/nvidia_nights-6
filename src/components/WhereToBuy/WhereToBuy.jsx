@@ -20,7 +20,7 @@ export default function WhereToBuy() {
           {t("title") || "Where to Buy"}
         </h4>
 
-        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+        {/* <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
           {countries.map((country) => (
             <button
               key={country.id}
@@ -37,7 +37,7 @@ export default function WhereToBuy() {
               )}
             </button>
           ))}
-        </div>
+        </div> */}
 
         <div className="mt-4">
           <p className="text-large text-gray-300">
