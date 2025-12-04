@@ -61,6 +61,14 @@
     "desc": "Each category winner — 3D/CGI, Photography, Interior Design, Short Films & Videography, and Digital Fashion Design — will not only receive a coveted trophy but also a powerful GeForce RTX 50 graphics card. Winners will also enjoy the spotlight with a special feature on our social media platforms, celebrating their exceptional talent and creativity."
   },
 
+  "WhereToBuy": {
+    "title": "Where to Buy",
+    "kuwait": "Kuwait",
+    "uae": "United Arab Emirates",
+    "saudi": "Saudi Arabia",
+    "comingSoon": "Coming soon"
+  },
+
   "Categories": {
     "title": "Categories",
     "submit": "Submit Your Artwork",

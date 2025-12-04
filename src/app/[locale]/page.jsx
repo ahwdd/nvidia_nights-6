@@ -8,6 +8,7 @@ import Hero from "@/components/Hero/Hero.jsx";
 import Deadline from "@/components/RegisterForm/footer/Deadline";
 import PrevWinners from "@/components/Winners/PrevWinners";
 import AboutEventCompelete from "@/components/AboutEvent/AboutEventCompelete";
+import WhereToBuy from "@/components/WhereToBuy/WhereToBuy";
 
 export default function HomePage() {
   const t = useTranslations("HomePage");
@@ -24,6 +25,7 @@ export default function HomePage() {
           <div className="w-full max-w-[1290px] mx-auto h-0.5 bg-gray-600" />
           {/* <Prizes /> */}
           <PrevWinners />
+          <WhereToBuy />
         </div>
       </div>
     </>

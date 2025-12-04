@@ -6,8 +6,6 @@ import fashionWinner from '@/../public/nights-6/winners/omnia-fashion.jpg'
 import cgiWinner from '@/../public/nights-6/winners/shady-cgi.jpg'
 import architectWinner from '@/../public/nights-6/winners/moatasem-architect.jpg'
 
-// import NvidiaStudio from '@/../public/nights-6/NV-Studio.png'
-
 
 function PrevCard({img, title, name}) {
   return (<div className="w-full">
