@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { ExternalLinkIcon } from "lucide-react";
+import Link from "next/link";
 
 function AboutEventCompelete() {
   const t = useTranslations("AboutEvent");
@@ -10,11 +11,11 @@ function AboutEventCompelete() {
           <p className="">{t("title3")} </p>
           <p className="">{t("title4")} </p>
 
-          <a href="https://luma.com/8mrbuqpn" target="_blank" rel="noopener noreferrer"
+          <Link href="https://luma.com/8mrbuqpn" target="_blank" rel="noopener noreferrer"
           className="button-large font-bold bg-mainGreen hover:bg-mainGreenHover transition text-black p-space mt-10 w-fit flex items-center justify-center gap-2">
             <span>{t("register")}</span>
             <ExternalLinkIcon className="size-5 stroke-2" />
-          </a>
+          </Link>
       </div>
     </div>
   );

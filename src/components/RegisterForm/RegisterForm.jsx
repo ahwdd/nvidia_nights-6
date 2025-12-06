@@ -203,8 +203,8 @@ function RegisterForm({ onBookingCreated }) {
   };
 
   return (
-    <div id="submit" className="w-full max-w-[954px] mx-auto max-md:px-8 px-2 py-12">
-      {/* Header */}
+    <div id="submit" className="w-full max-w-[954px] mx-auto px-8 md:px-2 py-12">
+
       <div className="text-center mb-8">
         <h1 className="heading-medium font-bold text-black mb-2">
           {t("title") || "Submit Your Artwork"}
@@ -214,27 +214,21 @@ function RegisterForm({ onBookingCreated }) {
         </p>
       </div>
 
-      {/* Form */}
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="w-full flex flex-col gap-5"
-      >
-        {/* First Name & Last Name */}
-        <div className="grid grid-cols-2 gap-5">
+      <form onSubmit={handleSubmit(onSubmit)}
+        className="w-full flex flex-col gap-5">
+
+        <div className="grid sm:grid-cols-2 gap-5">
           <div className="flex flex-col gap-2">
-            <input
-              className="w-full p-3 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500"
-              type="text"
-              placeholder={t("first_name") || "First Name"}
-              {...register("first_name")}
-            />
+            <input type="text" placeholder={t("first_name") || "First Name"}
+              className="w-full p-3 max-sm:px-1 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500"
+              {...register("first_name")}/>
             {errors.first_name && (
               <RegisterError error={errors.first_name.message} />
             )}
           </div>
           <div className="flex flex-col gap-2">
             <input
-              className="w-full p-3 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500"
+              className="w-full p-3 max-sm:px-1 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500"
               type="text"
               placeholder={t("last_name") || "Last Name"}
               {...register("last_name")}
@@ -245,11 +239,10 @@ function RegisterForm({ onBookingCreated }) {
           </div>
         </div>
 
-        {/* Email & Country */}
-        <div className="grid grid-cols-2 gap-5">
+        <div className="grid sm:grid-cols-2 gap-5">
           <div className="flex flex-col gap-2">
             <input
-              className="w-full p-3 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500"
+              className="w-full p-3 max-sm:px-1 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500"
               type="email"
               placeholder={t("email") || "Email Address"}
               {...register("email")}
@@ -259,7 +252,7 @@ function RegisterForm({ onBookingCreated }) {
           <div className="flex flex-col gap-2">
             <select
               defaultValue=""
-              className={`w-full p-3 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500 bg-white
+              className={`w-full p-3 max-sm:px-1 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500 bg-white
                 ${(country && country!='')?'':'text-gray-400'}`}
               {...register("country")}
               onChange={handleCountryChange}
@@ -277,11 +270,10 @@ function RegisterForm({ onBookingCreated }) {
           </div>
         </div>
 
-        {/* City & Contest Type */}
-        <div className="grid grid-cols-2 gap-5">
+        <div className="grid sm:grid-cols-2 gap-5">
           <div className="flex flex-col gap-2">
             <select defaultValue=""
-              className={`w-full p-3 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500 bg-white
+              className={`w-full p-3 max-sm:px-1 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500 bg-white
                 ${(city && city != '')? '': 'text-gray-400'}`}
               {...register("city")}
               disabled={!selectedCountry}
@@ -300,7 +292,7 @@ function RegisterForm({ onBookingCreated }) {
           <div className="flex flex-col gap-2">
             <select
               defaultValue=""
-              className={`w-full p-3 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500 bg-white
+              className={`w-full p-3 max-sm:px-1 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500 bg-white
                 ${(contest && contest != '')? '': 'text-gray-400'}`}
               {...register("contest_type")}
             >
@@ -326,13 +318,12 @@ function RegisterForm({ onBookingCreated }) {
           </div>
         </div>
 
-        {/* Hardware Used & Software Used */}
-        <div className="grid grid-cols-2 gap-5">
+        <div className="grid sm:grid-cols-2 gap-5">
           <div className="flex flex-col gap-2">
             <input
-              className="w-full p-3 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500"
+              className="w-full p-3 max-sm:px-1 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500"
               type="text"
-              placeholder={t("hardware_used") || "Hardware Used"}
+              placeholder={t("hardware_used_placeholder") || "Hardware Used"}
               {...register("hardware_used")}
             />
             {errors.hardware_used && (
@@ -341,9 +332,9 @@ function RegisterForm({ onBookingCreated }) {
           </div>
           <div className="flex flex-col gap-2">
             <input
-              className="w-full p-3 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500"
+              className="w-full p-3 max-sm:px-1 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500"
               type="text"
-              placeholder={t("software_used") || "Software Used"}
+              placeholder={t("software_used_placeholder") || "Software Used"}
               {...register("software_used")}
             />
             {errors.software_used && (
@@ -355,33 +346,27 @@ function RegisterForm({ onBookingCreated }) {
         {/* Brief About Your Project */}
         <div className="flex flex-col gap-2">
           <textarea
-            className="w-full p-3 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500 h-[150px] resize-none"
+            className="w-full p-3 max-sm:px-1 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500 h-[150px] resize-none"
             placeholder={t("brief_about_your_project") || "Brief About Your Project"}
             {...register("brief")}
           ></textarea>
           {errors.brief && <RegisterError error={errors.brief.message} />}
         </div>
 
-        <div className="grid grid-cols-2 gap-5">
-          {/* File Input */}
+        <div className="grid sm:grid-cols-2 gap-5">
           <div className="flex flex-col gap-2">
             <FileInput register={register} setValue={setValue} errors={errors} />
           </div>
-          {/* Social Media Links Section */}
           <div className="flex flex-col gap-2">
-            <input
-              className="w-full p-3 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500"
-              type="url"
-              placeholder={t("socialLink") || "socialLink URL"}
-              {...register("socialLink")}
-            />
+            <input type="url" placeholder={t("socialLink") || "socialLink URL"}
+              className="w-full p-3 max-sm:px-1 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500"
+              {...register("socialLink")}/>
             {errors.socialLink && (
               <RegisterError error={errors.socialLink.message} />
             )}
           </div>
         </div>
 
-        {/* Submit */}
         <div className="flex items-center justify-between">
           <p className="font-bold text-medium text-black">
             {t("nvidia_requirement") || "You need to be using NVIDIA products to participate."}
@@ -400,21 +385,16 @@ function RegisterForm({ onBookingCreated }) {
           </button>
         </div>
 
-        {/* Terms and Conditions */}
         <div className="flex items-start gap-2 text-sm">
-          <input type="checkbox"
-            required
-            checked={isChecked}
+          <input type="checkbox" required checked={isChecked}
             onChange={(e) => setIsChecked(e.target.checked)}
-            className="mt-1 size-4"
-          />
+            className="mt-1 size-4"/>
           <div className="text-black flex items-center gap-1 flex-wrap text-[15px]">
             <span>{t("agree") || "I agree to all"}</span>
             <TermsButton />
           </div>
         </div>
 
-        {/* Error Message */}
         {formError && (
           <div className="bg-red-50 border border-red-200 rounded-sm p-4">
             <RegisterError error={formError} />
@@ -422,7 +402,6 @@ function RegisterForm({ onBookingCreated }) {
         )}
       </form>
 
-      {/* Success Modal */}
       <RegisterSucces isOpen={isOpen} setIsOpen={setIsOpen} />
     </div>
   );

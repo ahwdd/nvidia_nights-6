@@ -11,6 +11,7 @@ import videographyWinningImg from "@/../public/icons/film.png";
 import fashionWinningImg from "@/../public/icons/fashion.png";
 import { IoPlay } from "react-icons/io5";
 import VideoModal from "./VideoModal";
+import Link from "next/link";
 
 export default function Categories() {
   const t = useTranslations("Categories");
@@ -105,11 +106,11 @@ export default function Categories() {
           ))}
         </div>
 
-        <a href="#submit" target="_self" rel="noopener noreferrer"
+        <Link href="#submit" target="_self" rel="noopener noreferrer"
           className="button-large font-bold bg-mainGreen hover:bg-mainGreenHover transition text-black p-space mt-10 w-fit flex items-center justify-center gap-2"
         >
           <span>{t("submit")}</span>
-        </a>
+        </Link>
       </div>
 
       <VideoModal
