@@ -311,6 +311,9 @@ function RegisterForm({ onBookingCreated }) {
               <option value="Architectural Design">
                 {locale === "ar" ? "التصميم المعماري" : "Architectural Design"}
               </option>
+              <option value="Videography">
+                {locale === "ar" ? "التصوير السينمائي (الأفلام القصيرة)" : "Videography - Short Films"}
+              </option>
             </select>
             {errors.contest_type && (
               <RegisterError error={errors.contest_type.message} />
