@@ -250,8 +250,7 @@ function RegisterForm({ onBookingCreated }) {
             {errors.email && <RegisterError error={errors.email.message} />}
           </div>
           <div className="flex flex-col gap-2">
-            <select
-              defaultValue=""
+            <select defaultValue=""
               className={`w-full p-3 max-sm:px-1 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500 bg-white
                 ${(country && country!='')?'':'text-gray-400'}`}
               {...register("country")}
@@ -326,7 +325,7 @@ function RegisterForm({ onBookingCreated }) {
             {/* Hardware you created your content on i.e. RTX Desktop PC, RTX laptop, etc. */}
             <textarea rows={1} className="w-full p-3 border border-gray-300 rounded-sm
                 focus:outline-none focus:border-gray-500 resize-none leading-tight 
-                placeholder:text-sm max-md:placeholder:text-xs"
+                placeholder:text-sm max-md:placeholder:text-xs max-md:min-h-[3rem] max-xs:min-h-[3.7rem] max-sm:placeholder:leading-3"
               placeholder={t("hardware_used") || "Hardware Used"}
               {...register("hardware_used")}
             />
@@ -337,7 +336,7 @@ function RegisterForm({ onBookingCreated }) {
           <div className="flex flex-col gap-2">
             <textarea rows={1} className="w-full p-3 border border-gray-300 rounded-sm
                 focus:outline-none focus:border-gray-500 resize-none leading-tight 
-                placeholder:text-sm max-md:placeholder:text-xs"
+                placeholder:text-sm max-md:placeholder:text-xs max-md:min-h-[3rem] max-xs:min-h-[3.7rem] max-sm:placeholder:leading-3"
               placeholder={t("software_used") || "Software Used"}
               {...register("software_used")}
             />
