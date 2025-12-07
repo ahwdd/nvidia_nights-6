@@ -13,16 +13,16 @@ const FileInput = ({ register, setValue, errors }) => {
     const file = event.target.files?.[0];
     if (file) {
       setFileName(file.name);
-      setInputValue(""); // Clear the text input.
-      setValue("file", file); // Set the file directly.
+      setInputValue("");
+      setValue("file", file)
     }
   };
 
   const handleInputChange = (event) => {
     const value = event.target.value;
     setInputValue(value);
-    setValue("file", value); // Use the string value directly.
-    setFileName(""); // Clear any file name.
+    setValue("file", value);
+    setFileName("");
   };
 
   const handleClearFile = () => {
@@ -30,15 +30,15 @@ const FileInput = ({ register, setValue, errors }) => {
     setValue("file", "");
   };
 
-  const textDisabled = fileName.length > 0;   // disable/fade text input when a file is selected
-  const fileDisabled = inputValue.length > 0; // disable/fade file input when user types a link
+  const textDisabled = fileName.length > 0;
+  const fileDisabled = inputValue.length > 0
 
   return (
     <div className="flex flex-col gap-2">
       <div className="relative w-full flex items-center justify-start border border-gray-300 rounded-sm overflow-hidden px-3">
         <input className={`bg-transparent py-3 focus:outline-none transition-opacity
             ${textDisabled ? "opacity-0 pointer-events-none" : "opacity-100"}
-            ${fileDisabled ? "w-full" : "ltr:w-[6.25rem] rtl:w-[9.5rem]"}`}
+            ${fileDisabled ? "w-full" : "md:ltr:w-[12rem] ltr:w-[10.5rem] md:rtl:w-[9.5rem] rtl:w-[8.5rem]"}`}
           type="text"
           placeholder={t("linkPlaceholder") || "Insert Link or "}
           value={inputValue}
@@ -50,16 +50,11 @@ const FileInput = ({ register, setValue, errors }) => {
 
         <label className={`text-gray-400 cursor-pointer transition-opacity flex items-center gap-1 text-sm
             ${fileDisabled ? "opacity-0 pointer-events-none" : "opacity-100 flex-1"}`}>
-          <span className="flex gap-1 items-center text-sm font-bold">
+          <span className="flex gap-1 items-center sm:text-sm text-xs font-bold">
             {` ${t("uploadFile") || "Upload File"} `}
           </span>
-          <input
-            type="file"
-            className="hidden"
-            onChange={handleFileChange}
-            disabled={fileDisabled}
-            aria-disabled={fileDisabled}
-          />
+          <input type="file" className="hidden" aria-disabled={fileDisabled}
+            onChange={handleFileChange} disabled={fileDisabled} />
         </label>
       </div>
 
