@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 
-function AboutCompetition() {
+function AboutCompetition({lang="en"}) {
   const t = useTranslations("AboutCompetition");
 
   const rich = {
@@ -18,8 +18,8 @@ function AboutCompetition() {
           <p>{t.rich("desc1", rich)}</p>
           <p>{t.rich("desc2", rich)}</p>
           <p>{t.rich("desc3", rich)}</p>
-          <p className="rtl:hidden">{t.rich("desc4", rich)}</p>
-          <p className="rtl:hidden">{t.rich("desc5", rich)}</p>
+          {lang=='en' && <p className="rtl:hidden">{lang=='en'? t.rich("desc4", rich):''}</p>}
+          {lang=='en' && <p className="rtl:hidden">{lang=='en'? t.rich("desc5", rich):''}</p>}
         </div>
 
         {/* <a href="#submit" target="_self" rel="noopener noreferrer"

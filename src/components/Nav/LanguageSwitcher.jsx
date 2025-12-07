@@ -1,28 +1,29 @@
 "use client";
 
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
-import React, { useMemo } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
+import React, { useMemo, useEffect, useState } from "react";
 
 import { CiGlobe } from "react-icons/ci";
 
 export default function LanguageSwitcher({lang="en"}) {
   const searchParams = useSearchParams();
- const query = useMemo(() => {
+  const pathname = usePathname()
+
+  const targetLocale = lang === "ar" ? "en" : "ar";
+  const label = targetLocale === "ar" ? "Ar" : "En";
+
+  const query = useMemo(() => {
     if (!searchParams) return "";
     const str = searchParams.toString();
     return str ? `?${str}` : "";
   }, [searchParams]);
 
-  const targetLocale = lang === "ar" ? "en" : "ar";
-
-  const label = targetLocale === "ar" ? "Ar" : "En";
-
   const positionClass = lang === "ar" ? "left-4" : "right-4";
-    const runtimePrefix = typeof window !== "undefined" && window.location.pathname.startsWith('/nights/sn6')
-    ? '/nights/sn6'
-    : '';
-    const href = `/${targetLocale}${runtimePrefix}${query}`;
+  const runtimePrefix = (pathname.startsWith("/nights/sn6"))
+    ? "/nights/sn6": "";
+    console.log('href :>> ', `/${targetLocale}, ${pathname}/${runtimePrefix}, ${query}`);
+  const href = `/${targetLocale}/${runtimePrefix}${query}`
 
   return (
     <div className="absolute w-screen top-4 left-0 z-50 bg-transparent max-md:px-8">
