@@ -215,9 +215,9 @@ function RegisterForm({ onBookingCreated }) {
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)}
-        className="w-full flex flex-col md:gap-5 gap-3 max-md:text-sm">
+        className="w-full flex flex-col gap-5 max-md:text-sm">
 
-        <div className="grid sm:grid-cols-2 md:gap-5 gap-3">
+        <div className="grid grid-cols-2 gap-5">
           <div className="flex flex-col gap-2">
             <input type="text" placeholder={t("first_name") || "First Name"}
               className="w-full p-3 max-sm:px-1 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500"
@@ -239,7 +239,7 @@ function RegisterForm({ onBookingCreated }) {
           </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 md:gap-5 gap-3">
+        <div className="grid grid-cols-2 gap-5">
           <div className="flex flex-col gap-2">
             <input
               className="w-full p-3 max-sm:px-1 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500"
@@ -270,7 +270,7 @@ function RegisterForm({ onBookingCreated }) {
           </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 md:gap-5 gap-3">
+        <div className="grid grid-cols-2 gap-5">
           <div className="flex flex-col gap-2">
             <select defaultValue=""
               className={`w-full p-3 max-sm:px-1 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500 bg-white
@@ -321,12 +321,12 @@ function RegisterForm({ onBookingCreated }) {
           </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 md:gap-5 gap-3">
+        <div className="grid grid-cols-2 gap-5">
           <div className="flex flex-col gap-2">
             {/* Hardware you created your content on i.e. RTX Desktop PC, RTX laptop, etc. */}
-            <input
-              className="w-full p-3 max-sm:px-1 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500"
-              type="text"
+            <textarea rows={1} className="w-full p-3 border border-gray-300 rounded-sm
+                focus:outline-none focus:border-gray-500 resize-none leading-tight 
+                placeholder:text-sm max-md:placeholder:text-xs"
               placeholder={t("hardware_used") || "Hardware Used"}
               {...register("hardware_used")}
             />
@@ -335,9 +335,9 @@ function RegisterForm({ onBookingCreated }) {
             )}
           </div>
           <div className="flex flex-col gap-2">
-            <input
-              className="w-full p-3 max-sm:px-1 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500"
-              type="text"
+            <textarea rows={1} className="w-full p-3 border border-gray-300 rounded-sm
+                focus:outline-none focus:border-gray-500 resize-none leading-tight 
+                placeholder:text-sm max-md:placeholder:text-xs"
               placeholder={t("software_used") || "Software Used"}
               {...register("software_used")}
             />
@@ -357,7 +357,7 @@ function RegisterForm({ onBookingCreated }) {
           {errors.brief && <RegisterError error={errors.brief.message} />}
         </div>
 
-        <div className="grid sm:grid-cols-2 md:gap-5 gap-3">
+        <div className="grid grid-cols-2 gap-5">
           <div className="flex flex-col gap-2">
             <FileInput register={register} setValue={setValue} errors={errors} />
           </div>
