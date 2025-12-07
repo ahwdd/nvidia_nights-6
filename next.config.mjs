@@ -5,9 +5,9 @@ const withNextIntl = createNextIntlPlugin();
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
-    assetPrefix: 'https://sn6.nvidiastudiospace.com',
+    assetPrefix: 'https://ns6.nvidiastudiospace.com',
     images: {
-      domains: ['sn6.nvidiastudiospace.com', 'nvidiastudiospace.com', 'www.nvidiastudiospace.com'],
+      domains: ['ns6.nvidiastudiospace.com', 'nvidiastudiospace.com', 'www.nvidiastudiospace.com'],
     },
     async headers() {
     return [
