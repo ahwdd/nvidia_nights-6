@@ -35,7 +35,7 @@ const FileInput = ({ register, setValue, errors }) => {
 
   return (
     <div className="flex flex-col gap-2">
-      <div className="relative w-full flex items-center justify-start border border-gray-300 rounded-sm overflow-hidden px-3">
+      <div className="relative w-full flex items-center justify-start border border-gray-300 rounded-sm overflow-hidden px-1 sm:px-3">
         <input className={`bg-transparent py-3 focus:outline-none transition-opacity
             ${textDisabled ? "opacity-0 pointer-events-none" : "opacity-100"}
             ${fileDisabled ? "w-full" : "md:ltr:w-[12rem] ltr:w-[10.5rem] md:rtl:w-[9.5rem] rtl:w-[8.5rem]"}`}

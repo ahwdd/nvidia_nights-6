@@ -367,7 +367,7 @@ function RegisterForm({ onBookingCreated }) {
             <FileInput register={register} setValue={setValue} errors={errors} />
           </div>
           <div className="flex flex-col gap-2">
-            <input type="url" placeholder={t("socialLink") || "socialLink URL"}
+            <input type="url" placeholder={isMobile? t("socialLinkMobile") :t("socialLink") || "socialLink URL"}
               className="w-full p-3 max-sm:px-1 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500"
               {...register("socialLink")}/>
             {errors.socialLink && (
