@@ -4,10 +4,10 @@ const withNextIntl = createNextIntlPlugin();
 
 /** @type {import('next').NextConfig} */
 
-// const basePath = '/ns6';
+const assetPrefix = process.env.ASSET_PREFIX ?? '';
 const nextConfig = {
     // basePath,
-    assetPrefix:  process.env.ASSET_PREFIX || 'https://sn6.nvidiastudiospace.com',
+    assetPrefix,
     images: {
       domains: ['sn6.nvidiastudiospace.com', 'nvidiastudiospace.com', 'www.nvidiastudiospace.com'],
     },
