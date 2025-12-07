@@ -64,6 +64,7 @@ function RegisterForm({ onBookingCreated }) {
   const [cities, setCities] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState("");
   const [isDeadlinePassed, setIsDeadlinePassed] = useState(false);
+  const [isMobile, setIsMobile] = useState(false)
 
   const currentDate = new Date();
   const submissionDeadline = new Date("2026-01-25T23:59:59"); // Jan 25, 2026
@@ -77,6 +78,11 @@ function RegisterForm({ onBookingCreated }) {
       );
     }
   }, [t]);
+
+  useEffect(()=>{
+    if(window && window.innerWidth < 600) setIsMobile(true)
+    else setIsMobile(false)
+  }, [])
 
   const {register, handleSubmit, setValue, reset, control, formState: { errors }} 
     = useForm({ resolver: zodResolver(formSchema) });
@@ -296,7 +302,7 @@ function RegisterForm({ onBookingCreated }) {
               {...register("contest_type")}
             >
               <option value="" disabled>
-                {t("choose_contest") || "Contest Type"}
+                {isMobile? t("choose_contest_mobile"): t("choose_contest") || "Contest Type"}
               </option>
               <option value="3D/CGI">3D/CGI</option>
               <option value="Photography">

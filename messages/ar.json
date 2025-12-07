@@ -108,6 +108,7 @@
     "choose_city": "اختر مدينة",
     "contest_type": "نوع المسابقة",
     "choose_contest": "اختر فئة المسابقة",
+    "choose_contest_mobile": "اختر فئة المسابقة",
     "hardware_used": "أدخل الأجهزة المستخدمة في إنشاء المحتوى مثل كمبيوتر RTX, الخ.",
     "hardware_used_placeholder": "مثال: ASUS ROG Strix RTX 4090 laptop",
     "software_used": "أضف البرامج التي استخدمتها لإنشاء محتواك.",
