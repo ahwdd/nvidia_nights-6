@@ -46,7 +46,7 @@ export const metadata = {
   icons: {
     icon: "/favicon.svg",
   },
-  // connocial: "https://nvidiastudiospace.com/nights/ns6"
+  // connocial: "https://nvidiastudiospace.com/nights/sn6"
 };
 
 // Comments

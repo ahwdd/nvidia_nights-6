@@ -7,11 +7,10 @@ const withNextIntl = createNextIntlPlugin();
 // const basePath = '/ns6';
 const nextConfig = {
     // basePath,
-    // assetPrefix: basePath,
-    
-  images: {
-    domains: ['sn6.nvidiastudiospace.com', 'nvidiastudiospace.com']
-  },
+    assetPrefix:  process.env.ASSET_PREFIX || 'https://sn6.nvidiastudiospace.com',
+    images: {
+      domains: ['sn6.nvidiastudiospace.com', 'nvidiastudiospace.com', 'www.nvidiastudiospace.com'],
+    },
     async headers() {
     return [
       {
@@ -31,24 +30,37 @@ const nextConfig = {
           },
         ],
       },
+      {
+        source: '/_next/static/:path*',
+        headers: [
+          { key: 'Access-Control-Allow-Origin', value: '*' },
+          { key: 'Cross-Origin-Resource-Policy', value: 'cross-origin' }
+        ],
+      },
+      {
+        source: '/_next/static/media/:path*',
+        headers: [
+          { key: 'Access-Control-Allow-Origin', value: '*' },
+          { key: 'Cross-Origin-Resource-Policy', value: 'cross-origin' }
+        ],
+      },
+      {
+        source: '/static/:path*',
+        headers: [
+          { key: 'Access-Control-Allow-Origin', value: '*' },
+        ],
+      },
     ];
   },
 
-  webpack: (config, { isServer }) => { // Don't process video files through webpack
+  webpack: (config, { isServer }) => {
     config.module.rules.push({
-      test: /\.(mp4|webm|ogg)$/,
+      test: /\.(mp4|webm|ogg)$/i,
       type: 'asset/resource',
-      generator: {
-        filename: 'static/media/[name][ext]',
-      },
+      generator: { filename: 'static/media/[name][ext]' },
     });
-
-    return config;
+  return config;
   },
 };
-
-// const withVideo = require("next-video");
-
-// export withVideo();
 
 export default withNextIntl(nextConfig);
