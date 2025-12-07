@@ -38,7 +38,7 @@ const FileInput = ({ register, setValue, errors }) => {
       <div className="relative w-full flex items-center justify-start border border-gray-300 rounded-sm overflow-hidden px-1 sm:px-3">
         <input className={`bg-transparent py-3 focus:outline-none transition-opacity
             ${textDisabled ? "opacity-0 pointer-events-none" : "opacity-100"}
-            ${fileDisabled ? "w-full" : "md:ltr:w-[6.25rem] ltr:w-[5.15rem] md:rtl:w-[5.25rem] rtl:w-[4.75rem]"}`}
+            ${fileDisabled ? "w-full" : "md:ltr:w-[6.25rem] ltr:w-[5.35rem] md:rtl:w-[5.25rem] rtl:w-[4.75rem]"}`}
           type="text"
           placeholder={t("linkPlaceholder") || "Insert Link or "}
           value={inputValue}
