@@ -38,7 +38,7 @@ const FileInput = ({ register, setValue, errors }) => {
       <div className="relative w-full flex items-center justify-start border border-gray-300 rounded-sm overflow-hidden px-1 sm:px-3">
         <input className={`bg-transparent py-3 focus:outline-none transition-opacity
             ${textDisabled ? "opacity-0 pointer-events-none" : "opacity-100"}
-            ${fileDisabled ? "w-full" : "md:ltr:w-[12rem] ltr:w-[10.5rem] md:rtl:w-[9.5rem] rtl:w-[8.5rem]"}`}
+            ${fileDisabled ? "w-full" : "md:ltr:w-[6.25rem] ltr:w-[5.15rem] md:rtl:w-[5.25rem] rtl:w-[4.75rem]"}`}
           type="text"
           placeholder={t("linkPlaceholder") || "Insert Link or "}
           value={inputValue}
@@ -50,7 +50,7 @@ const FileInput = ({ register, setValue, errors }) => {
 
         <label className={`text-gray-400 cursor-pointer transition-opacity flex items-center gap-1 text-sm
             ${fileDisabled ? "opacity-0 pointer-events-none" : "opacity-100 flex-1"}`}>
-          <span className="flex gap-1 items-center sm:text-sm text-xs font-bold">
+          <span className="flex gap-1 items-center sm:text-sm text-xs font-bold whitespace-nowrap">
             {` ${t("uploadFile") || "Upload File"} `}
           </span>
           <input type="file" className="hidden" aria-disabled={fileDisabled}
