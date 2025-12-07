@@ -3,16 +3,12 @@ import React, { Suspense } from "react";
 import Image from "next/image.js";
 import Link from "next/link.js";
 import { MoveLeft } from "lucide-react";
-import LanguageSwitcher from "@/components/Nav/LanguageSwitcher";
 
 function NotFound() {
   return (
     <>
       <div className="flex items-center justify-center flex-col gap-10 h-screen">
         <div className="flex flex-col gap-10 items-center">
-          <Suspense fallback={null}>
-            <LanguageSwitcher />
-          </Suspense>
 
           <h1 className="flex flex-col gap-10 text-3xl text-center font-bold justify-center items-center">
             This page is not found !
