@@ -8,6 +8,10 @@ const withNextIntl = createNextIntlPlugin();
 const nextConfig = {
     // basePath,
     // assetPrefix: basePath,
+    
+  images: {
+    domains: ['sn6.nvidiastudiospace.com', 'nvidiastudiospace.com']
+  },
     async headers() {
     return [
       {

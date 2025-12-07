@@ -19,8 +19,10 @@ export default function LanguageSwitcher({lang="en"}) {
   const label = targetLocale === "ar" ? "Ar" : "En";
 
   const positionClass = lang === "ar" ? "left-4" : "right-4";
-
-  const href = `/${targetLocale}/${query}`;
+    const runtimePrefix = typeof window !== "undefined" && window.location.pathname.startsWith('/nights/sn6')
+    ? '/nights/sn6'
+    : '';
+    const href = `/${targetLocale}${runtimePrefix}${query}`;
 
   return (
     <div className="absolute w-screen top-4 left-0 z-50 bg-transparent max-md:px-8">
