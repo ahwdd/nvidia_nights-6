@@ -1,10 +1,7 @@
 
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-
-import LogosSVG from '@/../public/nights-6/light-theme-logos.svg'
-// import NVStudioLogo from '@/../public/nights-6/NV-Studio-dark.png'
-// import MuseumOfTheFuture from '@/../public/nights-6/museum-of-the-future.png'
+import LogosSVG from '../../../../public/nights-6/light-theme-logos.svg'
 import FooterSocialLinks from "./FooterSocialLinks";
 
 function Rights() {

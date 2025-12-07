@@ -1,6 +1,6 @@
 "use client";
 import { useTranslations } from "next-intl";
-import NVStudioLogo from '@/../public/nights-6/NV-Studio.png'
+import NVStudioLogo from '../../../public/nights-6/NV-Studio.png'
 import Image from "next/image";
 import { renderDateWithSuperscript } from "@/services/renderDateWithSuperscript";
 

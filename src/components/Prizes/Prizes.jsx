@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import NVLaptop from '@/../public/nights-6/nv-labtop.jpg'
+import NVLaptop from '../../../public/nights-6/nv-labtop.jpg'
 
 function Prizes() {
   const t = useTranslations("Prizes");

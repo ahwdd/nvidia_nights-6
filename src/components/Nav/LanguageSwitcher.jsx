@@ -24,6 +24,9 @@ export default function LanguageSwitcher({lang="en"}) {
     ? "/nights/sn6": "";
   const href = `/${targetLocale}/${runtimePrefix}${query}`
   console.log('href :>> ', href);
+  console.log('pathname :>> ', pathname);
+  console.log('pathname.startsWith() :>> ', pathname.startsWith('nights/sn6'));
+  console.log('query :>> ', query);
 
   return (
     <div className="absolute w-screen top-4 left-0 z-50 bg-transparent max-md:px-8">

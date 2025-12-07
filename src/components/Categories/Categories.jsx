@@ -4,11 +4,11 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import cgiWinningImg from "@/../public/icons/visual-effects.png";
-import photographyWinningImg from "@/../public/icons/photograph.png";
-import interiorWinningImg from "@/../public/icons/interior-design.png";
-import videographyWinningImg from "@/../public/icons/film.png";
-import fashionWinningImg from "@/../public/icons/fashion.png";
+import cgiWinningImg from "../../../public/icons/visual-effects.png";
+import photographyWinningImg from "../../../public/icons/photograph.png";
+import interiorWinningImg from "../../../public/icons/interior-design.png";
+import videographyWinningImg from "../../../public/icons/film.png";
+import fashionWinningImg from "../../../public/icons/fashion.png";
 import { IoPlay } from "react-icons/io5";
 import VideoModal from "./VideoModal";
 import Link from "next/link";

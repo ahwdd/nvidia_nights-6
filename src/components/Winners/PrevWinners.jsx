@@ -1,10 +1,10 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
-import photographyWinner from '@/../public/nights-6/winners/abdallah-photography.jpg'
-import fashionWinner from '@/../public/nights-6/winners/omnia-fashion.jpg'
-import cgiWinner from '@/../public/nights-6/winners/shady-cgi.jpg'
-import architectWinner from '@/../public/nights-6/winners/moatasem-architect.jpg'
+import photographyWinner from '../../../public/nights-6/winners/abdallah-photography.jpg'
+import fashionWinner from '../../../public/nights-6/winners/omnia-fashion.jpg'
+import cgiWinner from '../../../public/nights-6/winners/shady-cgi.jpg'
+import architectWinner from '../../../public/nights-6/winners/moatasem-architect.jpg'
 
 
 function PrevCard({img, title, name}) {

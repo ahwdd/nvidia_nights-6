@@ -2,10 +2,10 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 import { MdOpenInNew } from "react-icons/md";
-import NVDubai from '@/../public/nights-6/nv-dubai.jpg'
-import NVDubaiDesktop from '@/../public/nights-6/nv-dubai-desktop.jpg'
-import NVDubaiAr from '@/../public/nights-6/nv-dubai-ar.jpg'
-import NVDubaiDesktopAr from '@/../public/nights-6/nv-dubai-desktop-ar.jpg'
+import NVDubai from '../../../../public/nights-6/nv-dubai.jpg'
+import NVDubaiDesktop from '../../../../public/nights-6/nv-dubai-desktop.jpg'
+import NVDubaiAr from '../../../../public/nights-6/nv-dubai-ar.jpg'
+import NVDubaiDesktopAr from '../../../../public/nights-6/nv-dubai-desktop-ar.jpg'
 import { renderDateWithSuperscript } from "@/services/renderDateWithSuperscript";
 
 
