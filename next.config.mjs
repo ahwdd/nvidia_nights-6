@@ -4,12 +4,9 @@ const withNextIntl = createNextIntlPlugin();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    assetPrefix: process.env.NODE_ENV === 'production' && process.env.VERCEL_ENV === 'production' 
-      ? 'https://ns6.nvidiastudiospace.com' 
-      : undefined,
     
     images: {
-      domains: ['ns6.nvidiastudiospace.com', 'nvidiastudiospace.com', 'www.nvidiastudiospace.com'],
+      domains: ['sn6.nvidiastudiospace.com', 'nvidiastudiospace.com', 'www.nvidiastudiospace.com'],
     },
     
     async headers() {
@@ -18,7 +15,10 @@ const nextConfig = {
           source: '/:path*',
           headers: [
             { key: 'Access-Control-Allow-Origin', value: '*' },
+            { key: 'Access-Control-Allow-Methods', value: 'GET, POST, PUT, DELETE, OPTIONS' },
+            { key: 'Access-Control-Allow-Headers', value: 'Content-Type, Authorization' },
             { key: 'Cross-Origin-Resource-Policy', value: 'cross-origin' },
+            { key: 'Cross-Origin-Embedder-Policy', value: 'unsafe-none' },
           ],
         },
         {
@@ -36,29 +36,6 @@ const nextConfig = {
               key: 'Content-Type',
               value: 'video/mp4',
             },
-          ],
-        },
-        {
-          source: '/_next/static/:path*',
-          headers: [
-            { key: 'Access-Control-Allow-Origin', value: '*' },
-            { key: 'Cross-Origin-Resource-Policy', value: 'cross-origin' },
-            { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
-          ],
-        },
-        {
-          source: '/_next/static/media/:path*',
-          headers: [
-            { key: 'Access-Control-Allow-Origin', value: '*' },
-            { key: 'Cross-Origin-Resource-Policy', value: 'cross-origin' },
-            { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
-          ],
-        },
-        {
-          source: '/static/:path*',
-          headers: [
-            { key: 'Access-Control-Allow-Origin', value: '*' },
-            { key: 'Cross-Origin-Resource-Policy', value: 'cross-origin' },
           ],
         },
       ];

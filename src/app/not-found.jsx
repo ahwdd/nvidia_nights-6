@@ -1,5 +1,5 @@
 "use client"
-import React, { Suspense } from "react";
+import React from "react";
 import Image from "next/image.js";
 import Link from "next/link.js";
 import { MoveLeft } from "lucide-react";
