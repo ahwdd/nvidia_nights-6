@@ -2,10 +2,6 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 import { MdOpenInNew } from "react-icons/md";
-import NVDubai from '../../../../public/nights-6/nv-dubai.jpg'
-import NVDubaiDesktop from '../../../../public/nights-6/nv-dubai-desktop.jpg'
-import NVDubaiAr from '../../../../public/nights-6/nv-dubai-ar.jpg'
-import NVDubaiDesktopAr from '../../../../public/nights-6/nv-dubai-desktop-ar.jpg'
 import { renderDateWithSuperscript } from "@/services/renderDateWithSuperscript";
 
 
@@ -14,13 +10,13 @@ export default function Deadline() {
 
   return (
     <div className="flex bg-black text-white w-screen overflow-hidden items-center justify-center relative h-80 transition-all">
-      <Image src={NVDubaiDesktop} alt="Museum of the futur in Dubai"
+      <Image src={`/nights-6/nv-dubai-desktop.jpg`} alt="Museum of the futur in Dubai"
       className="size-full max-w-6xl ltr:ml-40 object-fill md:block hidden rtl:hidden" />
-      <Image src={NVDubai} alt="Museum of the futur in Dubai"
+      <Image src={`/nights-6/nv-dubai.jpg`} alt="Museum of the futur in Dubai"
       className="size-full max-w-6xl ltr:ml-10 object-fill md:hidden block rtl:hidden" />
-      <Image src={NVDubaiDesktopAr} alt="Museum of the futur in Dubai"
+      <Image src={`/nights-6/nv-dubai-desktop-ar.jpg`} alt="Museum of the futur in Dubai"
       className="size-full max-w-6xl ltr:ml-40 object-fill md:block hidden ltr:hidden" />
-      <Image src={NVDubaiAr} alt="Museum of the futur in Dubai"
+      <Image src={`/nights-6/nv-dubai-desktop.jpg`} alt="Museum of the futur in Dubai"
       className="size-full max-w-6xl ltr:ml-10 object-fill md:hidden block ltr:hidden" />
 
       <div className="absolute inset-0 z-10 space-y-2 flex items-center justify-center">

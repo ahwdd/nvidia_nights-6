@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import logo from "/public/logo.svg";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
 import SmNav from "./SmNav";
@@ -28,7 +27,7 @@ function Nav({ locale }) {
         <Link href={"/"}>
           {/* <Image
             alt="geforce-logo"
-            src={logo}
+            src={`/logo.svg`}
             className="w-[100px] lg:w-[100px]"
           /> */}
           <svg

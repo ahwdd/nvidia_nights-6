@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import NVLaptop from '../../../public/nights-6/nv-labtop.jpg'
 
 function Prizes() {
   const t = useTranslations("Prizes");
@@ -13,7 +12,7 @@ function Prizes() {
         <p className="text-medium text-gray-200">
           {t("desc")}
         </p>
-        <Image src={NVLaptop} alt="nvidia rtx laptop" className="w-full max-w-[645px] aspect-video object-fill" />
+        <Image src={`/nights-6/nv-labtop.jpg`} alt="nvidia rtx laptop" className="w-full max-w-[645px] aspect-video object-fill" />
       </div>
     </div>
   );

@@ -4,11 +4,6 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import cgiWinningImg from "../../../public/icons/visual-effects.png";
-import photographyWinningImg from "../../../public/icons/photograph.png";
-import interiorWinningImg from "../../../public/icons/interior-design.png";
-import videographyWinningImg from "../../../public/icons/film.png";
-import fashionWinningImg from "../../../public/icons/fashion.png";
 import { IoPlay } from "react-icons/io5";
 import VideoModal from "./VideoModal";
 import Link from "next/link";
@@ -35,35 +30,35 @@ export default function Categories() {
       title: t("cgi"),
       desc: t("cgiDesc"),
       winner: t("cgiWinner"),
-      img: cgiWinningImg,
+      img: '/icons/visual-effects.png',
       playIcon: false,
     },
     {
       title: t("photography"),
       desc: t("photographyDesc"),
       winner: t("photographyWinner"),
-      img: photographyWinningImg,
+      img: '/icons/photograph.png',
       playIcon: false,
     },
     {
       title: t("fashion"),
       desc: t("fashionDesc"),
       winner: t("fashionWinner"),
-      img: fashionWinningImg,
+      img: '/icons/fashion.png',
       playIcon: false,
     },
     {
       title: t("interior"),
       desc: t("interiorDesc"),
       winner: t("interiorWinner"),
-      img: interiorWinningImg,
+      img: '/icons/interior-design.png',
       playIcon: false,
     },
     {
       title: t("videography"),
       desc: t("videographyDesc"),
       winner: t("videographyWinner"),
-      img: videographyWinningImg,
+      img: '/icons/film.png',
       playIcon: true,
       videoBase: "winner-vid",
     },

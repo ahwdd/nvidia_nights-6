@@ -1,12 +1,6 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
-import photographyWinner from '../../../public/nights-6/winners/abdallah-photography.jpg'
-import fashionWinner from '../../../public/nights-6/winners/omnia-fashion.jpg'
-import cgiWinner from '../../../public/nights-6/winners/shady-cgi.jpg'
-import architectWinner from '../../../public/nights-6/winners/moatasem-architect.jpg'
-
-
 function PrevCard({img, title, name}) {
   return (<div className="w-full">
     <Image src={img} alt={title} className="w-full aspect-square object-cover" />
@@ -24,16 +18,16 @@ function PrevWinners() {
   
   const winnersData = [
     {
-      name: t("photographyWinner"), title: t("photography"), winnerImg: photographyWinner
+      name: t("photographyWinner"), title: t("photography"), winnerImg: `/nights-6/winners/abdallah-photography.jpg`
     },
     {
-      name: t("fashionWinner"), title: t("fashion"), winnerImg: fashionWinner
+      name: t("fashionWinner"), title: t("fashion"), winnerImg: `/nights-6/winners/omnia-fashion.jpg`
     },
     {
-      name: t("cgiWinner"), title: t("cgi"), winnerImg: cgiWinner
+      name: t("cgiWinner"), title: t("cgi"), winnerImg: `/nights-6/winners/shady-cgi.jpg`
     },
     {
-      name: t("architectWinner"), title: t("architect"), winnerImg: architectWinner
+      name: t("architectWinner"), title: t("architect"), winnerImg: `/nights-6/winners/moatasem-architect.jpg`
     },
   ]
 

@@ -1,6 +1,4 @@
 import Link from "next/link";
-import logo from "/public/logo.svg";
-import footerMask from "/public/footer-mask.png";
 import Image from "next/image";
 import { BsInstagram, BsTwitterX, BsYoutube } from "react-icons/bs";
 import { useTranslations } from "next-intl";

@@ -1,6 +1,5 @@
 "use client";
 import { useTranslations } from "next-intl";
-import NVStudioLogo from '../../../public/nights-6/NV-Studio.png'
 import Image from "next/image";
 import { renderDateWithSuperscript } from "@/services/renderDateWithSuperscript";
 
@@ -12,7 +11,7 @@ function NewHero() {
       <div className="new-hero absolute inset-0 size-full max-md:top-auto max-md:h-2/3 object-cover rtl:-scale-x-100 z-10" />
 
       <div className="relative z-10 size-full flex flex-col md:justify-center items-center gap-5 text-center">
-        <Image src={NVStudioLogo} alt="Nvidia Studio" className="w-24 h-18 object-contain -mt-10 mb-10 max-md:pt-24" />
+        <Image src={`/nights-6/NV-Studio.png`} alt="Nvidia Studio" className="w-24 h-18 object-contain -mt-10 mb-10 max-md:pt-24" />
         <h1 className="heading-medium font-bold">
           {t("headerMedium")} 
         </h1>

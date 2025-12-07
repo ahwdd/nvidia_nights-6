@@ -20,12 +20,12 @@ export default function LanguageSwitcher({lang="en"}) {
   }, [searchParams]);
 
   const positionClass = lang === "ar" ? "left-4" : "right-4";
-  const runtimePrefix = (pathname.startsWith("/nights/sn6"))
+  const runtimePrefix = (pathname.contains("/nights/sn6"))
     ? "/nights/sn6": "";
   const href = `/${targetLocale}/${runtimePrefix}${query}`
   console.log('href :>> ', href);
   console.log('pathname :>> ', pathname);
-  console.log('pathname.startsWith() :>> ', pathname.startsWith('nights/sn6'));
+  console.log('pathname.contains() :>> ', pathname.contains('nights/sn6'));
   console.log('query :>> ', query);
 
   return (
