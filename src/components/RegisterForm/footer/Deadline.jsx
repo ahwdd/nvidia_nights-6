@@ -25,7 +25,7 @@ export default function Deadline() {
             {renderDateWithSuperscript(t("date"))}
           </span>
           <span className="-mt-1.5 text-medium">
-            3PM - 10:30PM
+            4PM - 9PM
           </span>
           <span className="heading-medium">
             {t('location')}
