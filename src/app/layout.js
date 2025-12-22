@@ -52,11 +52,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html>
-      <head>
-        <link rel="preconnect" href="https://connect.facebook.net" crossOrigin="" />
-        <link rel="preconnect" href="https://www.facebook.com" crossOrigin="" />
-        <link rel="dns-prefetch" href="https://www.facebook.com" />
-      </head>
       <body>{/* className={`${geistSans.variable} ${geistMono.variable} antialiased`} */}
         {children}
       </body>
