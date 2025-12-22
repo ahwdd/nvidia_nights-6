@@ -12,7 +12,7 @@ function Prizes() {
         <p className="text-medium text-gray-200">
           {t("desc")}
         </p>
-        <Image src={`/nights-6/nv-labtop.jpg`} alt="nvidia rtx laptop" className="w-full max-w-[645px] aspect-video object-fill" />
+        <Image src={`/nights-6/general/nv-labtop.jpg`} alt="nvidia rtx laptop" className="w-full max-w-[645px] aspect-video object-fill" />
       </div>
     </div>
   );

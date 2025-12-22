@@ -10,13 +10,13 @@ export default function Deadline() {
 
   return (
     <div className="flex bg-black text-white w-screen overflow-hidden items-center justify-center relative h-80 transition-all">
-      <Image src={`/nights-6/nv-dubai-desktop.jpg`} alt="Museum of the futur in Dubai" fill sizes="200px"
+      <Image src={`/nights-6/general/nv-dubai-desktop.jpg`} alt="Museum of the future in Dubai" fill sizes="200px"
       className="size-full max-w-6xl ltr:ml-40 object-fill md:block hidden rtl:hidden" />
-      <Image src={`/nights-6/nv-dubai.jpg`} alt="Museum of the futur in Dubai" fill sizes="200px"
+      <Image src={`/nights-6/general/nv-dubai.jpg`} alt="Museum of the futur in Dubai" fill sizes="200px"
       className="size-full max-w-6xl ltr:ml-10 object-fill md:hidden block rtl:hidden" />
-      <Image src={`/nights-6/nv-dubai-desktop-ar.jpg`} alt="Museum of the futur in Dubai" fill sizes="200px"
+      <Image src={`/nights-6/general/nv-dubai-desktop-ar.jpg`} alt="Museum of the futur in Dubai" fill sizes="200px"
       className="size-full max-w-6xl ltr:ml-40 object-fill md:block hidden ltr:hidden" />
-      <Image src={`/nights-6/nv-dubai-desktop.jpg`} alt="Museum of the futur in Dubai" fill sizes="200px"
+      <Image src={`/nights-6/general/nv-dubai-desktop.jpg`} alt="Museum of the futur in Dubai" fill sizes="200px"
       className="size-full max-w-6xl ltr:ml-10 object-fill md:hidden block ltr:hidden" />
 
       <div className="absolute inset-0 z-10 space-y-2 flex items-center justify-center">
