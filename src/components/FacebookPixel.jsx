@@ -2,13 +2,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
 import Script from "next/script";
 
 export default function FacebookPixel() {
   const [loaded, setLoaded] = useState(false);
   const [mounted, setMounted] = useState(false)
-  const pathname = usePathname();
 
   useEffect(() => {
     setMounted(true)
