@@ -2,9 +2,35 @@
 
 import { useTranslations } from "next-intl";
 import { MdCheck } from "react-icons/md";
+import { useEffect, useRef } from "react";
 
 function RegisterSucces({ isOpen, setIsOpen }) {
   const t = useTranslations("Register");
+  const trackedRef = useRef(false);
+
+  useEffect(() => {
+    if (isOpen && !trackedRef.current) {
+      trackedRef.current = true;
+
+      if (typeof window !== "undefined") {
+        try {
+          if (typeof window.fbq === "function" || typeof window.fbq === "object") {
+            window.fbq("track", "CompleteRegistration");
+            console.log("FB pixel: CompleteRegistration tracked");
+          } else {
+            window.fbq = window.fbq || function() {
+              (window.fbq.q = window.fbq.q || []).push(arguments);
+            };
+            window.fbq("track", "CompleteRegistration");
+          }
+        } catch (e) {
+        }
+      }
+    }
+
+    if (!isOpen) { trackedRef.current = false; }
+  }, [isOpen]);
+
   return (
     <div
       style={{ background: "#000000a8" }}
@@ -12,8 +38,7 @@ function RegisterSucces({ isOpen, setIsOpen }) {
         isOpen ? "opacity-100 z-50" : "opacity-0 -z-10"
       } items-center justify-center flex left-0 right-0 top-0 w-full `}
     >
-      <div
-        className={`bg-white rounded-[30px] px-5 py-10 flex flex-col items-center justify-center gap-4 max-w-[400px] ${
+      <div className={`bg-white rounded-[30px] px-5 py-10 flex flex-col items-center justify-center gap-4 max-w-[400px] ${
           isOpen
             ? " opacity-100 translate-y-[0px]"
             : " opacity-10 translate-y-[250px]"
@@ -21,7 +46,6 @@ function RegisterSucces({ isOpen, setIsOpen }) {
       >
         <div className="flex flex-col items-center justify-center gap-3">
           <MdCheck />
-
           <h3 className="text-mainGreen font-bold text-2xl">{t("success")}</h3>
         </div>
         <div className="flex flex-col gap-3 justify-center items-center text-center">
