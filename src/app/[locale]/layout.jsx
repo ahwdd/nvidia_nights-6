@@ -1,3 +1,4 @@
+// app/[locale]/layout.tsx
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -12,15 +13,8 @@ import { Jost } from "next/font/google";
 import { Almarai } from "next/font/google";
 import localFont from "next/font/local";
 
-const jost = Jost({
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const almarai = Almarai({
-  subsets: ["arabic"],
-  weight: ["300", "400", "700", "800"],
-});
+const jost = Jost({ subsets: ["latin"], display: "swap" });
+const almarai = Almarai({ subsets: ["arabic"], weight: ["300","400","700","800"] });
 
 const nvsans = localFont({
   src: [
@@ -52,9 +46,7 @@ const nvidiaNala = localFont({
 export default async function LocaleLayout({ children, params }) {
   const { locale } = params;
 
-  if (!routing.locales.includes(locale)) {
-    notFound();
-  }
+  if (!routing.locales.includes(locale)) notFound();
 
   const messages = await getMessages();
 
@@ -64,8 +56,7 @@ export default async function LocaleLayout({ children, params }) {
     ${locale === "ar" ? almarai.className : `${nvidiaNala.variable} ${nvsans.className}`}`}>
       
       <Script id="meta-pixel" strategy="afterInteractive">
-        {`
-          (function () {
+        {`(function () {
             if (typeof window === 'undefined') return;
 
             if (window.__FB_PIXEL_LOADED__) return;
