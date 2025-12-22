@@ -74,7 +74,7 @@ export default function Categories() {
             <div key={i} id={`category-${cat.title}`}
               className="w-full lg:w-[calc(33%-.8rem)] sm:w-[calc(33%-.9rem)] flex flex-col items-center justify-center gap-5">
               <div className="relative w-full group">
-                <Image src={cat.img} alt={cat.title || "category title"} priority={i < 3}
+                <Image src={cat.img} alt={cat.title || "category title"} priority={i < 3} width={300} height={300}
                   className="w-1/3 aspect-square mx-auto object-contain invert"/>
                 {/* <p className="absolute rtl:left-3 ltr:right-3 bottom-2 text-gray-200 text-xxs">
                   {cat.winner}

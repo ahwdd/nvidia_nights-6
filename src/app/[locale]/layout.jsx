@@ -2,7 +2,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
-import Nav from "@/components/Nav/Nav";
+import Script from 'next/script';
 import RegisterForm from "@/components/RegisterForm/RegisterForm";
 import Footer from "@/components/RegisterForm/footer/Footer";
 import { Jost } from "next/font/google";
@@ -113,6 +113,42 @@ export default async function LocaleLayout({ children, params }) {
     <main lang={locale} dir={locale === "en" ? "ltr" : "rtl"} 
     className={`overflow-x-hidden w-screen bg-white text-black relative
     ${locale === "ar" ? almarai.className : `${nvidiaNala.variable} ${nvsans.className}`}`}>
+      
+      <Script id="meta-pixel" strategy="afterInteractive">
+      {`(function() {
+        try {
+          if (window.fbq && window.fbq.callMethod) {return;}
+          !function(f,b,e,v,n,t,s){
+            if (f.fbq) return;
+            n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq) f._fbq=n;
+            n.push=n; n.loaded=!0; n.version='2.0'; n.queue=[];
+            t=b.createElement(e); t.async=!0;
+            t.src=v; s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s);
+          }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+          // Prevent double initialization in edge cases
+          if (!window.__fbq_initialized__) {
+            fbq('init', '2193762604480703');
+            fbq('track', 'PageView');
+            window.__fbq_initialized__ = true;
+          }
+        } catch (e) {
+          console.error('Facebook Pixel init error', e);
+        }
+      })();`}
+      </Script>
+
+      <noscript>
+        <img 
+          height="1" 
+          width="1" 
+          style={{display: 'none'}}
+          src="https://www.facebook.com/tr?id=2193762604480703&ev=PageView&noscript=1"
+        />
+      </noscript>
       <NextIntlClientProvider messages={messages}>
         {/* <Nav locale={locale} /> */}
         <LanguageSwitcher lang={locale} />

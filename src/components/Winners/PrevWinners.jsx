@@ -3,7 +3,8 @@ import { useTranslations } from "next-intl";
 
 function PrevCard({img, title, name}) {
   return (<div className="w-full">
-    <Image src={img} alt={title} className="w-full aspect-square object-cover" />
+    <Image src={img} alt={title} width={200} height={200}
+      className="w-full aspect-square object-cover" />
     <div className="pt-2 flex max-md:flex-col md:items-end justify-between gap-2">
       <div className="text-start">
         <p className="font-bold ">{name}</p>
