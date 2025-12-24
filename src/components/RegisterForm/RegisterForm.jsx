@@ -182,7 +182,7 @@ function RegisterForm({ onBookingCreated }) {
         }
 
         setTimeout(() => {
-          router.push(`${pathname}/success`);
+          location.href = `${pathname}/success`
         }, 750);
       }
     } catch (error) {
