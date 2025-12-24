@@ -9,6 +9,7 @@ import Deadline from "@/components/RegisterForm/footer/Deadline";
 import PrevWinners from "@/components/Winners/PrevWinners";
 import AboutEventCompelete from "@/components/AboutEvent/AboutEventCompelete";
 import WhereToBuy from "@/components/WhereToBuy/WhereToBuy";
+import RegisterForm from "@/components/RegisterForm/RegisterForm";
 
 export default function HomePage() {
   const t = useTranslations("HomePage");
@@ -27,6 +28,7 @@ export default function HomePage() {
           <PrevWinners />
           <WhereToBuy />
         </div>
+        <RegisterForm />
       </div>
     </>
   );

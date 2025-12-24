@@ -60,7 +60,6 @@ export default async function LocaleLayout({ children, params }) {
         <LanguageSwitcher lang={locale} />
         <div className="min-h-screen">
           {children}
-          <RegisterForm />
           <Footer />
         </div>
       </NextIntlClientProvider>

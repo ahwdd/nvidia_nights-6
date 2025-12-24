@@ -5,7 +5,7 @@ import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import axios from "axios";
-import RegisterSucces from "./RegisterSucces";
+import { useRouter } from "next/navigation";
 import RegisterError from "./RegisterError";
 import Spinner from "./Spinner";
 import { useTranslations } from "next-intl";
@@ -17,6 +17,7 @@ import { renderDateWithSuperscript } from "@/services/renderDateWithSuperscript"
 function RegisterForm({ onBookingCreated }) {
   const t = useTranslations("Register");
   const { locale } = useParams();
+  const router = useRouter();
 
   const formSchema = z.object({
     first_name: z
@@ -57,7 +58,6 @@ function RegisterForm({ onBookingCreated }) {
   });
 
   const [formError, setFormError] = useState("");
-  const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const [countries, setCountries] = useState([]);
@@ -163,11 +163,26 @@ function RegisterForm({ onBookingCreated }) {
       }
 
       if (response.status === 200) {
-        setIsOpen(true);
-        reset();
-        setSelectedCountry("");
-        setCities([]);
-        setIsChecked(false);
+        // Track Facebook pixel event
+        if (typeof window !== "undefined") {
+          try {
+            if (typeof window.fbq === "function" || typeof window.fbq === "object") {
+              window.fbq("track", "CompleteRegistration");
+              console.log("FB pixel: CompleteRegistration tracked");
+            } else {
+              window.fbq = window.fbq || function() {
+                (window.fbq.q = window.fbq.q || []).push(arguments);
+              };
+              window.fbq("track", "CompleteRegistration");
+            }
+          } catch (e) {
+            console.error("FB pixel error:", e);
+          }
+        }
+
+        setTimeout(() => {
+          router.push(`/${locale}/success`);
+        }, 750);
       }
     } catch (error) {
       if (error.response) {
@@ -410,8 +425,6 @@ function RegisterForm({ onBookingCreated }) {
           </div>
         )}
       </form>
-
-      <RegisterSucces isOpen={isOpen} setIsOpen={setIsOpen} />
     </div>
   );
 }

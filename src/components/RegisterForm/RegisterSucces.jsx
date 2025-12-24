@@ -1,66 +1,48 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { useParams, useRouter } from "next/navigation";
 import { MdCheck } from "react-icons/md";
-import { useEffect, useRef } from "react";
 
-function RegisterSucces({ isOpen, setIsOpen }) {
+function RegisterSucces() {
   const t = useTranslations("Register");
-  const trackedRef = useRef(false);
+  const { locale } = useParams();
+  const router = useRouter();
 
-  useEffect(() => {
-    if (isOpen && !trackedRef.current) {
-      trackedRef.current = true;
-
-      if (typeof window !== "undefined") {
-        try {
-          if (typeof window.fbq === "function" || typeof window.fbq === "object") {
-            window.fbq("track", "CompleteRegistration");
-            console.log("FB pixel: CompleteRegistration tracked");
-          } else {
-            window.fbq = window.fbq || function() {
-              (window.fbq.q = window.fbq.q || []).push(arguments);
-            };
-            window.fbq("track", "CompleteRegistration");
-          }
-        } catch (e) {
-        }
-      }
-    }
-
-    if (!isOpen) { trackedRef.current = false; }
-  }, [isOpen]);
+  const handleDone = () => {
+    const currentLocale = locale ?? "en";
+    router.push(`/${currentLocale}/`);
+  };
 
   return (
-    <div
-      style={{ background: "#000000a8" }}
-      className={`h-screen footer-popup fixed transition-all duration-300 ease-linear ${
-        isOpen ? "opacity-100 z-50" : "opacity-0 -z-10"
-      } items-center justify-center flex left-0 right-0 top-0 w-full `}
-    >
-      <div className={`bg-white rounded-[30px] px-5 py-10 flex flex-col items-center justify-center gap-4 max-w-[400px] ${
-          isOpen
-            ? " opacity-100 translate-y-[0px]"
-            : " opacity-10 translate-y-[250px]"
-        } transition-all duration-300 ease-linear`}
-      >
-        <div className="flex flex-col items-center justify-center gap-3">
-          <MdCheck />
-          <h3 className="text-mainGreen font-bold text-2xl">{t("success")}</h3>
+    <div className="w-full max-w-[954px] mx-auto px-5 md:px-3 py-12">
+      <div className="w-full bg-white flex flex-col items-center justify-center gap-8 py-16">
+        
+        <div className="flex items-center justify-center w-20 h-20 rounded-full bg-mainGreen/10">
+          <MdCheck className="text-mainGreen text-5xl" />
         </div>
-        <div className="flex flex-col gap-3 justify-center items-center text-center">
-          <h4 className="text-xl text-black text-medium">
-            {t("thank_you_registration")}
-          </h4>
-          <p className="font-light text-[#4A4A4A]">{t("email_details")}</p>
 
-          <button
-            onClick={() => setIsOpen(false)}
-            className="bg-mainGreen text-white w-[250px] py-3 rounded-md"
+        <div className="text-center">
+          <h1 className="heading-medium font-bold text-mainGreen mb-2">
+            {t("success") || "Success!"}
+          </h1>
+        </div>
+
+        <div className="flex flex-col gap-6 justify-center items-center text-center max-w-[600px]">
+          <h2 className="text-2xl md:text-3xl text-black font-bold">
+            {t("thank_you_registration") || "Thank you for your registration!"}
+          </h2>
+          <p className="text-lg text-gray-600 leading-relaxed">
+            {t("email_details") || "You will receive an email with further details shortly."}
+          </p>
+
+          <button onClick={handleDone}
+            className="bg-mainGreen hover:bg-mainGreenHover text-white font-bold px-12 py-4 rounded-sm transition-colors mt-4 button-large"
           >
-            {t("done")}
+            {t("done") || "Done"}
           </button>
         </div>
+
       </div>
     </div>
   );
