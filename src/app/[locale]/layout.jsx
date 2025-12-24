@@ -4,14 +4,13 @@ import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 
-import RegisterForm from "@/components/RegisterForm/RegisterForm";
-import Footer from "@/components/RegisterForm/footer/Footer";
 import LanguageSwitcher from "@/components/Nav/LanguageSwitcher";
 
 import { Jost } from "next/font/google";
 import { Almarai } from "next/font/google";
 import localFont from "next/font/local";
 import FacebookPixel from "@/components/FacebookPixel";
+import Footer from "@/components/RegisterForm/footer/Footer";
 
 const jost = Jost({ subsets: ["latin"], display: "swap" });
 const almarai = Almarai({ subsets: ["arabic"], weight: ["300","400","700","800"] });
