@@ -5,7 +5,7 @@ import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import axios from "axios";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import RegisterError from "./RegisterError";
 import Spinner from "./Spinner";
 import { useTranslations } from "next-intl";
@@ -17,6 +17,7 @@ import { renderDateWithSuperscript } from "@/services/renderDateWithSuperscript"
 function RegisterForm({ onBookingCreated }) {
   const t = useTranslations("Register");
   const { locale } = useParams();
+  const pathname = usePathname()
   const router = useRouter();
 
   const formSchema = z.object({
@@ -181,7 +182,7 @@ function RegisterForm({ onBookingCreated }) {
         }
 
         setTimeout(() => {
-          router.push(`/${locale}/success`);
+          router.push(`${pathname}/success`);
         }, 750);
       }
     } catch (error) {

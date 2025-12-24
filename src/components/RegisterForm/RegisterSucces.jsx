@@ -1,17 +1,19 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useParams, useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { MdCheck } from "react-icons/md";
 
 function RegisterSucces() {
   const t = useTranslations("Register");
-  const { locale } = useParams();
   const router = useRouter();
+  const pathname = usePathname()
 
   const handleDone = () => {
-    const currentLocale = locale ?? "en";
-    router.push(`/${currentLocale}/`);
+    if (!pathname) return;
+
+    const targetPath = pathname.replace(/\/success$/, "");
+    router.push(targetPath);
   };
 
   return (
