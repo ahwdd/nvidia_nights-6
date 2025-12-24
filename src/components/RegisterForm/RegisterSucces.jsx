@@ -11,9 +11,10 @@ function RegisterSucces() {
 
   const handleDone = () => {
     if (!pathname) return;
-
     const targetPath = pathname.replace(/\/success$/, "");
-    router.push(targetPath);
+    console.log('pathname :>> ', pathname);
+    console.log('targetPath :>> ', targetPath);
+    // router.push(targetPath);
   };
 
   return (
