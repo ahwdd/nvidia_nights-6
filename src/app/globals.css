@@ -84,10 +84,10 @@ html {
 .new-hero {
   background: url("/nights-6/general/nv-hero.jpg") center center no-repeat;
   background-size: 100% 100%;
-}.nv-studio-bg {
+}
+.nv-studio-bg {
   background: url("/nights-6/general/NV-Studio.png") center center / contain no-repeat;
 }
-
 .nv-laptop-bg {
   background: url("/nights-6/general/nv-labtop.jpg") center center / 100% 100% no-repeat;
 }
@@ -95,15 +95,12 @@ html {
 .nv-dubai-desktop-bg {
   background: url("/nights-6/general/nv-dubai-desktop.jpg") center center / 100% 100% no-repeat;
 }
-
 .nv-dubai-mobile-bg {
   background: url("/nights-6/general/nv-dubai.jpg") center center / 100% 100% no-repeat;
 }
-
 .nv-dubai-desktop-ar-bg {
   background: url("/nights-6/general/nv-dubai-desktop-ar.jpg") center center / 100% 100% no-repeat;
 }
-
 .nv-dubai-mobile-ar-bg {
   background: url("/nights-6/general/nv-dubai-desktop.jpg") center center / 100% 100% no-repeat;
 }
@@ -115,15 +112,12 @@ html {
 .winner-photography-bg {
   background: url("/nights-6/winners/abdallah-photography.jpg") center center / cover no-repeat;
 }
-
 .winner-fashion-bg {
   background: url("/nights-6/winners/omnia-fashion.jpg") center center / cover no-repeat;
 }
-
 .winner-cgi-bg {
   background: url("/nights-6/winners/shady-cgi.jpg") center center / cover no-repeat;
 }
-
 .winner-architect-bg {
   background: url("/nights-6/winners/moatasem-architect.jpg") center center / cover no-repeat;
 }
@@ -131,9 +125,24 @@ html {
 .virgin-buy-bg {
   background: url("/nights-6/buy/virgin.png") center center / contain no-repeat;
 }
-
 .geekay-buy-bg {
   background: url("/nights-6/buy/geekay.png") center center / contain no-repeat;
+}
+
+.cat-cgi-bg {
+  background: url("/icons/visual-effects.png") center center / contain no-repeat;
+}
+.cat-photography-bg {
+  background: url("/icons/photograph.png") center center / contain no-repeat;
+}
+.cat-fashion-bg {
+  background: url("/icons/fashion.png") center center / contain no-repeat;
+}
+.cat-interior-bg {
+  background: url("/icons/interior-design.png") center center / contain no-repeat;
+}
+.cat-videography-bg {
+  background: url("/icons/film.png") center center / contain no-repeat;
 }
 
 

@@ -30,35 +30,35 @@ export default function Categories() {
       title: t("cgi"),
       desc: t("cgiDesc"),
       winner: t("cgiWinner"),
-      img: '/icons/visual-effects.png',
+      imgClass: "cat-cgi-bg",
       playIcon: false,
     },
     {
       title: t("photography"),
       desc: t("photographyDesc"),
       winner: t("photographyWinner"),
-      img: '/icons/photograph.png',
+      imgClass: "cat-photography-bg",
       playIcon: false,
     },
     {
       title: t("fashion"),
       desc: t("fashionDesc"),
       winner: t("fashionWinner"),
-      img: '/icons/fashion.png',
+      imgClass: "cat-fashion-bg",
       playIcon: false,
     },
     {
       title: t("interior"),
       desc: t("interiorDesc"),
       winner: t("interiorWinner"),
-      img: '/icons/interior-design.png',
+      imgClass: "cat-interior-bg",
       playIcon: false,
     },
     {
       title: t("videography"),
       desc: t("videographyDesc"),
       winner: t("videographyWinner"),
-      img: '/icons/film.png',
+      imgClass: "cat-videography-bg",
       playIcon: true,
       videoBase: "winner-vid",
     },
@@ -74,8 +74,10 @@ export default function Categories() {
             <div key={i} id={`category-${cat.title}`}
               className="w-full lg:w-[calc(33%-.8rem)] sm:w-[calc(33%-.9rem)] flex flex-col items-center justify-center gap-5">
               <div className="relative w-full group">
-                <Image src={cat.img} alt={cat.title || "category title"} priority={i < 3} width={300} height={300}
-                  className="w-1/3 aspect-square mx-auto object-contain invert"/>
+                {/* <Image src={cat.img} alt={cat.title || "category title"} priority={i < 3} width={300} height={300}
+                  className="w-1/3 aspect-square mx-auto object-contain invert"/> */}
+                  <div role="img" aria-label={cat.title || "category title"}
+                    className={`${cat.imgClass} w-1/3 aspect-square mx-auto invert`} />
                 {/* <p className="absolute rtl:left-3 ltr:right-3 bottom-2 text-gray-200 text-xxs">
                   {cat.winner}
                 </p> */}
@@ -84,7 +86,7 @@ export default function Categories() {
                   <button aria-label={`Play ${cat.title} winner video`}
                     onClick={() =>
                       openVideo({
-                        poster: cat.img.src || cat.img,
+                        poster: `/icons/${cat.videoBase || "film"}.png`,
                         baseName: cat.videoBase || "winner-vid",
                       })
                     }
