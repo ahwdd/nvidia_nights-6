@@ -1,36 +1,30 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
-function PrevCard({img, title, name}) {
-  return (<div className="w-full">
-    <Image src={img} alt={title} width={200} height={200}
-      className="w-full aspect-square object-cover" />
-    <div className="pt-2 flex max-md:flex-col md:items-end justify-between gap-2">
-      <div className="text-start">
-        <p className="font-bold ">{name}</p>
-        <p className="">{title}</p>
+function PrevCard({ imgClass, title, name }) {
+  return (
+    <div className="w-full">
+      <div role="img" aria-label={title} className={`${imgClass} w-full aspect-square`} />
+      <div className="pt-2 flex max-md:flex-col md:items-end justify-between gap-2">
+        <div className="text-start">
+          <p className="font-bold">{name}</p>
+          <p>{title}</p>
+        </div>
       </div>
     </div>
-  </div>)
+  );
 }
+
 
 function PrevWinners() {
   const t = useTranslations("Categories");
   
   const winnersData = [
-    {
-      name: t("photographyWinner"), title: t("photography"), winnerImg: `/nights-6/winners/abdallah-photography.jpg`
-    },
-    {
-      name: t("fashionWinner"), title: t("fashion"), winnerImg: `/nights-6/winners/omnia-fashion.jpg`
-    },
-    {
-      name: t("cgiWinner"), title: t("cgi"), winnerImg: `/nights-6/winners/shady-cgi.jpg`
-    },
-    {
-      name: t("architectWinner"), title: t("architect"), winnerImg: `/nights-6/winners/moatasem-architect.jpg`
-    },
-  ]
+    { name: t("photographyWinner"), title: t("photography"), winnerImgClass: "winner-photography-bg", },
+    { name: t("fashionWinner"), title: t("fashion"), winnerImgClass: "winner-fashion-bg", },
+    { name: t("cgiWinner"), title: t("cgi"), winnerImgClass: "winner-cgi-bg", },
+    { name: t("architectWinner"), title: t("architect"), winnerImgClass: "winner-architect-bg", },
+  ];
 
   return (
       <div className="flex flex-col gap-5 justify-around w-full relative max-w-7xl mx-auto max-md:px-8">
@@ -44,7 +38,7 @@ function PrevWinners() {
         <div className="grid grid-cols-2 md:grid-cols-4 justify-between w-full lg:gap-8 gap-4">
           {winnersData.map((item, i)=>{
             return <div key={i} className="w-full flex items-center justify-between lg:gap-8 gap-4 text-xl">
-              <PrevCard img={item.winnerImg} title={item.title} name={item.name} />
+              <PrevCard imgClass={item.winnerImgClass} title={item.title} name={item.name} />
             </div>
           })}
         </div>

@@ -10,14 +10,22 @@ export default function Deadline() {
 
   return (
     <div className="flex bg-black text-white w-screen overflow-hidden items-center justify-center relative h-80 transition-all">
-      <Image src={`/nights-6/general/nv-dubai-desktop.jpg`} alt="Museum of the future in Dubai" fill sizes="200px"
+      {/* <Image src={`/nights-6/general/nv-dubai-desktop.jpg`} alt="Museum of the future in Dubai" fill sizes="200px"
       className="size-full max-w-6xl ltr:ml-40 object-fill md:block hidden rtl:hidden" />
       <Image src={`/nights-6/general/nv-dubai.jpg`} alt="Museum of the futur in Dubai" fill sizes="200px"
       className="size-full max-w-6xl ltr:ml-10 object-fill md:hidden block rtl:hidden" />
       <Image src={`/nights-6/general/nv-dubai-desktop-ar.jpg`} alt="Museum of the futur in Dubai" fill sizes="200px"
       className="size-full max-w-6xl ltr:ml-40 object-fill md:block hidden ltr:hidden" />
       <Image src={`/nights-6/general/nv-dubai-desktop.jpg`} alt="Museum of the futur in Dubai" fill sizes="200px"
-      className="size-full max-w-6xl ltr:ml-10 object-fill md:hidden block ltr:hidden" />
+      className="size-full max-w-6xl ltr:ml-10 object-fill md:hidden block ltr:hidden" /> */}
+      <div role="img" aria-label="Museum of the future in Dubai" 
+        className="nv-dubai-desktop-bg size-full max-w-6xl ltr:ml-40 md:block hidden rtl:hidden" />
+      <div role="img" aria-label="Museum of the future in Dubai" 
+        className="nv-dubai-mobile-bg size-full max-w-6xl ltr:ml-10 md:hidden block rtl:hidden" />
+      <div role="img" aria-label="Museum of the future in Dubai" 
+        className="nv-dubai-desktop-ar-bg size-full max-w-6xl ltr:ml-40 md:block hidden ltr:hidden" />
+      <div role="img" aria-label="Museum of the future in Dubai" 
+        className="nv-dubai-mobile-ar-bg size-full max-w-6xl ltr:ml-10 md:hidden block ltr:hidden" />
 
       <div className="absolute inset-0 z-10 space-y-2 flex items-center justify-center">
         <div className="flex flex-col items-start justify-between w-full gap-4 max-w-[954px] px-2 font-bold">

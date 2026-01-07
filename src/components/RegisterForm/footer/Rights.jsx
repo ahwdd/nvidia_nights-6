@@ -11,9 +11,9 @@ function Rights() {
         <div className="flex items-center justify-center gap-14">
             {/* <Image src={NVStudioLogo} alt="Nvidia Studio" className="h-14 object-contain" />
             <Image src={MuseumOfTheFuture} alt="Museum of the future" className="h-16 object-contain" /> */}
-            <Image src={`/nights-6/general/light-theme-logos.svg`} alt="Museum of the future and Nvidia Studio Logo" 
-            width={200} height={100}
-            className="h-16 object-contain" />
+            <div role="img" aria-label="Museum of the future and Nvidia Studio Logo" 
+              className="light-theme-logos-bg h-16 w-[200px]"/>
+
         </div>
         <p className="text-medium text-center">
             {t("copyrights")}

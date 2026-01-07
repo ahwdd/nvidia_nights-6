@@ -14,7 +14,7 @@ export default function WhereToBuy() {
   ];
 
   return (
-    <div className="flex items-center justify-center py-20">
+    <div className="flex items-center justify-center py-10 sm:py-14 xl:py-20">
       <div className="flex flex-col items-center w-full max-w-[1290px] mx-auto max-md:px-8 text-center gap-10">
         <h4 className="heading-medium font-bold text-white">
           {t("title") || "Where to Buy"}
@@ -39,11 +39,21 @@ export default function WhereToBuy() {
           ))}
         </div> */}
 
-        <div className="mt-4">
+        {/* <div className="mt-4">
           <p className="text-large text-gray-300">
             {t("comingSoon") || "Coming soon"}
           </p>
+        </div> */}
+        <div className="flex items-center justify-center gap-10">
+          <a href="https://www.virginmegastore.ae/en/nvidia-studio"
+            target="_blank" rel="noopener noreferrer" aria-label="Virgin Megastore Nvidia Studio Nights"
+            className="virgin-buy-bg size-28 sm:size-40"/>
+
+          <a href="https://www.geekay.com/en/nvidia-studio-nights-6"
+            target="_blank" rel="noopener noreferrer" aria-label="Geekay Nvidia Studio Nights"
+            className="geekay-buy-bg h-20 w-36 sm:min-w-48"/>
         </div>
+
       </div>
     </div>
   );
