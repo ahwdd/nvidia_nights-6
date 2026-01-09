@@ -1,22 +1,36 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-import { useLocale } from 'next-intl';
-import React, { useMemo, useEffect, useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useLocale } from "next-intl";
+import React, { useMemo } from "react";
 
 import { CiGlobe } from "react-icons/ci";
 
+const SUPPORTED_LOCALES = ["en", "ar"];
+
 export default function LanguageSwitcher() {
-  const pathname = usePathname();
+  const pathname = usePathname() || "/";
+  const searchParams = useSearchParams();
   const router = useRouter();
   const currentLocale = useLocale();
-  const targetLocale = currentLocale=='ar'?'en':'ar'
+  const targetLocale = currentLocale === "ar" ? "en" : "ar";
+
+  const queryString = useMemo(() => {
+    const s = searchParams?.toString();
+    return s && s.length ? `?${s}` : "";
+  }, [searchParams]);
 
   const switchLanguage = (newLocale) => {
-    const pathWithoutLocale = pathname.replace(`/${currentLocale}`, '');
-    const newPath = `/${newLocale}${pathWithoutLocale}`;
-    
+    const segments = pathname.split("/").filter(Boolean);
+    console.log('segments :>> ', segments);
+    if (segments.length > 0 && SUPPORTED_LOCALES.includes(segments[0])) {
+      segments[0] = newLocale;
+    } else {
+      segments.unshift(newLocale);
+    }
+
+    const newPath = "/" + segments.join("/") + queryString;
     router.push(newPath);
   };
   const isWhiteRoute = pathname.includes('/success')
