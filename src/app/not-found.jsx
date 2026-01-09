@@ -15,10 +15,8 @@ function NotFound() {
             <Image src={`/not-found.png`} width={500} height={500} alt="not found" />
           </h1>
 
-          <Link
-            className="bg-mainGreen rounded w-fit p-2 flex items-center gap-3 justify-center"
-            href={"/"}
-          >
+          <Link className="bg-mainGreen rounded w-fit p-2 flex items-center gap-3 justify-center"
+            href={"/nights/sn6"}>
             Back home <MoveLeft />
           </Link>
         </div>
