@@ -25,13 +25,17 @@ export default function LanguageSwitcher() {
     const segments = pathname.split("/").filter(Boolean);
     console.log('segments :>> ', segments);
     if (segments.length > 0 && SUPPORTED_LOCALES.includes(segments[0])) {
+      console.log('newLocale :>> ', newLocale);
       segments[0] = newLocale;
     } else {
       segments.unshift(newLocale);
     }
 
     const newPath = "/" + segments.join("/") + queryString;
-    router.push(newPath);
+    console.log('newPath :>> ', newPath);
+    setTimeout(()=>{
+      router.push(newPath);
+    }, [1000])
   };
   const isWhiteRoute = pathname.includes('/success')
 
