@@ -23,19 +23,15 @@ export default function LanguageSwitcher() {
 
   const switchLanguage = (newLocale) => {
     const segments = pathname.split("/").filter(Boolean);
-    console.log('segments :>> ', segments);
     if (segments.length > 0 && SUPPORTED_LOCALES.includes(segments[0])) {
-      console.log('newLocale :>> ', newLocale);
       segments[0] = newLocale;
     } else {
       segments.unshift(newLocale);
     }
-    console.log('segments.join("/") :>> ', segments.join("/"));
     const newPath = "/" + segments.join("/") + queryString;
-    console.log('newPath :>> ', newPath);
-    setTimeout(()=>{
-      router.push(newPath);
-    }, [5000])
+    const absoluteUrl = new URL(newPath, window.location.origin).toString();
+    
+    location.href = absoluteUrl;
   };
   const isWhiteRoute = pathname.includes('/success')
 
