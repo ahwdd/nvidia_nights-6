@@ -30,12 +30,12 @@ export default function LanguageSwitcher() {
     } else {
       segments.unshift(newLocale);
     }
-
+    console.log('segments.join("/") :>> ', segments.join("/"));
     const newPath = "/" + segments.join("/") + queryString;
     console.log('newPath :>> ', newPath);
     setTimeout(()=>{
       router.push(newPath);
-    }, [1000])
+    }, [5000])
   };
   const isWhiteRoute = pathname.includes('/success')
 
