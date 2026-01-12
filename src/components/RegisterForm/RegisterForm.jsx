@@ -329,8 +329,8 @@ function RegisterForm({ onBookingCreated }) {
                   ? "تصميم الأزياء الرقمي"
                   : "Digital Fashion Design"}
               </option>
-              <option value="Architectural Design">
-                {locale === "ar" ? "التصميم المعماري" : "Architectural Design"}
+              <option value="Interior Design">
+                {locale === "ar" ? "التصميم الداخلي" : "Interior Design"}
               </option>
               <option value="Videography">
                 {locale === "ar" ? "التصوير السينمائي (الأفلام القصيرة)" : "Videography - Short Films"}
