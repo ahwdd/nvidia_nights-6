@@ -44,18 +44,18 @@ export default function WhereToBuy() {
             {t("comingSoon") || "Coming soon"}
           </p>
         </div> */}
-        <div className="flex items-center justify-center gap-10">
+        <div className="flex items-center justify-center md:gap-10 sm:gap-5 gap-2">
           <a href="https://www.virginmegastore.ae/en/nvidia-studio"
             target="_blank" rel="noopener noreferrer" aria-label="Virgin Megastore Nvidia Studio Nights"
-            className="virgin-buy-bg size-28 sm:size-40"/>
+            className="virgin-buy-bg size-24 sm:size-40"/>
 
           <a href="https://www.geekay.com/en/nvidia-studio-nights-6"
             target="_blank" rel="noopener noreferrer" aria-label="Geekay Nvidia Studio Nights"
-            className="geekay-buy-bg h-20 w-36 sm:min-w-48"/>
+            className="geekay-buy-bg h-20 w-32 sm:min-w-48"/>
 
              <a href="https://www.infiniarc.com/en/landing/Nvidiastudio"
             target="_blank" rel="noopener noreferrer" aria-label="Infiniarc Nvidia Studio Nights"
-            className="infiniarc-buy-bg h-12 w-44 sm:min-w-52"/>
+            className="infiniarc-buy-bg h-12 w-40 sm:min-w-52"/>
         </div>
 
       </div>
