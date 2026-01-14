@@ -18,7 +18,7 @@ function RegisterForm({ onBookingCreated }) {
   const t = useTranslations("Register");
   const { locale } = useParams();
   const pathname = usePathname()
-  const router = useRouter();
+  const [briefFocused, setBriefFocused] = useState(false);
 
   const formSchema = z.object({
     first_name: z
@@ -88,6 +88,7 @@ function RegisterForm({ onBookingCreated }) {
   const {register, handleSubmit, setValue, reset, control, formState: { errors }} 
     = useForm({ resolver: zodResolver(formSchema) });
 
+  const briefValue = useWatch({ control, name: "brief", defaultValue: "" });
   const country = useWatch({ control, name: "country", defaultValue: "" });
   const city = useWatch({ control, name: "city", defaultValue: "" });
   const contest = useWatch({ control, name: "contest_type", defaultValue: "" });
@@ -106,14 +107,11 @@ function RegisterForm({ onBookingCreated }) {
     }
 
     try {
-      // Build social_media string from individual fields
       const socialMediaLinks = [ data.socialLink ].filter(link => link && link.trim() !== "").join(", ");
 
       let response;
 
-      // Check if file is a File object or a URL string
       if (data.file instanceof File) {
-        // If it's a file, send as FormData
         const formData = new FormData();
         formData.append("first_name", data.first_name);
         formData.append("last_name", data.last_name);
@@ -137,7 +135,6 @@ function RegisterForm({ onBookingCreated }) {
           }
         );
       } else {
-        // If it's a URL string, send as JSON
         const payload = {
           first_name: data.first_name,
           last_name: data.last_name,
@@ -368,13 +365,22 @@ function RegisterForm({ onBookingCreated }) {
           </div>
         </div>
 
-        {/* Brief About Your Project */}
-        <div className="flex flex-col gap-2">
-          <textarea
-            className="w-full p-3 max-sm:px-1 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500 h-[150px] resize-none"
-            placeholder={t("brief_about_your_project") || "Brief About Your Project"}
+        <div className="flex flex-col gap-2 relative">
+          <textarea id="brief"
+            className="w-full p-3 max-sm:px-1 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500 h-[150px] resize-none bg-transparent"
+            // placeholder={t("brief_about_your_project") || "Brief About Your Project"}
             {...register("brief")}
-          ></textarea>
+            onFocus={() => setBriefFocused(true)}
+            onBlur={() => setBriefFocused(false)}/>
+          {!briefFocused && !briefValue && (
+            <div aria-hidden="true"
+              className="pointer-events-none absolute left-3 top-3 text-sm text-gray-400 leading-relaxed whitespace-pre-line">
+              <div>{t("brief_about_your_project") || "Brief About Your Project"}</div>
+              <div className="mt-1">
+                {t("brief_about_your_project1") || "The project should be inspired by either the city of Dubai or the Museum of the Future"}
+              </div>
+            </div>
+          )}
           {errors.brief && <RegisterError error={errors.brief.message} />}
         </div>
 

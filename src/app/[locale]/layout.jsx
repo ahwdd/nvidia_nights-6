@@ -51,7 +51,7 @@ export default async function LocaleLayout({ children, params }) {
 
   return (
     <main lang={locale} dir={locale === "en" ? "ltr" : "rtl"} 
-    className={`overflow-x-hidden w-screen bg-white text-black relative
+    className={`overflow-x-hidden w-full bg-white text-black relative
     ${locale === "ar" ? almarai.className : `${nvidiaNala.variable} ${nvsans.className}`}`}>
       <NextIntlClientProvider messages={messages}>
         <FacebookPixel />
