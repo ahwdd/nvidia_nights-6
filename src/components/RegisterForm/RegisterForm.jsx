@@ -121,7 +121,6 @@ function RegisterForm({ onBookingCreated }) {
       const isFileSingle = data.file instanceof File;
       const isFileUrl = typeof data.file === "string" && data.file.trim() !== "";
 
-      // If user provided a File or an array of Files => use FormData
       if (isFileSingle || isFileArray) {
         const formData = new FormData();
         formData.append("first_name", data.first_name);
@@ -138,21 +137,16 @@ function RegisterForm({ onBookingCreated }) {
         if (isFileSingle) {
           formData.append("file", data.file);
         } else if (isFileArray) {
-          // Append many files. Use either "file" repeated or "file[]" depending on backend expectation.
-          // Many backends accept multiple fields with the same name ("file"), some expect "file[]".
           data.file.forEach((f) => {
-            formData.append("file", f);        // <--- common approach
-            // or: formData.append("file[]", f); // <--- if backend expects file[] keys
+            formData.append("file", f);
           });
         }
 
-        // Do NOT set Content-Type header manually for multipart/form-data; let the browser set boundary
         response = await axios.post(
           "https://arabhardware.net/9675d4a085a5b1725357814392/api/v1/competitions",
           formData
         );
       } else {
-        // No File object(s) — treat it as JSON. If it's a URL string, include it; otherwise null/empty.
         const payload = {
           first_name: data.first_name,
           last_name: data.last_name,
@@ -177,7 +171,6 @@ function RegisterForm({ onBookingCreated }) {
       }
       
       if (response.status === 200) {
-        // Track Facebook pixel event
         if (typeof window !== "undefined") {
           try {
             if (typeof window.fbq === "function" || typeof window.fbq === "object") {
