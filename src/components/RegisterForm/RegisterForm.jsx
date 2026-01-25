@@ -55,6 +55,7 @@ function RegisterForm({ onBookingCreated }) {
     file: z.union([
       z.string().url({ message: t("formErrors.file.invalid_url") }),
       z.instanceof(File, { message: t("formErrors.file.invalid_url") }),
+      z.array(z.instanceof(File), { message: t("formErrors.file.invalid_url") }),
     ]),
   });
 
@@ -80,10 +81,16 @@ function RegisterForm({ onBookingCreated }) {
     }
   }, [t]);
 
-  useEffect(()=>{
-    if(window && window.innerWidth < 600) setIsMobile(true)
-    else setIsMobile(false)
-  }, [])
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 600);
+    };
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    return () => {
+      window.removeEventListener('resize', checkIsMobile);
+    };
+  }, []);
 
   const {register, handleSubmit, setValue, reset, control, formState: { errors }} 
     = useForm({ resolver: zodResolver(formSchema) });
@@ -100,18 +107,22 @@ function RegisterForm({ onBookingCreated }) {
     if (currentDate > submissionDeadline) {
       setFormError(
         t("submission_deadline_passed") ||
-          "Submission deadline has passed. The contest is now closed."
+        "Submission deadline has passed. The contest is now closed."
       );
       setIsLoading(false);
       return;
     }
 
     try {
-      const socialMediaLinks = [ data.socialLink ].filter(link => link && link.trim() !== "").join(", ");
+      const socialMediaLinks = [data.socialLink].filter(link => link && link.trim() !== "").join(", ");
 
       let response;
+      const isFileArray = Array.isArray(data.file);
+      const isFileSingle = data.file instanceof File;
+      const isFileUrl = typeof data.file === "string" && data.file.trim() !== "";
 
-      if (data.file instanceof File) {
+      // If user provided a File or an array of Files => use FormData
+      if (isFileSingle || isFileArray) {
         const formData = new FormData();
         formData.append("first_name", data.first_name);
         formData.append("last_name", data.last_name);
@@ -123,18 +134,25 @@ function RegisterForm({ onBookingCreated }) {
         formData.append("software_used", data.software_used);
         formData.append("brief", data.brief || "");
         formData.append("social_media", socialMediaLinks);
-        formData.append("file", data.file);
 
+        if (isFileSingle) {
+          formData.append("file", data.file);
+        } else if (isFileArray) {
+          // Append many files. Use either "file" repeated or "file[]" depending on backend expectation.
+          // Many backends accept multiple fields with the same name ("file"), some expect "file[]".
+          data.file.forEach((f) => {
+            formData.append("file", f);        // <--- common approach
+            // or: formData.append("file[]", f); // <--- if backend expects file[] keys
+          });
+        }
+
+        // Do NOT set Content-Type header manually for multipart/form-data; let the browser set boundary
         response = await axios.post(
           "https://arabhardware.net/9675d4a085a5b1725357814392/api/v1/competitions",
-          formData,
-          {
-            headers: {
-              "Content-Type": "multipart/form-data",
-            },
-          }
+          formData
         );
       } else {
+        // No File object(s) — treat it as JSON. If it's a URL string, include it; otherwise null/empty.
         const payload = {
           first_name: data.first_name,
           last_name: data.last_name,
@@ -146,20 +164,18 @@ function RegisterForm({ onBookingCreated }) {
           software_used: data.software_used,
           brief: data.brief || "",
           social_media: socialMediaLinks,
-          file: data.file,
+          file: isFileUrl ? data.file : null,
         };
 
         response = await axios.post(
           "https://arabhardware.net/9675d4a085a5b1725357814392/api/v1/competitions",
           payload,
           {
-            headers: {
-              "Content-Type": "application/json",
-            },
+            headers: { "Content-Type": "application/json" },
           }
         );
       }
-
+      
       if (response.status === 200) {
         // Track Facebook pixel event
         if (typeof window !== "undefined") {
@@ -392,9 +408,7 @@ function RegisterForm({ onBookingCreated }) {
             <input type="url" placeholder={isMobile? t("socialLinkMobile") :t("socialLink") || "socialLink URL"}
               className="w-full p-3 max-sm:px-1 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500"
               {...register("socialLink")}/>
-            {errors.socialLink && (
-              <RegisterError error={errors.socialLink.message} />
-            )}
+            {errors.socialLink && <RegisterError error={errors.socialLink.message} />}
           </div>
         </div>
 

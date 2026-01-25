@@ -6,15 +6,16 @@ import { useTranslations } from "next-intl";
 
 const FileInput = ({ register, setValue, errors }) => {
   const t = useTranslations("Register");
-  const [fileName, setFileName] = useState(""); // For file name state
+  const [fileName, setFileName] = useState(""); // For file name(s) state
   const [inputValue, setInputValue] = useState(""); // For text input value
 
   const handleFileChange = (event) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      setFileName(file.name);
+    const files = event.target.files ? Array.from(event.target.files) : [];
+    if (files.length > 0) {
+      const names = files.map((f) => f.name).join(", ");
+      setFileName(names);
       setInputValue("");
-      setValue("file", file)
+      setValue("file", files);
     }
   };
 
@@ -53,14 +54,14 @@ const FileInput = ({ register, setValue, errors }) => {
           <span className="flex gap-1 items-center sm:text-sm text-xs font-bold whitespace-nowrap">
             {` ${t("uploadFile") || "Upload File"} `}
           </span>
-          <input type="file" className="hidden" aria-disabled={fileDisabled}
+          <input type="file" multiple className="hidden" aria-disabled={fileDisabled}
             onChange={handleFileChange} disabled={fileDisabled} />
         </label>
       </div>
 
       {fileName && (
         <div className="flex gap-2 items-center text-sm text-gray-600">
-          <span>Selected file: {fileName}</span>
+          <span>Selected file{fileName.includes(",") ? "s" : ""}: {fileName}</span>
           <button
             type="button"
             onClick={handleClearFile}
