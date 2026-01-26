@@ -20,6 +20,8 @@ function RegisterForm({ onBookingCreated }) {
   const pathname = usePathname()
   const [briefFocused, setBriefFocused] = useState(false);
 
+  const ALLOWED_CONTEST_TYPE = "Digital Fashion Design";
+
   const formSchema = z.object({
     first_name: z
       .string()
@@ -41,7 +43,9 @@ function RegisterForm({ onBookingCreated }) {
     contest_type: z
       .string()
       .min(1, t("formErrors.contest_type.required"))
-      .min(3, t("formErrors.contest_type.min")),
+      .refine((val) => val === ALLOWED_CONTEST_TYPE, {
+        message: "Only Digital Fashion Design category is currently accepting submissions",
+      }),
     hardware_used: z
       .string()
       .min(1, t("formErrors.hardware_used.required"))
@@ -68,10 +72,10 @@ function RegisterForm({ onBookingCreated }) {
   const [isDeadlinePassed, setIsDeadlinePassed] = useState(false);
   const [isMobile, setIsMobile] = useState(false)
 
-  const currentDate = new Date();
-  const submissionDeadline = new Date("2026-01-25T23:59:59"); // Jan 25, 2026
+  const submissionDeadline = new Date("2026-01-31T23:59:59"); // Jan 31, 2026
 
   useEffect(() => {
+    const currentDate = new Date();
     if (currentDate > submissionDeadline) {
       setIsDeadlinePassed(true);
       setFormError(
@@ -104,11 +108,19 @@ function RegisterForm({ onBookingCreated }) {
     setIsLoading(true);
     setFormError("");
 
+    const currentDate = new Date();
     if (currentDate > submissionDeadline) {
       setFormError(
         t("submission_deadline_passed") ||
         "Submission deadline has passed. The contest is now closed."
       );
+      setIsLoading(false);
+      return;
+    }
+
+    // Additional validation to prevent tampering
+    if (data.contest_type !== ALLOWED_CONTEST_TYPE) {
+      setFormError("Only Digital Fashion Design category is currently accepting submissions");
       setIsLoading(false);
       return;
     }
@@ -230,6 +242,17 @@ function RegisterForm({ onBookingCreated }) {
     setValue("city", "");
   };
 
+  const handleContestChange = (event) => {
+    const value = event.target.value;
+    if (value !== ALLOWED_CONTEST_TYPE && value !== "") {
+      event.preventDefault();
+      setValue("contest_type", "");
+      setFormError("Only Digital Fashion Design category is currently accepting submissions");
+    } else {
+      setFormError("");
+    }
+  };
+
   return (
     <div id="submit" className="w-full max-w-[954px] mx-auto px-5 md:px-3 py-12">
 
@@ -238,7 +261,7 @@ function RegisterForm({ onBookingCreated }) {
           {t("title") || "Submit Your Artwork"}
         </h1>
         <p className="heading-smallest font-bold text-gray-700">
-          {renderDateWithSuperscript(t("subTitle") || "Deadline 25Th of Jan, 2026")}
+          {renderDateWithSuperscript(t("subTitle") || "Deadline 31st of Jan, 2026")}
         </p>
       </div>
 
@@ -319,27 +342,31 @@ function RegisterForm({ onBookingCreated }) {
           <div className="flex flex-col gap-2">
             <select
               defaultValue=""
-              className={`w-full p-3 max-sm:px-1 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500 bg-white
+              className={`w-full p-3 max-sm:px-1 border border-gray-300 rounded-sm 
+                focus:outline-none focus:border-gray-500 bg-white 
                 ${(contest && contest != '')? '': 'text-gray-400'}`}
               {...register("contest_type")}
+              onChange={handleContestChange}
             >
               <option value="" disabled>
                 {isMobile? t("choose_contest_mobile"): t("choose_contest") || "Contest Type"}
-              </option>
-              <option value="3D/CGI">3D/CGI</option>
-              <option value="Photography">
-                {locale === "ar" ? "التصوير الفوتوغرافي" : "Photography"}
               </option>
               <option value="Digital Fashion Design">
                 {locale === "ar"
                   ? "تصميم الأزياء الرقمي"
                   : "Digital Fashion Design"}
               </option>
-              <option value="Interior Design">
-                {locale === "ar" ? "التصميم الداخلي" : "Interior Design"}
+              <option value="3D/CGI" disabled className="text-gray-400 disabled:text-gray-300">
+                3D/CGI (Closed)
               </option>
-              <option value="Videography">
-                {locale === "ar" ? "التصوير السينمائي (الأفلام القصيرة)" : "Videography - Short Films"}
+              <option value="Photography" disabled className="text-gray-400 disabled:text-gray-300">
+                {locale === "ar" ? "التصوير الفوتوغرافي (مغلق)" : "Photography (Closed)"}
+              </option>
+              <option value="Interior Design" disabled className="text-gray-400 disabled:text-gray-300">
+                {locale === "ar" ? "التصميم الداخلي (مغلق)" : "Interior Design (Closed)"}
+              </option>
+              <option value="Videography" disabled className="text-gray-400 disabled:text-gray-300">
+                {locale === "ar" ? "التصوير السينمائي (الأفلام القصيرة) (مغلق)" : "Videography - Short Films (Closed)"}
               </option>
             </select>
             {errors.contest_type && (
