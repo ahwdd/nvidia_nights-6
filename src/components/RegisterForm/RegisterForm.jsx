@@ -55,7 +55,7 @@ function RegisterForm({ onBookingCreated }) {
       .string()
       .min(1, t("formErrors.software_used.required"))
       .min(3, t("formErrors.software_used.min")),
-    brief: z.string().optional(),
+    brief: z.string().max(255, t("formErrors.brief.max")).optional(),
     socialLink: z.string().optional(),
     file: z.union([
       z.string().url({ message: t("formErrors.file.invalid_url") }),
@@ -404,7 +404,7 @@ function RegisterForm({ onBookingCreated }) {
         </div>
 
         <div className="flex flex-col gap-2 relative">
-          <textarea id="brief"
+          <textarea id="brief" maxLength={255}
             className="w-full p-3 max-sm:px-1 border border-gray-300 rounded-sm focus:outline-none focus:border-gray-500 h-[150px] resize-none bg-transparent"
             // placeholder={t("brief_about_your_project") || "Brief About Your Project"}
             {...register("brief")}

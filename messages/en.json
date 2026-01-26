@@ -144,7 +144,6 @@
         "min": "Name must be at least 3 characters",
         "required": "Name is required"
       },
-
       "phone": {
         "invalid": "Invalid phone number",
         "required": "Phone is required"
@@ -181,6 +180,7 @@
         "required": "Software Used is required"
       },
       "brief": {
+        "max": "Brief must be less than 255 characters",
         "optional": "Brief description is optional"
       },
       "file": {
