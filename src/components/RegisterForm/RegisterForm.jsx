@@ -19,6 +19,7 @@ function RegisterForm({ onBookingCreated }) {
   const { locale } = useParams();
   const pathname = usePathname()
   const [briefFocused, setBriefFocused] = useState(false);
+  let currentDate = new Date()
 
   const ALLOWED_CONTEST_TYPE = "Digital Fashion Design";
 
@@ -75,7 +76,7 @@ function RegisterForm({ onBookingCreated }) {
   const submissionDeadline = new Date("2026-01-31T23:59:59"); // Jan 31, 2026
 
   useEffect(() => {
-    const currentDate = new Date();
+    currentDate = new Date();
     if (currentDate > submissionDeadline) {
       setIsDeadlinePassed(true);
       setFormError(
@@ -352,9 +353,10 @@ function RegisterForm({ onBookingCreated }) {
                 {isMobile? t("choose_contest_mobile"): t("choose_contest") || "Contest Type"}
               </option>
               <option value="Digital Fashion Design">
-                {locale === "ar"
-                  ? "تصميم الأزياء الرقمي"
-                  : "Digital Fashion Design"}
+                {locale === "ar"? "تصميم الأزياء الرقمي ": "Digital Fashion Design "}
+                ({currentDate > submissionDeadline 
+                  ?(locale == "ar"? "مغلق": "Closed")
+                  :(locale == "ar"? "حتى 31 يناير": (isMobile? "Till 31/1":"Till 31st of January"))})
               </option>
               <option value="3D/CGI" disabled className="text-gray-400 disabled:text-gray-300">
                 3D/CGI (Closed)
