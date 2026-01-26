@@ -180,7 +180,7 @@
         "required": "Software Used is required"
       },
       "brief": {
-        "max": "Brief must be less than 255 characters",
+        "max": "Brief must be less than 250 characters",
         "optional": "Brief description is optional"
       },
       "file": {

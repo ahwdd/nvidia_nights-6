@@ -55,7 +55,7 @@ function RegisterForm({ onBookingCreated }) {
       .string()
       .min(1, t("formErrors.software_used.required"))
       .min(3, t("formErrors.software_used.min")),
-    brief: z.string().max(255, t("formErrors.brief.max")).optional(),
+    brief: z.string().max(249, t("formErrors.brief.max")).optional(),
     socialLink: z.string().optional(),
     file: z.union([
       z.string().url({ message: t("formErrors.file.invalid_url") }),
