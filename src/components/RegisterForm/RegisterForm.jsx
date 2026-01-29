@@ -21,7 +21,7 @@ function RegisterForm({ onBookingCreated }) {
   const [briefFocused, setBriefFocused] = useState(false);
   let currentDate = new Date()
 
-  const ALLOWED_CONTEST_TYPE = "Digital Fashion Design";
+  // const ALLOWED_CONTEST_TYPE = "Digital Fashion Design";
 
   const formSchema = z.object({
     first_name: z
@@ -43,10 +43,10 @@ function RegisterForm({ onBookingCreated }) {
       .min(3, t("formErrors.city.min")),
     contest_type: z
       .string()
-      .min(1, t("formErrors.contest_type.required"))
-      .refine((val) => val === ALLOWED_CONTEST_TYPE, {
-        message: "Only Digital Fashion Design category is currently accepting submissions",
-      }),
+      .min(1, t("formErrors.contest_type.required")),
+      // .refine((val) => val === ALLOWED_CONTEST_TYPE, {
+      //   message: "Only Digital Fashion Design category is currently accepting submissions",
+      // }),
     hardware_used: z
       .string()
       .min(1, t("formErrors.hardware_used.required"))
@@ -119,12 +119,11 @@ function RegisterForm({ onBookingCreated }) {
       return;
     }
 
-    // Additional validation to prevent tampering
-    if (data.contest_type !== ALLOWED_CONTEST_TYPE) {
-      setFormError("Only Digital Fashion Design category is currently accepting submissions");
-      setIsLoading(false);
-      return;
-    }
+    // if (data.contest_type !== ALLOWED_CONTEST_TYPE) {
+    //   setFormError("Only Digital Fashion Design category is currently accepting submissions");
+    //   setIsLoading(false);
+    //   return;
+    // }
 
     try {
       const socialMediaLinks = [data.socialLink].filter(link => link && link.trim() !== "").join(", ");
@@ -243,16 +242,16 @@ function RegisterForm({ onBookingCreated }) {
     setValue("city", "");
   };
 
-  const handleContestChange = (event) => {
-    const value = event.target.value;
-    if (value !== ALLOWED_CONTEST_TYPE && value !== "") {
-      event.preventDefault();
-      setValue("contest_type", "");
-      setFormError("Only Digital Fashion Design category is currently accepting submissions");
-    } else {
-      setFormError("");
-    }
-  };
+  // const handleContestChange = (event) => {
+  //   const value = event.target.value;
+  //   if (value !== ALLOWED_CONTEST_TYPE && value !== "") {
+  //     event.preventDefault();
+  //     setValue("contest_type", "");
+  //     setFormError("Only Digital Fashion Design category is currently accepting submissions");
+  //   } else {
+  //     setFormError("");
+  //   }
+  // };
 
   return (
     <div id="submit" className="w-full max-w-[954px] mx-auto px-5 md:px-3 py-12">
@@ -347,28 +346,45 @@ function RegisterForm({ onBookingCreated }) {
                 focus:outline-none focus:border-gray-500 bg-white 
                 ${(contest && contest != '')? '': 'text-gray-400'}`}
               {...register("contest_type")}
-              onChange={handleContestChange}
+              // onChange={handleContestChange}
             >
               <option value="" disabled>
                 {isMobile? t("choose_contest_mobile"): t("choose_contest") || "Contest Type"}
               </option>
               <option value="Digital Fashion Design">
                 {locale === "ar"? "تصميم الأزياء الرقمي ": "Digital Fashion Design "}
-                ({currentDate > submissionDeadline 
-                  ?(locale == "ar"? "مغلق": "Closed")
-                  :(locale == "ar"? "حتى 31 يناير": (isMobile? "Till 31/1":"Till 31st of January"))})
+                {currentDate > submissionDeadline 
+                  ?(locale == "ar"? "(مغلق)": "(Closed)")
+                  :''// :(locale == "ar"? "حتى 31 يناير": (isMobile? "Till 31/1":"Till 31st of January"))
+                }
               </option>
-              <option value="3D/CGI" disabled className="text-gray-400 disabled:text-gray-300">
-                3D/CGI (Closed)
+              <option value="3D/CGI" className="text-gray-400 disabled:text-gray-300">
+                3D/CGI 
+                {currentDate > submissionDeadline 
+                  ?(locale == "ar"? "(مغلق)": "(Closed)")
+                  :''// :'':(locale == "ar"? "حتى 31 يناير": (isMobile? "Till 31/1":"Till 31st of January"))
+                }
               </option>
-              <option value="Photography" disabled className="text-gray-400 disabled:text-gray-300">
-                {locale === "ar" ? "التصوير الفوتوغرافي (مغلق)" : "Photography (Closed)"}
+              <option value="Photography" className="text-gray-400 disabled:text-gray-300">
+                {locale === "ar" ? "التصوير الفوتوغرافي " : "Photography "}
+                {currentDate > submissionDeadline 
+                  ?(locale == "ar"? "(مغلق)": "(Closed)")
+                  :''// :'':(locale == "ar"? "حتى 31 يناير": (isMobile? "Till 31/1":"Till 31st of January"))
+                }
               </option>
-              <option value="Interior Design" disabled className="text-gray-400 disabled:text-gray-300">
-                {locale === "ar" ? "التصميم الداخلي (مغلق)" : "Interior Design (Closed)"}
+              <option value="Interior Design" className="text-gray-400 disabled:text-gray-300">
+                {locale === "ar" ? "التصميم الداخلي " : "Interior Design "}
+                {currentDate > submissionDeadline 
+                  ?(locale == "ar"? "(مغلق)": "(Closed)")
+                  :''// :'':(locale == "ar"? "حتى 31 يناير": (isMobile? "Till 31/1":"Till 31st of January"))
+                }
               </option>
-              <option value="Videography" disabled className="text-gray-400 disabled:text-gray-300">
-                {locale === "ar" ? "التصوير السينمائي (الأفلام القصيرة) (مغلق)" : "Videography - Short Films (Closed)"}
+              <option value="Videography" className="text-gray-400 disabled:text-gray-300">
+                {locale === "ar" ? "التصوير السينمائي (الأفلام القصيرة) " : "Videography - Short Films "}
+                {currentDate > submissionDeadline 
+                  ?(locale == "ar"? "(مغلق)": "(Closed)")
+                  :''// :'':(locale == "ar"? "حتى 31 يناير": (isMobile? "Till 31/1":"Till 31st of January"))
+                }
               </option>
             </select>
             {errors.contest_type && (
@@ -412,7 +428,7 @@ function RegisterForm({ onBookingCreated }) {
             onBlur={() => setBriefFocused(false)}/>
           {!briefFocused && !briefValue && (
             <div aria-hidden="true"
-              className="pointer-events-none absolute left-3 top-3 text-sm text-gray-400 leading-relaxed whitespace-pre-line">
+              className="pointer-events-none absolute right-3 ltr:left-3 top-3 text-sm text-gray-400 leading-relaxed whitespace-pre-line">
               <div>{t("brief_about_your_project") || "Brief About Your Project"}</div>
               <div className="mt-1">
                 {t("brief_about_your_project1") || "The project should be inspired by either the city of Dubai or the Museum of the Future"}
