@@ -1,16 +1,80 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useTranslations } from "next-intl";
 
 export default function WhereToBuy() {
   const t = useTranslations("WhereToBuy");
-  const [activeCountry, setActiveCountry] = useState("kuwait");
+  const sliderRef = useRef(null);
+  // const [activeCountry, setActiveCountry] = useState("kuwait");
 
-  const countries = [
-    { id: "kuwait", name: t("kuwait") || "Kuwait" },
-    { id: "uae", name: t("uae") || "United Arab Emirates" },
-    { id: "saudi", name: t("saudi") || "Saudi Arabia" },
+  // const countries = [
+  //   { id: "kuwait", name: t("kuwait") || "Kuwait" },
+  //   { id: "uae", name: t("uae") || "United Arab Emirates" },
+  //   { id: "saudi", name: t("saudi") || "Saudi Arabia" },
+  // ];
+  let isDown = false;
+  let startX = 0;
+  let startScroll = 0;
+
+  const onPointerDown = (e) => {
+    const el = sliderRef.current;
+    if (!el) return;
+    isDown = true;
+    el.setPointerCapture(e.pointerId);
+    startX = e.clientX;
+    startScroll = el.scrollLeft;
+    el.classList.add("dragging");
+  };
+
+  const onPointerMove = (e) => {
+    const el = sliderRef.current;
+    if (!el || !isDown) return;
+    const x = e.clientX;
+    const walk = (x - startX) * 1; // multiplier for speed (1 is neutral)
+    el.scrollLeft = startScroll - walk;
+  };
+
+  const endDrag = (e) => {
+    const el = sliderRef.current;
+    if (!el) return;
+    isDown = false;
+    try {
+      if (e) el.releasePointerCapture(e.pointerId);
+    } catch (err) {
+    }
+    el.classList.remove("dragging");
+  };
+
+  const links = [
+    {
+      href: "https://www.virginmegastore.ae/en/nvidia-studio",
+      aria: "Virgin Megastore Nvidia Studio Nights",
+      bgClass: "virgin-buy-bg",
+      w: "size-20 sm:size-32",
+      h: "",
+    },
+    {
+      href: "https://www.geekay.com/en/nvidia-studio-nights-6",
+      aria: "Geekay Nvidia Studio Nights",
+      bgClass: "geekay-buy-bg",
+      w: "w-32 sm:min-w-48",
+      h: "h-20",
+    },
+    {
+      href: "https://www.infiniarc.com/en/landing/Nvidiastudio",
+      aria: "Infiniarc Nvidia Studio Nights",
+      bgClass: "infiniarc-buy-bg",
+      w: "w-40 sm:min-w-52",
+      h: "h-12",
+    },
+    {
+      href: "https://hyperpc.ae/company/news/studio-nights-6",
+      aria: "Hyperpc Nvidia Studio Nights",
+      bgClass: "hyperpc-buy-bg",
+      w: "w-40 sm:min-w-52",
+      h: "h-12",
+    },
   ];
 
   return (
@@ -19,7 +83,7 @@ export default function WhereToBuy() {
         <h4 className="heading-medium font-bold text-white">
           {t("title") || "Where to Buy"}
         </h4>
-
+        
         {/* <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
           {countries.map((country) => (
             <button
@@ -44,20 +108,20 @@ export default function WhereToBuy() {
             {t("comingSoon") || "Coming soon"}
           </p>
         </div> */}
-        <div className="flex items-center justify-center md:gap-10 sm:gap-5 gap-2">
-          <a href="https://www.virginmegastore.ae/en/nvidia-studio"
-            target="_blank" rel="noopener noreferrer" aria-label="Virgin Megastore Nvidia Studio Nights"
-            className="virgin-buy-bg size-24 sm:size-40"/>
 
-          <a href="https://www.geekay.com/en/nvidia-studio-nights-6"
-            target="_blank" rel="noopener noreferrer" aria-label="Geekay Nvidia Studio Nights"
-            className="geekay-buy-bg h-20 w-32 sm:min-w-48"/>
-
-             <a href="https://www.infiniarc.com/en/landing/Nvidiastudio"
-            target="_blank" rel="noopener noreferrer" aria-label="Infiniarc Nvidia Studio Nights"
-            className="infiniarc-buy-bg h-12 w-40 sm:min-w-52"/>
+        <div className="relative w-full">
+          <div ref={sliderRef} role="list" aria-label={t("whereToBuyList") || "Where to buy list"} tabIndex={0}
+            onPointerDown={onPointerDown} onPointerMove={onPointerMove}
+            onPointerUp={endDrag} onPointerCancel={endDrag} onPointerLeave={endDrag}
+            className="horizontal-slider no-scrollbar flex md:justify-center items-center gap-6 overflow-x-scroll px-4">
+            {links.map((link) => (
+              <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" aria-label={link.aria} 
+                role="listitem" draggable={false}
+                className={`${link.bgClass} ${link.w} ${link.h}
+                shrink-0 snap-center inline-flex items-center justify-center bg-center bg-contain bg-no-repeat`}/>
+            ))}
+          </div>
         </div>
-
       </div>
     </div>
   );

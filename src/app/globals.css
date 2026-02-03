@@ -81,6 +81,14 @@ html {
   }
 }
 
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+.horizontal-slider {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
 .new-hero {
   background: url("/nights-6/general/nv-hero.jpg") center center no-repeat;
   background-size: 100% 100%;
@@ -130,6 +138,9 @@ html {
 }
 .infiniarc-buy-bg{
   background: url("/nights-6/buy/infiniarc.png") center center / contain no-repeat;
+}
+.hyperpc-buy-bg{
+  background: url("/nights-6/buy/hyperpc.png") center center / contain no-repeat;
 }
 
 .cat-cgi-bg {
