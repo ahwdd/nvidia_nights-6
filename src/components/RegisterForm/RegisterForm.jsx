@@ -73,7 +73,7 @@ function RegisterForm({ onBookingCreated }) {
   const [isDeadlinePassed, setIsDeadlinePassed] = useState(false);
   const [isMobile, setIsMobile] = useState(false)
 
-  const submissionDeadline = new Date("2026-01-31T23:59:59"); // Jan 31, 2026
+  const submissionDeadline = new Date("2026-02-05T23:59:59"); // Feb 5, 2026
 
   useEffect(() => {
     currentDate = new Date();
@@ -261,7 +261,7 @@ function RegisterForm({ onBookingCreated }) {
           {t("title") || "Submit Your Artwork"}
         </h1>
         <p className="heading-smallest font-bold text-gray-700">
-          {renderDateWithSuperscript(t("subTitle") || "Deadline 31st of Jan, 2026")}
+          {renderDateWithSuperscript(t("subTitle") || "Deadline 5rd of Feb, 2026")}
         </p>
       </div>
 
@@ -355,14 +355,14 @@ function RegisterForm({ onBookingCreated }) {
                 {locale === "ar"? "تصميم الأزياء الرقمي ": "Digital Fashion Design "}
                 {currentDate > submissionDeadline 
                   ?(locale == "ar"? "(مغلق)": "(Closed)")
-                  :''// :(locale == "ar"? "حتى 31 يناير": (isMobile? "Till 31/1":"Till 31st of January"))
+                  :''// :(locale == "ar"? "حتى 5 فبراير": (isMobile? "Till 5/2":"Till 5st of Feburary"))
                 }
               </option>
               <option value="3D/CGI" className="text-gray-400 disabled:text-gray-300">
                 3D/CGI 
                 {currentDate > submissionDeadline 
                   ?(locale == "ar"? "(مغلق)": "(Closed)")
-                  :''// :'':(locale == "ar"? "حتى 31 يناير": (isMobile? "Till 31/1":"Till 31st of January"))
+                  :''// :'':(locale == "ar"? "حتى 5 فبراير": (isMobile? "Till 5/2":"Till 5st of Feburary"))
                 }
               </option>
               <option value="Photography" className="text-gray-400 disabled:text-gray-300">

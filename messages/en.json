@@ -51,7 +51,7 @@
     "desc1": "Artists are invited to create and submit original work that reflects the event's theme: <b>Museum of the Future</b>, Dubai.",
     "desc2": "All entries must be inspired by either the city of Dubai or the Museum of the Future. The top artists in each category will be showcased during the event.",
     "desc3": "Winning artists will be invited on stage to present their work and will receive recognition through NVIDIA channels and local publications. Winners will also receive a valuable prize and a trophy from <b>NVIDIA</b>.",
-    "desc4": "<b>Submission deadline: 25 January</b>. Selected winners will be contacted directly via email, so please keep an eye out after registering.",
+    "desc4": "<b>Submission deadline: 5 Februaryb>. Selected winners will be contacted directly via email, so please keep an eye out after registering.",
     "desc5": "If you are an artist in any of the fields mentioned above, we encourage you to apply and share your incredible work with us. You may refer to examples from previous Studio Night editions below.",
     "submit": "Submit Your Artwork"
   },
@@ -95,7 +95,7 @@
 
   "Register": {
     "title": "Submit Your Artwork",
-    "subTitle": "Deadline 25th of January",
+    "subTitle": "Deadline 5th of February",
     "titleEvent": "Register",
     "descEvent": "Please enter your info to register",
     "name": "Name",
