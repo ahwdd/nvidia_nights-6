@@ -369,21 +369,21 @@ function RegisterForm({ onBookingCreated }) {
                 {locale === "ar" ? "التصوير الفوتوغرافي " : "Photography "}
                 {currentDate > submissionDeadline 
                   ?(locale == "ar"? "(مغلق)": "(Closed)")
-                  :''// :'':(locale == "ar"? "حتى 31 يناير": (isMobile? "Till 31/1":"Till 31st of January"))
+                  :''// :'':(locale == "ar"? "حتى 5 فبراير": (isMobile? "Till 5/2":"Till 5st of Feburary"))
                 }
               </option>
               <option value="Interior Design" className="text-gray-400 disabled:text-gray-300">
                 {locale === "ar" ? "التصميم الداخلي " : "Interior Design "}
                 {currentDate > submissionDeadline 
                   ?(locale == "ar"? "(مغلق)": "(Closed)")
-                  :''// :'':(locale == "ar"? "حتى 31 يناير": (isMobile? "Till 31/1":"Till 31st of January"))
+                  :''// :'':(locale == "ar"? "حتى 5 فبراير": (isMobile? "Till 5/2":"Till 5st of Feburary"))
                 }
               </option>
               <option value="Videography" className="text-gray-400 disabled:text-gray-300">
                 {locale === "ar" ? "التصوير السينمائي (الأفلام القصيرة) " : "Videography - Short Films "}
                 {currentDate > submissionDeadline 
                   ?(locale == "ar"? "(مغلق)": "(Closed)")
-                  :''// :'':(locale == "ar"? "حتى 31 يناير": (isMobile? "Till 31/1":"Till 31st of January"))
+                  :''// :'':(locale == "ar"? "حتى 5 فبراير": (isMobile? "Till 5/2":"Till 5st of Feburary"))
                 }
               </option>
             </select>
